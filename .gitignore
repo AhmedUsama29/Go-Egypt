@@ -1,3 +1,10 @@
+# Visual Studio temp files
+.vs/
+
+# Build results
+bin/
+obj/
+>>>>>>> 78c61c679dcfcf49c2a76c6cf619bdb3065ab815
 # Operating System Files
 .DS_Store
 .DS_Store?
@@ -63,9 +70,24 @@ yarn.lock
 # Coverage directory used by tools like istanbul
 coverage/
 
+# Visual Studio temp files
+.vs/
+
+# Build results
+bin/
+obj/
+
 # Optional: Images that might be too large
 # *.jpg
 # *.jpeg
 # *.png
 # *.gif
 # *.webp
+=======
+# Visual Studio temp files
+.vs/
+
+# Build results
+bin/
+obj/
+>>>>>>> 78c61c679dcfcf49c2a76c6cf619bdb3065ab815
