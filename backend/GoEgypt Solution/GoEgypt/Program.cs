@@ -1,3 +1,4 @@
+using GoEgypt.Middelwares;
 using Persistence;
 using Services;
 namespace GoEgypt
@@ -13,6 +14,8 @@ namespace GoEgypt
             builder.Services.AddAplicationServices(builder.Configuration);
 
             var app = builder.Build();
+
+            app.UseMiddleware<CustomExceptionHandlerMiddleware>();
 
             if (app.Environment.IsDevelopment())
             {
