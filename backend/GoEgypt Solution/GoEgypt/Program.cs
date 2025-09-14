@@ -1,4 +1,5 @@
 using Persistence;
+using Services;
 namespace GoEgypt
 {
     public class Program
@@ -9,6 +10,7 @@ namespace GoEgypt
 
             builder.Services.AddInfrastructureRegistration(builder.Configuration);
             builder.Services.AddWebApplicationServices(builder.Configuration);
+            builder.Services.AddAplicationServices(builder.Configuration);
 
             var app = builder.Build();
 
