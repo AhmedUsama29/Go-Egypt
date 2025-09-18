@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- Bootstrap Icons -->
+    <link
+      rel="stylesheet"
+      href="./node_modules/bootstrap-icons/font/bootstrap-icons.css"
+    />
+    <!-- FontAwesome cdn -->
+    <link
+      rel="stylesheet"
+      href="./node_modules/@fortawesome/fontawesome-free/css/all.min.css"
+    />
+
+    <!-- Bootstrap.css -->
+    <link
+      rel="stylesheet"
+      href="./node_modules/bootstrap/dist/css/bootstrap.min.css"
+    />
+    <!-- Custom Css File -->
+    <link
+    rel="stylesheet"
+    href="details.css"/>
+
+    <style>
+    
+    </style>
+  </head>
+  <body class=" bg-light">
+    <main class="">
+      <!-- Stepper -->
+      <div class="container py-3 my-3 text-center" id="container">
+        <div class="d-flex justify-content-center align-items-center mb-3">
+          <button class="btn btn-success rounded-circle" >
+            <i class="bi bi-check-lg"></i>
+          </button>
+          <div class="step-line mx-2 w-25 d-none d-sm-block"></div>
+          <button
+            class="btn btn-warning rounded-circle text-white fw-bold"
+            disabled
+          >
+            2
+          </button>
+          <div class="border-top mx-2 w-25 d-none d-sm-block" ></div>
+          <button
+            class="btn btn-outline-secondary rounded-circle fw-bold"
+          >
+            3
+          </button>
+        </div>
+        <div>
+          <h6
+            class="mb-3 text-secondary fw-bold"
+            style="--bs-text-opacity: 0.7"
+          >
+            Enter Details
+          </h6>
+        </div>
+        <p class="fs-3 fw-bold mt-5">Complete Your Booking</p>
+      </div>
+    </div>
+<!-- Choosen card -->
+  
+        <div class="d-flex  flex-column align-items-center justify-content-center ">
+<div class="d-flex align-items-center justify-content-center ">
+  <div class="card mb-3 shadow h-100" style="max-width: 900px">
+    <div class="row g-0">
+      <div class="col-md-4">
+        <img id="packageImage" src="" class="img-fluid rounded-start h-100 object-fit-cover" alt="Package Image" />
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <div class="d-flex justify-content-evenly align-items-start flex-column mb-3">
+            <h5 id="packageName" class="card-title mb-2 fw-bold"></h5>
+            <div class="d-flex align-items-center text-secondary mb-3">
+              <i class="bi bi-calendar-check me-2"></i>
+              <span id="packageDays" class="fw-bold"></span>
+            </div>
+            <p id="packageDesc" class="card-text text-secondary py-2 fs-6"></p>
+            <p id="packagePrice" class="card-text text-warning fw-bold" style="font-size: x-large;"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+
+      <!---FORM -->
+      
+      <div class="my-3 " style="max-width: 900px;" >
+  <div class="card shadow p-4">
+    <form class="row g-3">
+      <p class="fs-5 fw-bold">Traveler Information</p>
+      <div class="col-md-6">
+        
+        <label for="inputFname" class="form-label">Frist Name</label>
+        <input type="text" class="form-control" id="inputFname">
+      </div>
+       <div class="col-md-6">
+        
+        <label for="inputLname" class="form-label">Last Name</label>
+        <input type="text" class="form-control" id="inputLname">
+      </div>
+         <div class="col-md-6">
+        
+        <label for="inputEmail" class="form-label">Email Address</label>
+        <input type="email" class="form-control" id="inputEmail">
+      </div>
+       <div class="col-md-6">
+        
+        <label for="inputPhone" class="form-label">Phone Number</label>
+        <input type="text" class="form-control" id="inputPhone">
+      </div>
+      <p class="fs-5 fw-bold">Trip Details</p>
+      <div class="row g-3">
+      <div class="col-12 col-md-4">
+       
+        <label for="inputdate" class="form-label">Start Date</label>
+        <input type="date" class="form-control" id="inputdate" placeholder="MM/DD/YYYY">
+      </div>
+      <div class="col-12 col-md-4">
+        <label for="tripOption" class="form-label">Number of Travelers</label>
+        <select id="tripOption" class="form-select">
+           <option selected>Select</option>
+           <option value="1">1</option>
+           <option value="2">2</option>
+           <option value="3">3</option>
+           <option value="4">4</option>
+           <option value="5">+5</option>
+         </select>
+       </div>
+
+      <div class="col-12  col-md-4">
+        <label for="inputoption" class="form-label">Special Requests</label>
+        <input type="text" class="form-control" id="inputoption" placeholder="Optional">
+        </div>
+     <p class="fs-5 fw-bold">Payment Information</p>
+
+<div class="col-12">
+  <label for="cardnumber" class="form-label">Card Number</label>
+  <div class="input-group">
+    <span class="input-group-text"><i class="bi bi-credit-card"></i></span>
+    <input type="text" class="form-control" id="cardnumber"
+           placeholder="1234 5678 9012 3456"
+           inputmode="numeric" maxlength="16"
+           pattern="^[0-9]{16}$" required>
+    <div class="invalid-feedback">Card number must be 16 digits.</div>
+  </div>
+</div>
+
+<div class="row g-3">
+
+  <div class="col-12 col-md-6">
+    <label for="expDate" class="form-label">Expiry Date</label>
+    <input type="text" class="form-control" id="expDate"
+           placeholder="MM/YY" maxlength="5"
+           pattern="^(0[1-9]|1[0-2])\/\d{2}$" required>
+    <div class="invalid-feedback">Enter a valid expiry date (MM/YY).</div>
+  </div>
+
+ 
+  <div class="col-12 col-md-6">
+    <label for="cvv" class="form-label">CVV</label>
+    <input type="text" class="form-control" id="cvv"
+           maxlength="3" pattern="^[0-9]{3}$" required
+           placeholder="123">
+    <div class="invalid-feedback">CVV must be 3 digits.</div>
+  </div>
+
+
+
+      </div>
+      <div class="d-flex justify-content-between">
+     <div class="col-12 col-md-3">
+  <button type="button" id="backBtn" class="btn btn-secondary btn-lg w-100">
+    Back to Packages
+  </button>
+</div>
+
+          <div class="col-12 col-md-3 ">
+        <button type="submit" class="btn btn-warning btn-lg w-100 text-light ">Complete Booking</button>
+      </div>
+      </div>
+    </div>
+  </form>
+</div>
+
+</div>
+    </main>
+     <script src="./node_modules/@popperjs/core/dist/umd/popper.min.js"></script>
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+   
+    <script src="details.js"></script>
+  </body>
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="./node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <!-- FontAwesome cdn -->
+    <link rel="stylesheet" href="./node_modules/@fortawesome/fontawesome-free/css/all.min.css">
+   
+    <!-- Bootstrap.css -->
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <!-- Custom Css File -->
+     <link rel="stylesheet" href="stylebooknow.css">
+
+<link rel="stylesheet" href="stylebooknow.css">
+
+  </head>
+  <body>
+    <main class="bg-light">
+      <!-- Stepper -->
+      <div class="container py-5 text-center" id="container">
+        <div class="d-flex justify-content-center align-items-center mb-3">
+          <button class="btn btn-warning rounded-circle text-white fw-bold" >
+            1
+          </button>
+          <div class="border-top mx-2 w-25 d-none d-sm-block"></div>
+          <button class="btn btn-outline-secondary rounded-circle fw-bold" >
+            2
+          </button>
+          <div class="border-top mx-2 w-25 d-none d-sm-block"></div>
+          <button class="btn btn-outline-secondary rounded-circle fw-bold">
+            3
+          </button>
+        </div>
+        <div>
+          <h6
+            class="mb-4 text-secondary fw-bold"
+            style="--bs-text-opacity: 0.7"
+          >
+            Select a Package
+          </h6>
+        </div>
+    
+        <h1 class="mx-6 py-5">Choose Your Egyptian Adventure</h1>
+      
+          <div class="container my-2">
+         <div class="row g-4  ">
+       
+      <!-- Card 1 -->
+      <div class="col-12 col-sm-6 col-lg-4">
+        <div class="card h-100 shadow-sm selectable" data-package="cairo" data-price="$499">
+              <span class="check-badge"><i class="bi bi-check-circle-fill text-warning"></i></span>
+          <img src="Giza.jpg" class="card-img-top" alt="Cairo & Giza" />
+          <div class="card-body">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <h5 class="mb-0 fw-bold">Cairo & Giza Explorer</h5>
+              <span class="text-warning fw-bold fs-6">$499</span>
+            </div>
+            <div class="d-flex align-items-center text-secondary mb-3">
+              <i class="bi bi-calendar-check me-2"></i>
+              <span class="fw-bold">3 days</span>
+            </div>
+            <p class="card-text text-secondary py-2 fs-6">
+              Explore the wonders of Cairo and Giza, including the Great Pyramids,
+              Sphinx, and Egyptian Museum.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="col-12 col-sm-6 col-lg-4 ">
+<div class="card h-100 shadow-sm selectable" data-package="nile" data-price="$599">              <span class="check-badge">  
+  <i class="bi bi-check-circle-fill text-warning"></i></span>
+          <img src="Nile.jpg" class="card-img-top" alt="Nile Adventure" />
+          <div class="card-body">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <h5 class="mb-0 fw-bold">Nile Adventure</h5>
+              <span class="text-warning fw-bold fs-6">$599</span>
+            </div>
+            <div class="d-flex align-items-center text-secondary mb-3">
+              <i class="bi bi-calendar-check me-2"></i>
+              <span  class="fw-bold">3 days</span>
+            </div>
+            <p class="card-text text-secondary py-2 fs-6">
+             Cruise down the Nile River and discover the ancient temples of Luxor and Aswan.
+            </p>
+          </div>
+        </div>
+      </div>
+<!--card 3-->
+      <div class="col-12 col-sm-6 col-lg-4">
+        <div class="card h-100 shadow-sm selectable" data-package="redsea" data-price="$799">
+                          <span class="check-badge"><i class="bi bi-check-circle-fill text-warning"></i></span>
+
+          <img src="Redsea.jpg" class="card-img-top" alt="Red sea Retreat" />
+          <div class="card-body">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <h5 class="mb-0 fw-bold">Red Sea Retreat</h5>
+              <span class="text-warning fw-bold fs-6">$799</span>
+            </div>
+            <div class="d-flex align-items-center text-secondary mb-3">
+              <i class="bi bi-calendar-check me-2"></i>
+              <span  class="fw-bold">4 days</span>
+            </div>
+            <p class="card-text text-secondary py-2 fs-6">
+            Relax on the beautiful beaches of Hurghada and snorkel in the crystal-clear waters of the Red Sea.
+            </p>
+           
+          </div>
+        </div>
+      </div>
+
+    
+  </div>
+</div>
+  </div>
+
+
+
+
+
+
+
+    <div class="text-center mt-4">
+      <button id="continueBtn" class="btn btn-secondary btn-lg text-light" disabled>
+        Continue To Details
+      </button>
+    </div>
+  </main>
+    </main>
+    <script src="./node_modules/@popperjs/core/dist/umd/popper.min.js"></script>
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="main.js"></script>
+  </body>
+</html>
