@@ -1,6 +1,17 @@
-# 🏺 Go Egypt – About Us Page
+# 🏺 Go Egypt
 
-A beautiful, responsive **About Us** page for the Go Egypt tourism website, showcasing the company's story, team, and services with modern web design and smooth animations.
+A tourism web application about Egypt, where users can create accounts and access a variety of features:
+
+Explore famous tourist destinations in Egypt with detailed descriptions.
+
+View photos, ratings, and reviews for each place.
+
+Book visits or tickets directly through the platform.
+
+Manage their own profile and reservations.
+
+
+The project aims to provide an interactive, user-friendly platform to promote Egyptian tourism and make trip planning easier for visitors.
 
 ![Go Egypt](https://img.shields.io/badge/Project-Go_Egypt-orange)
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=white)
@@ -30,7 +41,7 @@ A beautiful, responsive **About Us** page for the Go Egypt tourism website, show
 - **JavaScript (ES6+)** – DOM manipulation  
 - **Bootstrap 5.3.0** – Responsive components  
 - **Bootstrap Icons** – UI icons  
-- **Segoe UI** – Font family  
+- **Angular** - Framework
 -   **ASP.NET Core** - Backend
 
 ---
