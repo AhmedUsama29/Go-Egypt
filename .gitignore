@@ -4,3 +4,4 @@
 # Build results
 bin/
 obj/
+node_modules/
