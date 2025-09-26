@@ -1,0 +1,56 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.image{
+    background-image: url(../images/img3.wallspic.com-great_pyramid_of_giza-monument-historic_site-wonders_of_the_world-egyptian_pyramids-2880x1800.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 95vh;
+}
+input.custom{
+    box-shadow: none;
+}
+
+input.custom:focus{
+    box-shadow: none;
+}
+@media (max-width: 768px) {
+    .cont{
+        width: 90%;
+        margin: auto;
+    }
+    .explore{
+        width: 100%;
+
+    }
+}
+.section1 .card img{
+    transition: transform 0.3s ease;
+}
+.section1 .card:hover img{
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+}
+.section1 {
+    position: relative;
+    z-index: 2;
+    background: white;
+    box-shadow: 0 -30px 30px 30px rgba(255, 255, 255, 0.9);
+}
+.section1 button{
+    border: none;
+    width: 20em;
+    background-color: blanchedalmond;
+}
+.section1 .card:hover{
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, 0.3) !important;
+}
+.section2 img{
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
