@@ -50,10 +50,10 @@ The project aims to provide an interactive, user-friendly platform to promote Eg
   About Us Page + external APIs + Reviews  
 
 - **Tarek Magdy**:  
-  Auth Pages (Login + Forget Password + Sign Up) + form validation + Explore More Egyptian Symbols  
+  Auth Pages (Login + Forget Password + Sign Up) + form validation + Contact Us Page
 
 - **Salma Mohamed**:  
-  Contact Us Page + Attreaction Page  
+  Symbol Page & Explore More Egyptian Symbols + Attreaction Page  
 
 - **Yasmin Mohamed**:  
   Booking (Book Now + Complete Booking) + part of home  
