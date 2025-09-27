@@ -1,66 +1,92 @@
-# 🏺 Go Egypt
+# Go Egypt
+
+## Project Idea
 
 A tourism web application about Egypt, where users can create accounts and access a variety of features:
 
-Explore famous tourist destinations in Egypt with detailed descriptions.
-
-View photos, ratings, and reviews for each place.
-
-Book visits or tickets directly through the platform.
-
-Manage their own profile and reservations.
-
+- Explore famous tourist destinations in Egypt with detailed descriptions.
+- View photos, ratings, and reviews for each place.
+- Book visits or tickets directly through the platform.
+- Manage their own profile and reservations.
 
 The project aims to provide an interactive, user-friendly platform to promote Egyptian tourism and make trip planning easier for visitors.
 
-![Go Egypt](https://img.shields.io/badge/Project-Go_Egypt-orange)
-![HTML5](https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=white)
-![CSS3](https://img.shields.io/badge/CSS3-1572B6?logo=css3&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=black)
-![Bootstrap](https://img.shields.io/badge/Bootstrap-7952B3?logo=bootstrap&logoColor=white)
-
 ---
 
-## 🌟 Features
+## Team Members
 
-- **Responsive Layout**: Works on all devices (mobile-first, tablet, desktop)  
-- **Egyptian Theme**: Color scheme with orange/gold accents  
-- **Clean Typography & Layout**: Modern fonts, well-structured sections  
-- **Interactive Elements**: Smooth animations, hover effects, ripple buttons  
-- **Search Bar** with suggestions  
-- **Team Member Cards** with hover effects and modals  
-- **Fast Loading**: Optimized images, lazy loading  
-- **SEO & Accessibility**: Proper HTML structure and keyboard navigation  
-
----
-
-## 🛠️ Technologies Used
-
-- **HTML5** – Semantic markup  
-- **CSS3** – Styling, animations, flexbox/grid  
-- **JavaScript (ES6+)** – DOM manipulation  
-- **Bootstrap 5.3.0** – Responsive components  
-- **Bootstrap Icons** – UI icons  
-- **Angular** - Framework
--   **ASP.NET Core** - Backend
-
----
-
-## 👥 Team Members
-
-- Ahmed Osama (Leader)
-- Ahmed Yasser 
-- Fares Mohamed 
-- Tarek Magdy 
+- **Ahmed Osama (Leader)**
+- Ahmed Yasser
+- Fares Mohamed
 - Salma Mohamed
+- Tarek Magdy
 - Yasmin Mohamed
 
 ---
 
-## 📞 Links
+## Work Plan
 
-- **Drive**: [Google Drive Folder](https://drive.google.com/drive/folders/1AUsJ_6R7r_m-XRc4BME6ZO4PDj7ZY4i3)  
+1. **Research & Analysis**
+   - Audience personas  
+2. **Visual Identity**
+   - Logo design  
+3. **Main Designs**
+   - Poster  
+4. **Complementary Products**  
+5. **Review & Finalization**  
+6. **Final Presentation**  
 
 ---
+
+## Roles & Responsibilities
+
+- **Ahmed Osama**:  
+  Auth [backend] + Places Page [frontend] + management  
+
+- **Ahmed Yasser**:  
+  Home Page  
+
+- **Fares Mohamed**:  
+  About Us Page + external APIs + Reviews  
+
+- **Tarek Magdy**:  
+  Auth Pages (Login + Forget Password + Sign Up) + form validation + Explore More Egyptian Symbols  
+
+- **Salma Mohamed**:  
+  Contact Us Page + Attreaction Page  
+
+- **Yasmin Mohamed**:  
+  Booking (Book Now + Complete Booking) + part of home  
+
+---
+
+## KPIs (Key Performance Indicators)
+
+Metrics for project success include:
+
+- **System Uptime**: Maintain ≥ 99% uptime to ensure platform availability.  
+- **Response Time**: Average page load time ≤ 2 seconds for optimal user experience.  
+- **User Adoption Rate**: Number of new registered users per month.  
+- **Booking Conversion Rate**: Percentage of users completing bookings after visiting destination pages.  
+- **User Engagement**: Average time spent on site and number of reviews submitted.  
+- **Error Rate**: Keep platform errors and failed bookings ≤ 1%.  
+
+---
+
+## Instructor
+
+Hesham Mohamed  
+
+---
+
+## Project Files
+
+You can find the full project files here:
+
+- **Drive**: [Google Drive Folder](https://drive.google.com/drive/folders/1AUsJ_6R7r_m-XRc4BME6ZO4PDj7ZY4i3)
+
+---
+
+## License
 
 **Made with ❤️ to explore the wonders of Egypt 🇪🇬**
