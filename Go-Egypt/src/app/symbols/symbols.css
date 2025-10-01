@@ -1,0 +1,38 @@
+body{
+    font-family: 'inter','inter',sans-serif;
+}
+
+/*header paragraph lines*/
+.keep-lines {
+    white-space: normal;
+}
+@media (min-width: 768px) { 
+    .keep-lines {
+    white-space: pre-line;
+    }   
+}
+
+/*hover*/
+.my-card {
+    transition: all 0.2s ease;
+    }
+
+.my-card:hover {    
+    transform: scale(1.01); 
+    box-shadow:  0 2px 4px rgb(253 230 138);
+    }
+
+    /* photo resize*/
+.image-wrapper {
+    height: 310px;  
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.image-wrapper img {
+    max-height: 100%;
+    max-width: 100%;
+    object-fit:contain;
+}
+

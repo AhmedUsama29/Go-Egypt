@@ -1,0 +1,104 @@
+<main>
+  <div class="container-fluid image mt-5" style="position: relative;">
+    <div class="w-100 d-flex flex-column justify-content-start align-items-start"
+      style="position: absolute; top:0; left:0; background: rgba(0, 0, 0, 0.5); height: 100%;">
+      <div class="content ms-3 mt-5">
+        <h1 class="display-3 fw-bold text-white">
+          Discover the Magic of <br>
+          <span style="color: goldenrod;">Egypt</span>
+        </h1>
+        <p class="text-white">
+          Explore ancient wonders, breathtaking landscapes, and unforgettable <br>
+          experiences
+        </p>
+      </div>
+
+      <div class="d-flex flex-column justify-content-end cont" style="height: 30vh;">
+        <div class="mainContainer row g-3 bg-light pb-3 pt-2 ps-md-3 rounded-2 mt-5 mx-sm-auto text-center ms-md-3"
+          style="max-width: 900px;">
+          <div class="col-10 col-sm-8 col-md-4 mx-auto">
+            <div class="input-group">
+              <span class="input-group-text bg-light border-0 border-bottom border-2">
+                <i class="bi bi-geo-alt text-warning"></i>
+              </span>
+              <input type="text" class="form-control custom border-0 border-bottom border-2 bg-light"
+                placeholder="where?" aria-label="Location">
+            </div>
+          </div>
+
+          <div class="col-10 col-sm-8 col-md-4 mx-auto">
+            <div class="input-group">
+              <span class="input-group-text bg-light border-0 border-bottom border-2">
+                <i class="bi bi-calendar4 text-warning"></i>
+              </span>
+              <input type="text" class="form-control custom border-0 border-bottom border-2 bg-light"
+                placeholder="when?" aria-label="Date">
+            </div>
+          </div>
+
+          <div class="col-10 col-sm-8 col-md-4 mx-auto">
+            <button type="button" class="btn btn-warning explore">Explore</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- Featured Section -->
+<section class="section1">
+  <div class="container pt-3" style="min-height: 95vh;">
+    <div class="container d-flex justify-content-between align-items-center">
+      <div class="container-title mt-5">
+        <h5 class="card-title mb-2 fw-bold">Featured Destinations</h5>
+        <p class="card-text">Explore Egypt's most iconic landmarks and treasures</p>
+      </div>
+      <a href="#" style="text-decoration: none; margin-top: 5rem;" class="fw-bold text-warning">View all</a>
+    </div>
+
+    <div class="row row-cols-1 row-cols-md-3 g-4 mt-3">
+      <div class="col-sm-12 col-md-6 col-lg-3" *ngFor="let img of ['img1.jpg','img2.jpg','img3.jpg','img1.jpg']">
+        <div class="card h-100 shadow border-0">
+          <div class="card-image overflow-hidden rounded-top">
+            <img [src]="'assets/' + img" class="card-img-top" alt="Destination">
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">This is a longer card with supporting text below as a natural lead-in
+              to additional content.</p>
+          </div>
+          <button type="button" class="btn btn-warning mb-3 mx-auto px-5 w-75">View Details</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Section 2 -->
+<section class="section2 bg-warning py-5" style="min-height: 30rem;">
+  <div class="container w-100 bg-warning h-100">
+    <div class="row align-items-center h-100">
+      <div class="col-md-6 col-sm-12">
+        <div class="cardBody my-3">
+          <h2 class="mb-3">Discover the Land of Pharaohs</h2>
+          <p class="mb-3">
+            Immerse yourself in 7,000 years of history, culture, and architectural wonders.
+            From the majestic pyramids to the tranquil waters of the Nile, Egypt offers a journey through time
+            like no other destination.
+          </p>
+          <button type="button" class="btn btn-primary btn-lg me-2">Large button</button>
+          <button type="button" class="btn btn-outline-light btn-lg">Large button</button>
+        </div>
+      </div>
+      <div class="col-md-6 col-sm-12 px-3">
+        <div class="card-image">
+          <div class="row g-3">
+            <div class="col-6" *ngFor="let img of ['img1.jpg','img2.jpg','img3.jpg','img1.jpg']">
+              <img [src]="'assets/' + img" class="img-fluid shadow-lg" alt="Gallery">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

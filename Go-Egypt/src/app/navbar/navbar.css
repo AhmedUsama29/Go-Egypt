@@ -1,0 +1,84 @@
+/* Header Styles */
+.navbar-brand {
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+.navbar-nav .nav-link {
+  color: #333 !important;
+  font-weight: 500;
+  transition: color 0.3s ease;
+  position: relative;
+  z-index: 2;          /* يخلي اللينك فوق أي حاجة */
+  cursor: pointer;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+  color: #ff8c00 !important;
+}
+
+/* search */
+.search-container {
+  position: relative;
+  z-index: 1;          /* يخليها تحت اللينكات */
+  flex-shrink: 0;      /* يمنعها تاخد مساحة زيادة */
+}
+
+.search-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.search-icon {
+  position: absolute;
+  left: 15px;
+  color: #999;
+  z-index: 2;
+  font-size: 1rem;
+}
+
+.search-input {
+  border-radius: 25px;
+  border: 1px solid #e0e0e0;
+  padding: 10px 15px 10px 40px;
+  width: 220px;        /* قللت العرض شوية */
+  background-color: #f8f9fa;
+  transition: all 0.3s ease;
+}
+
+.search-input:focus {
+  box-shadow: 0 0 0 0.2rem rgba(255, 140, 0, 0.25);
+  border-color: #ff8c00;
+  background-color: white;
+}
+
+/* buttons */
+.btn-warning {
+  background-color: #ff8c00;
+  border-color: #ff8c00;
+  border-radius: 25px;
+  padding: 8px 20px;
+  font-weight: 600;
+  color: white;
+}
+
+.btn-warning:hover {
+  background-color: #e67e00;
+  border-color: #e67e00;
+}
+
+.btn-outline-warning {
+  color: #ff8c00;
+  border-color: #ff8c00;
+  border-radius: 25px;
+  padding: 8px 20px;
+  font-weight: 600;
+}
+
+.btn-outline-warning:hover {
+  background-color: #ff8c00;
+  border-color: #ff8c00;
+  color: white;
+}
