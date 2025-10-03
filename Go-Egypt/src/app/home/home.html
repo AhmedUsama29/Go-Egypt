@@ -1,104 +1,669 @@
-<main>
-  <div class="container-fluid image mt-5" style="position: relative;">
-    <div class="w-100 d-flex flex-column justify-content-start align-items-start"
-      style="position: absolute; top:0; left:0; background: rgba(0, 0, 0, 0.5); height: 100%;">
-      <div class="content ms-3 mt-5">
-        <h1 class="display-3 fw-bold text-white">
-          Discover the Magic of <br>
-          <span style="color: goldenrod;">Egypt</span>
-        </h1>
-        <p class="text-white">
-          Explore ancient wonders, breathtaking landscapes, and unforgettable <br>
-          experiences
-        </p>
-      </div>
+    <main>
+        <div class="container-fluid image" style="position: relative;">
+            <div class="w-100 d-flex flex-column justify-content-start align-items-start"
+                style="position: absolute; top:0; left:0; background: rgba(0, 0, 0, 0.5); height: 100%;">
+                <div class="content ms-3 mt-5">
+                    <h1 class="display-3 fw-bold text-white">Discover the Magic of <br> <span
+                            style="color: goldenrod;">Egypt</span></h1>
+                    <p class="text-white">Explore ancient wonders, breathtaking landscapes, and unforgettable <br>
+                        experiences</p>
+                </div>
+                <div class="d-flex flex-column justify-content-end cont" style="height: 30vh;">
+                    <div class="mainContainer row g-3 bg-light pb-3 pt-2 ps-md-3 rounded-2 mt-5 mx-sm-auto text-center ms-md-3"
+                        style="max-width: 900px;">
+                        <div class="col-10 col-sm-8 col-md-4 mx-auto">
+                            <div class="input-group">
+                                <span class="input-group-text bg-light border-0 border-bottom border-2">
+                                    <i class="bi bi-geo-alt text-warning"></i>
+                                </span>
+                                <input type="text" class="form-control custom border-0 border-bottom border-2 bg-light"
+                                    placeholder="where?" aria-label="Location">
+                            </div>
+                        </div>
 
-      <div class="d-flex flex-column justify-content-end cont" style="height: 30vh;">
-        <div class="mainContainer row g-3 bg-light pb-3 pt-2 ps-md-3 rounded-2 mt-5 mx-sm-auto text-center ms-md-3"
-          style="max-width: 900px;">
-          <div class="col-10 col-sm-8 col-md-4 mx-auto">
-            <div class="input-group">
-              <span class="input-group-text bg-light border-0 border-bottom border-2">
-                <i class="bi bi-geo-alt text-warning"></i>
-              </span>
-              <input type="text" class="form-control custom border-0 border-bottom border-2 bg-light"
-                placeholder="where?" aria-label="Location">
+                        <div class="col-10 col-sm-8 col-md-4 mx-auto">
+                            <div class="input-group">
+                                <span class="input-group-text bg-light border-0 border-bottom border-2">
+                                    <i class="bi bi-calendar4 text-warning"></i>
+                                </span>
+                                <input type="text" class="form-control custom border-0 border-bottom border-2 bg-light"
+                                    placeholder="when?" aria-label="Date">
+                            </div>
+                        </div>
+
+                        <div class="col-10 col-sm-8 col-md-4 mx-auto">
+                            <button type="button" class="btn btn-warning explore">Explore</button>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-
-          <div class="col-10 col-sm-8 col-md-4 mx-auto">
-            <div class="input-group">
-              <span class="input-group-text bg-light border-0 border-bottom border-2">
-                <i class="bi bi-calendar4 text-warning"></i>
-              </span>
-              <input type="text" class="form-control custom border-0 border-bottom border-2 bg-light"
-                placeholder="when?" aria-label="Date">
+        </div>
+    </main>
+    <section class="section1">
+        <div class="container pt-3" style="min-height: 95vh;">
+            <div class="container d-flex justify-content-between align-items-center">
+                <div class="container-title mt-5">
+                    <h5 class="card-title mb-2 fw-bold">Featured Destinations</h5>
+                    <p class="card-text">Explore Egypt's most iconic landmarks and treasures</p>
+                </div>
+                <a href="#" style="text-decoration: none; margin-top: 5rem;" class="fw-bold text-warning">View all</a>
             </div>
-          </div>
-
-          <div class="col-10 col-sm-8 col-md-4 mx-auto">
-            <button type="button" class="btn btn-warning explore">Explore</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</main>
-
-<!-- Featured Section -->
-<section class="section1">
-  <div class="container pt-3" style="min-height: 95vh;">
-    <div class="container d-flex justify-content-between align-items-center">
-      <div class="container-title mt-5">
-        <h5 class="card-title mb-2 fw-bold">Featured Destinations</h5>
-        <p class="card-text">Explore Egypt's most iconic landmarks and treasures</p>
-      </div>
-      <a href="#" style="text-decoration: none; margin-top: 5rem;" class="fw-bold text-warning">View all</a>
-    </div>
-
-    <div class="row row-cols-1 row-cols-md-3 g-4 mt-3">
-      <div class="col-sm-12 col-md-6 col-lg-3" *ngFor="let img of ['img1.jpg','img2.jpg','img3.jpg','img1.jpg']">
-        <div class="card h-100 shadow border-0">
-          <div class="card-image overflow-hidden rounded-top">
-            <img [src]="'assets/' + img" class="card-img-top" alt="Destination">
-          </div>
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This is a longer card with supporting text below as a natural lead-in
-              to additional content.</p>
-          </div>
-          <button type="button" class="btn btn-warning mb-3 mx-auto px-5 w-75">View Details</button>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Section 2 -->
-<section class="section2 bg-warning py-5" style="min-height: 30rem;">
-  <div class="container w-100 bg-warning h-100">
-    <div class="row align-items-center h-100">
-      <div class="col-md-6 col-sm-12">
-        <div class="cardBody my-3">
-          <h2 class="mb-3">Discover the Land of Pharaohs</h2>
-          <p class="mb-3">
-            Immerse yourself in 7,000 years of history, culture, and architectural wonders.
-            From the majestic pyramids to the tranquil waters of the Nile, Egypt offers a journey through time
-            like no other destination.
-          </p>
-          <button type="button" class="btn btn-primary btn-lg me-2">Large button</button>
-          <button type="button" class="btn btn-outline-light btn-lg">Large button</button>
-        </div>
-      </div>
-      <div class="col-md-6 col-sm-12 px-3">
-        <div class="card-image">
-          <div class="row g-3">
-            <div class="col-6" *ngFor="let img of ['img1.jpg','img2.jpg','img3.jpg','img1.jpg']">
-              <img [src]="'assets/' + img" class="img-fluid shadow-lg" alt="Gallery">
+            <div class="row row-cols-1 row-cols-md-3 g-4 mt-3">
+                <div class="col-sm-12 col-md-6 col-lg-3">
+                    <div class="card h-100 shadow border-0">
+                        <div class="card-image overflow-hidden rounded-top">
+                            <img src="assets/img1.wallspic.com-archaeological_site-landscape-pyramid-great_pyramid_of_giza-pharaoh-3182x2116.jpg"
+                                class="card-img-top" alt="...">
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">This is a longer card with supporting text below as a natural lead-in
+                                to additional content. This content is a little bit longer.</p>
+                        </div>
+                        <button type="button" class="btn btn-warning mb-3 mx-auto px-5 w-75">View Details</button>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-3">
+                    <div class="card h-100 shadow border-0">
+                        <div class="card-image overflow-hidden rounded-top">
+                            <img src="assets/img2.wallspic.com-historic_site-ancient_history-ancient_egypt-archaeological_site-nile-3221x2142.jpg"
+                                class="card-img-top" alt="...">
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">This is a longer card with supporting text below as a natural lead-in
+                                to additional content. This content is a little bit longer.</p>
+                        </div>
+                        <button type="button" class="btn btn-warning mb-3 mx-auto px-5 w-75">View Details</button>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-3">
+                    <div class="card h-100 shadow border-0">
+                        <div class="card-image overflow-hidden rounded-top">
+                            <img src="assets/img3.wallspic.com-great_pyramid_of_giza-monument-historic_site-wonders_of_the_world-egyptian_pyramids-2880x1800.jpg"
+                                class="card-img-top" alt="...">
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">This is a longer card with supporting text below as a natural lead-in
+                                to additional content.</p>
+                        </div>
+                        <button type="button" class="btn btn-warning mb-3 mx-auto px-5 w-75">View Details</button>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-3">
+                    <div class="card h-100 shadow border-0">
+                        <div class="card-image overflow-hidden rounded-top">
+                            <img src="assets/img1.wallspic.com-archaeological_site-landscape-pyramid-great_pyramid_of_giza-pharaoh-3182x2116.jpg"
+                                class="card-img-top" alt="...">
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">This is a longer card with supporting text below as a natural lead-in
+                                to additional content. This content is a little bit longer.</p>
+                        </div>
+                        <button type="button" class="btn btn-warning mb-3 mx-auto w-75">View Details</button>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
+    </section>
+    <section class="section2 bg-warning py-5" style="min-height: 30rem;">
+        <div class="container w-100 bg-warning h-100">
+            <div class="row align-items-center h-100">
+                <div class="col-md-6 col-sm-12">
+                    <div class="cardBody my-3">
+                        <h2 class="mb-3">Discover the Land of Pharaohs</h2>
+                        <p class="mb-3">Immerse yourself in 7,000 years of history, culture, and architectural wonders.
+                            From the
+                            majestic pyramids to the tranquil waters of the Nile, Egypt offers a journey through time
+                            like no other destination.</p>
+                        <button type="button" class="btn btn-primary btn-lg me-2" routerLink="/attractions">Explore Attractions</button>
+                        <button type="button" class="btn btn-outline-light btn-lg">Plan Your Journey</button>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-12 px-3">
+                    <div class="card-image">
+                        <div class="row g-3">
+                            <div class="col-6">
+                                <img src="assets/img1.wallspic.com-archaeological_site-landscape-pyramid-great_pyramid_of_giza-pharaoh-3182x2116.jpg"
+                                    class="img-fluid shadow-lg" alt="...">
+                            </div>
+                            <div class="col-6">
+                                <img src="assets/img1.wallspic.com-archaeological_site-landscape-pyramid-great_pyramid_of_giza-pharaoh-3182x2116.jpg"
+                                    class="img-fluid shadow-lg" alt="...">
+                            </div>
+                            <div class="col-6">
+                                <img src="assets/img1.wallspic.com-archaeological_site-landscape-pyramid-great_pyramid_of_giza-pharaoh-3182x2116.jpg"
+                                    class="img-fluid shadow-lg" alt="...">
+                            </div>
+                            <div class="col-6">
+                                <img src="assets/img1.wallspic.com-archaeological_site-landscape-pyramid-great_pyramid_of_giza-pharaoh-3182x2116.jpg"
+                                    class="img-fluid shadow-lg" alt="...">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="container-fluid p-0 m-0">
+        <section class="sec1 mb-0 py-5">
+            <div class="container">
+                <div class="text-center px-3 mb-4">
+                    <p class="fw-bold fs-2 mb-3">
+                        Symbols of Ancient Egypt
+                    </p>
+                    <p class="text-secondary mb-0 w-75 text-center mx-auto">
+                        Discover the rich symbolic language of the ancient Egyptians. These
+                        hieroglyphics and symbols were more than just writing—they were sacred art that connected the
+                        physical world with the divine.
+                    </p>
+                </div>
+
+                <div class="row g-4 align-items-center px-3">
+                    <div class="col-lg-5 col-md-12">
+                        <div class="p-4 text-center">
+                            <img src="assets/Egysymbols.png" alt="circle of egypt symbols" class="img-fluid"
+                                style="max-width: 100%; height: auto;">
+                        </div>
+                    </div>
+
+                    <div class="col-lg-7 col-md-12 mt-5">
+                        <div class="d-flex flex-column gap-4">
+                            <div class="d-flex flex-column flex-sm-row gap-3 bg-light shadow px-4 py-4 rounded-3">
+                                <div class="flex-shrink-0 text-center text-sm-start">
+                                    <img src="assets/s11.png" alt="The Ankh: Symbol of Life" class="img-fluid"
+                                        style="max-width: 80px;">
+                                </div>
+                                <div class="flex-grow-1">
+                                    <p class="fs-6 fw-bold mb-2">The Ankh: Symbol of Life</p>
+                                    <p class="text-secondary mb-0">
+                                        The ankh represents life and immortality. Egyptian gods were
+                                        often portrayed carrying it by its loop, or bearing one in
+                                        each hand, arms crossed over their chest.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="d-flex flex-column flex-sm-row gap-3 bg-light shadow px-4 py-4 rounded-3">
+                                <div class="flex-shrink-0 text-center text-sm-start">
+                                    <img src="assets/s2.png" alt="The Eye of Horus: Divine Protection" class="img-fluid"
+                                        style="max-width: 80px;">
+                                </div>
+                                <div class="flex-grow-1">
+                                    <p class="fs-6 fw-bold mb-2">The Eye of Horus: Divine Protection</p>
+                                    <p class="text-secondary mb-0">
+                                        The Eye of Horus symbolizes protection, royal power, and good
+                                        health. It was one of the most common amulets in ancient
+                                        Egypt.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="d-flex flex-column flex-sm-row gap-3 bg-light shadow px-4 py-4 rounded-3">
+                                <div class="flex-shrink-0 text-center text-sm-start">
+                                    <img src="assets/s3.png" alt="The Scarab: Rebirth and Regeneration"
+                                        class="img-fluid" style="max-width: 80px;">
+                                </div>
+                                <div class="flex-grow-1">
+                                    <p class="fs-6 fw-bold mb-2">The Scarab: Rebirth and Regeneration</p>
+                                    <p class="text-secondary mb-0">
+                                        Representing the cycle of rebirth and the morning sun, the
+                                        scarab beetle was associated with the god Khepri who rolled
+                                        the sun across the sky each day.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center mt-5 px-3">
+                    <button class="btn btn-outline-warning btn-lg px-4" type="button" 
+                            routerLink="/symbols">
+                        Explore More Egyptian Symbols
+                        <i class="bi bi-arrow-right ms-2"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+        <section class="bg-light mt-0 p-5">
+            <div class="text-center">
+                <h2 class="fw-bold">Explore Egypt By Governorate</h2>
+                <p class="text-secondary">
+                    Discover the unique treasures and experiences each region has to
+                    offer
+                </p>
+            </div>
+            <div class="container py-5 text-center">
+                <div class="row g-4 justify-content-center">
+                    <div class="col-6 col-md-4 col-lg-2">
+                        <a href="#" class="card">
+                            <img src="assets/cairo.jpg" class="card-img rounded-2" alt="Cairo" />
+                            <div class="card-overlay rounded-2">
+                                <h6 class="mb-0 fw-bold">Cairo</h6>
+                                <small>42 attractions</small>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col-6 col-md-4 col-lg-2">
+                        <a href="#" class="card">
+                            <img src="assets/luxer.jpg" class="card-img rounded-2" alt="Luxor" />
+                            <div class="card-overlay rounded-2">
+                                <h6 class="mb-0 fw-bold">Luxor</h6>
+                                <small>36 attractions</small>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col-6 col-md-4 col-lg-2">
+                        <a href="#" class="card">
+                            <img src="assets/Aswan.jpg" class="card-img rounded-2" alt="Aswan" />
+                            <div class="card-overlay rounded-2">
+                                <h6 class="mb-0 fw-bold">Aswan</h6>
+                                <small>28 attractions</small>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col-6 col-md-4 col-lg-2">
+                        <a href="#" class="card">
+                            <img src="assets/Alxa.jpg" class="card-img rounded-2" alt="Alexandria" />
+                            <div class="card-overlay rounded-2">
+                                <h6 class="mb-0 fw-bold">Alexandria</h6>
+                                <small>31 attractions</small>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col-6 col-md-4 col-lg-2">
+                        <a href="#" class="card">
+                            <img src="assets/Sharm El sheikh.jpg" class="card-img rounded-2" alt="Sharm El Sheikh" />
+                            <div class="card-overlay rounded-2">
+                                <h6 class="mb-0 fw-bold">Sharm El Sheikh</h6>
+                                <small>24 attractions</small>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col-6 col-md-4 col-lg-2">
+                        <a href="#" class="card">
+                            <img src="assets/hurgada.jpg" class="card-img rounded-2" alt="Hurghada" />
+                            <div class="card-overlay rounded-2">
+                                <h6 class="mb-0 fw-bold">Hurghada</h6>
+                                <small>22 attractions</small>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="mt-4">
+                    <button class="btn btn-outline-warning">
+                        View All Governorates
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-5">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold">Complete Your Experience</h2>
+                <p class="text-secondary">
+                    Find the best accommodations, dining options, and guided tours
+                </p>
+            </div>
+
+            <div class="container">
+                <div class="row g-4 justify-content-center">
+                    <div class="col-12 col-md-4">
+                        <div class="card h-100 border-0 shadow-sm p-4 text-center bg-warning-subtle card-hover">
+                            <div class="mb-3">
+                                <i class="bi bi-fork-knife fs-1 text-warning"></i>
+                            </div>
+                            <h5 class="fw-bold text-dark">Local Cuisine</h5>
+                            <p class="text-secondary">
+                                Discover authentic Egyptian restaurants and cafes near every
+                                destination
+                            </p>
+                            <a href="#" class="fw-bold text-warning text-decoration-none">
+                                Explore Restaurants <i class="bi bi-arrow-right ms-1"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-md-4">
+                        <div class="card h-100 border-0 shadow-sm p-4 text-center bg-primary-subtle card-hover">
+                            <div class="mb-3">
+                                <i class="bi bi-house-door fs-1 text-primary"></i>
+                            </div>
+                            <h5 class="fw-bold text-dark">Where to Stay</h5>
+                            <p class="text-secondary">
+                                Find the perfect accommodation from luxury hotels to authentic
+                                experiences
+                            </p>
+                            <a href="#" class="fw-bold text-primary text-decoration-none">
+                                Find Accommodations <i class="bi bi-arrow-right ms-1"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-md-4">
+                        <div class="card h-100 border-0 shadow-sm p-4 text-center bg-success-subtle card-hover">
+                            <div class="mb-3">
+                                <i class="bi bi-compass fs-1 text-success"></i>
+                            </div>
+                            <h5 class="fw-bold text-dark">Guided Tours</h5>
+                            <p class="text-secondary">
+                                Book expert-led tours and experiences to make the most of your
+                                visit
+                            </p>
+                            <a href="#" class="fw-bold text-success text-decoration-none">
+                                Discover Tours
+                                <i class="bi bi-arrow-right text-success ms-1"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section style="background-color: #fdf4e1; padding: 50px 0">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <img src="assets/Egysymbols.png" alt="Egyptian symbol" class="mb-3" style="width: 50px" />
+                    <h2 class="fw-bold mb-3" style="color: #333">
+                        Traveler Experiences
+                    </h2>
+                    <p class="text-secondary fs-5" style="color: #555">
+                        Discover what our guests have to say about their unforgettable
+                        Egyptian adventures
+                    </p>
+                </div>
+
+                <div class="row row-cols-1 row-cols-md-3 g-4">
+                    <div class="col">
+                        <div class="card h-100 border-0 shadow-sm rounded-4"
+                            style="background-color: #ffffff; padding: 25px">
+                            <div class="card-body d-flex flex-column">
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <div class="d-flex align-items-center">
+                                        <img src="assets/profile g1.jpg" class="rounded-circle me-3" alt="Sarah Johnson"
+                                            style="width: 50px; height: 50px; object-fit: cover" />
+                                        <div>
+                                            <h6 class="mb-0 fw-bold" style="color: #333">
+                                                Sarah Johnson
+                                            </h6>
+                                            <small class="text-muted">United States</small>
+                                        </div>
+                                    </div>
+                                    <span class="fs-1 text-muted" style="
+                        color: #e0e0e0;
+                        font-family: serif;
+                        line-height: 0.5;
+                      ">&#8220;</span>
+                                </div>
+                                <div class="mb-3">
+                                    <i class="bi bi-star-fill" style="color: #f7a731"></i>
+                                    <i class="bi bi-star-fill" style="color: #f7a731"></i>
+                                    <i class="bi bi-star-fill" style="color: #f7a731"></i>
+                                    <i class="bi bi-star-fill" style="color: #f7a731"></i>
+                                    <i class="bi bi-star-fill" style="color: #f7a731"></i>
+                                </div>
+                                <p class="card-text text-muted" style="color: #666; font-style: italic">
+                                    Our trip to Egypt was absolutely magical! The pyramids were
+                                    breathtaking and our guide was incredibly knowledgeable. Go
+                                    Egypt made the entire experience seamless from start to
+                                    finish.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="card h-100 border-0 shadow-sm rounded-4"
+                            style="background-color: #ffffff; padding: 25px">
+                            <div class="card-body d-flex flex-column">
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <div class="d-flex align-items-center">
+                                        <img src="assets/profile b1.jpg" class="rounded-circle me-3" alt="Marco Rossi"
+                                            style="width: 50px; height: 50px; object-fit: cover" />
+                                        <div>
+                                            <h6 class="mb-0 fw-bold" style="color: #333">
+                                                Marco Rossi
+                                            </h6>
+                                            <small class="text-muted">Italy</small>
+                                        </div>
+                                    </div>
+                                    <span class="fs-1 text-muted" style="
+                        color: #e0e0e0;
+                        font-family: serif;
+                        line-height: 0.5;
+                      ">&#8220;</span>
+                                </div>
+                                <div class="mb-3">
+                                    <i class="bi bi-star-fill" style="color: #f7a731"></i>
+                                    <i class="bi bi-star-fill" style="color: #f7a731"></i>
+                                    <i class="bi bi-star-fill" style="color: #f7a731"></i>
+                                    <i class="bi bi-star-fill" style="color: #f7a731"></i>
+                                    <i class="bi bi-star-half" style="color: #f7a731"></i>
+                                </div>
+                                <p class="card-text text-muted" style="color: #666; font-style: italic">
+                                    The Nile cruise was the highlight of our journey. Watching
+                                    the sunset over ancient temples while sailing on the
+                                    legendary river is something I'll never forget. Highly
+                                    recommend!
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="card h-100 border-0 shadow-sm rounded-4"
+                            style="background-color: #ffffff; padding: 25px">
+                            <div class="card-body d-flex flex-column">
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <div class="d-flex align-items-center">
+                                        <img src="assets/profile g2.jpg" class="rounded-circle me-3" alt="Aisha Patel"
+                                            style="width: 50px; height: 50px; object-fit: cover" />
+                                        <div>
+                                            <h6 class="mb-0 fw-bold" style="color: #333">
+                                                Aisha Patel
+                                            </h6>
+                                            <small class="text-muted">United Kingdom</small>
+                                        </div>
+                                    </div>
+                                    <span class="fs-1 text-muted" style="
+                        color: #e0e0e0;
+                        font-family: serif;
+                        line-height: 0.5;
+                      ">&#8220;</span>
+                                </div>
+                                <div class="mb-3">
+                                    <i class="bi bi-star-fill" style="color: #f7a731"></i>
+                                    <i class="bi bi-star-fill" style="color: #f7a731"></i>
+                                    <i class="bi bi-star-fill" style="color: #f7a731"></i>
+                                    <i class="bi bi-star-half" style="color: #f7a731"></i>
+                                    <i class="bi bi-star" style="color: #e0e0e0"></i>
+                                </div>
+                                <p class="card-text text-muted" style="color: #666; font-style: italic">
+                                    As a solo female traveler, I was concerned about safety, but
+                                    Go Egypt ensured I felt secure throughout my journey. The
+                                    Red Sea diving experience was beyond my expectations!
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-light py-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-1 d-none d-md-flex flex-column justify-content-between align-items-center">
+                        <img src="assets/s1.png" alt="Egyptian symbol 1" class="w-75 opacity-25" />
+                        <img src="assets/s2.png" alt="Egyptian symbol 2" class="w-75 opacity-25" />
+                        <img src="assets/s3.png" alt="Egyptian symbol 3" class="w-75 opacity-25" />
+                    </div>
+                    <!-- <div class="d-flex flex-column justify-content-center al"> -->
+                    <div class="col-md-10 col-12">
+                        <div class="text-center mb-3">
+                            <h2 class="fw-bold text-dark">Frequently Asked Questions</h2>
+                            <p class="text-secondary">
+                                Everything you need to know about traveling to Egypt.
+                            </p>
+                        </div>
+
+                        <div class="container py-5">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-8">
+                                    <div class="accordion faq-accordion" id="faqExample">
+                                        <div class="accordion-item">
+                                            <h2 class="accordion-header" id="headingOne">
+                                                <button class="accordion-button fw-bold" type="button"
+                                                    data-bs-toggle="collapse" data-bs-target="#collapseOne"
+                                                    aria-expanded="true" aria-controls="collapseOne">
+                                                    What's the best time to visit Egypt?
+                                                </button>
+                                            </h2>
+                                            <div id="collapseOne" class="accordion-collapse collapse show"
+                                                aria-labelledby="headingOne" data-bs-parent="#faqExample">
+                                                <div class="accordion-body">
+                                                    The best time to visit Egypt is from October to
+                                                    April when temperatures are cooler. December and
+                                                    January are peak tourist months. Summer (May to
+                                                    September) can be extremely hot, especially in Upper
+                                                    Egypt, but you'll find fewer crowds and lower
+                                                    prices.
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="accordion-item">
+                                            <h2 class="accordion-header" id="headingTwo">
+                                                <button class="accordion-button collapsed fw-bold" type="button"
+                                                    data-bs-toggle="collapse" data-bs-target="#collapseTwo"
+                                                    aria-expanded="false" aria-controls="collapseTwo">
+                                                    Do I need a visa to visit Egypt?
+                                                </button>
+                                            </h2>
+                                            <div id="collapseTwo" class="accordion-collapse collapse"
+                                                aria-labelledby="headingTwo" data-bs-parent="#faqExample">
+                                                <div class="accordion-body">
+                                                    Most visitors to Egypt need a visa. Many
+                                                    nationalities can obtain a visa on arrival at
+                                                    Egyptian airports or apply for an e-visa online
+                                                    before traveling. It's recommended to check the
+                                                    latest visa requirements based on your nationality
+                                                    before planning your trip.
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="accordion-item">
+                                            <h2 class="accordion-header" id="headingThree">
+                                                <button class="accordion-button collapsed fw-bold" type="button"
+                                                    data-bs-toggle="collapse" data-bs-target="#collapseThree"
+                                                    aria-expanded="false" aria-controls="collapseThree">
+                                                    Is it safe to travel to Egypt?
+                                                </button>
+                                            </h2>
+                                            <div id="collapseThree" class="accordion-collapse collapse"
+                                                aria-labelledby="headingThree" data-bs-parent="#faqExample">
+                                                <div class="accordion-body">
+                                                    Egypt is generally safe for tourists, especially in
+                                                    the main tourist areas. Like any destination, it's
+                                                    important to stay aware of your surroundings, follow
+                                                    local advice, and respect cultural customs. We
+                                                    provide guides and support throughout your journey
+                                                    to ensure a safe and enjoyable experience.
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="accordion-item">
+                                            <h2 class="accordion-header" id="headingFour">
+                                                <button class="accordion-button collapsed fw-bold" type="button"
+                                                    data-bs-toggle="collapse" data-bs-target="#collapseFour"
+                                                    aria-expanded="false" aria-controls="collapseFour">
+                                                    What should i wear when visiting Egypt?
+                                                </button>
+                                            </h2>
+                                            <div id="collapseFour" class="accordion-collapse collapse"
+                                                aria-labelledby="headingFour" data-bs-parent="#faqExample">
+                                                <div class="accordion-body">
+                                                    Egypt is a conservative country, so modest dress is
+                                                    appreciated, especially when visiting religious
+                                                    sites. Lightweight, breathable clothing that covers
+                                                    shoulders and knees is recommended. For women,
+                                                    carrying a scarf is useful for mosque visits. In
+                                                    tourist resorts like Sharm El Sheikh, regular
+                                                    swimwear is acceptable by the pool or beach.
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="accordion-item">
+                                            <h2 class="accordion-header" id="headingFive">
+                                                <button class="accordion-button collapsed fw-bold" type="button"
+                                                    data-bs-toggle="collapse" data-bs-target="#collapseFive"
+                                                    aria-expanded="false" aria-controls="collapseFive">
+                                                    What currancy is being used in Egypt?
+                                                </button>
+                                            </h2>
+                                            <div id="collapseFive" class="accordion-collapse collapse"
+                                                aria-labelledby="headingFive" data-bs-parent="#faqExample">
+                                                <div class="accordion-body">
+                                                    The Egyptian Pound (EGP) is the official currency.
+                                                    ATMs are widely available in cities and tourist
+                                                    areas. Credit cards are accepted at most hotels and
+                                                    larger establishments, but it's good to carry some
+                                                    cash for smaller vendors, tipping, and markets.
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-center flex-column m-3">
+                                <p class="text-center fw-border">
+                                    Still have questions about your Egyptian adventure?
+                                </p>
+                                <a href="#" class="text-decoration-none text-warning fw-bold text-center">Contact our
+                                    travel experts<i class="bi bi-arrow-right text-warning px-2"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="orange-newsletter-section">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-md-8 col-lg-7 text-center">
+                        <h2 class="fw-bold text-white mb-3">
+                            Get Inspired for Your Egyptian Adventure
+                        </h2>
+
+                        <p class="text-white-50 mb-4">
+                            Subscribe to our newsletter for exclusive travel tips, special
+                            offers, and fascinating stories about Egypt's ancient wonders
+                        </p>
+
+                        <div class="input-group mx-auto mb-3" style="max-width: 500px">
+                            <input type="email" class="form-control p-3 rounded-2" placeholder="Your email address"
+                                aria-label="Your email address" style="border: none" />
+                            <button class="btn btn-subscribe ms-2 rounded-2 px-4" type="button">
+                                Subscribe Now
+                            </button>
+                        </div>
+                        <p class="text-white-50" style="font-size: 0.875rem">
+                            We respect your privacy. Unsubscribe at any time.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
     </div>
-  </div>
-</section>
+
+

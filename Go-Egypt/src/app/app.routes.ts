@@ -11,7 +11,7 @@ import { Symbols } from './symbols/symbols';
 export const routes: Routes = [
     { path: '', component: Home },
     { path: 'about', component: About },
-    { path: 'attraction', component: Attraction },
+    { path: 'attractions', component: Attraction },
     { path: 'contact-us', component: ContactUs },
     { path: 'login', component: Login },
     { path: 'sign-up', component: SignUp },

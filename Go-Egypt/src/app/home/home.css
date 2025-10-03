@@ -1,88 +1,146 @@
-/* Reset */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+
+.image{
+    background-image: url(../../assets/img3.wallspic.com-great_pyramid_of_giza-monument-historic_site-wonders_of_the_world-egyptian_pyramids-2880x1800.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 95vh;
+}
+input.custom{
+    box-shadow: none;
 }
 
-/* Hero Image */
-.image {
-  background-image: url('../../assets/img1.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  height: 95vh;
+input.custom:focus{
+    box-shadow: none;
 }
-
-/* Custom Inputs */
-input.custom {
-  box-shadow: none !important;
-}
-
-input.custom:focus {
-  box-shadow: none !important;
-  border-color: #ffc107 !important; /* لمسة لون ذهبي */
-}
-
-/* Responsive */
 @media (max-width: 768px) {
-  .cont {
-    width: 90%;
-    margin: auto;
-  }
-  .explore {
-    width: 100%;
-  }
-}
+    .cont{
+        width: 90%;
+        margin: auto;
+    }
+    .explore{
+        width: 100%;
 
-/* Section 1 - Cards */
+    }
+}
+.section1 .card img{
+    transition: transform 0.3s ease;
+}
+.section1 .card:hover img{
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+}
 .section1 {
+    position: relative;
+    z-index: 2;
+    background: white;
+    box-shadow: 0 -30px 30px 30px rgba(255, 255, 255, 0.9);
+}
+.section1 button{
+    border: none;
+    width: 20em;
+    background-color: blanchedalmond;
+}
+.section1 .card:hover{
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, 0.3) !important;
+}
+.section2 img{
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+.sec1 {
+  background-color: #fdf4e1;
+}
+
+.card {
+  border: none;
+  border-radius: 0.75rem;
+  overflow: hidden;
   position: relative;
-  z-index: 2;
-  background: #fff;
-  box-shadow: 0 -10px 20px rgba(0, 0, 0, 0.05);
-  border-radius: 10px;
-  padding-top: 2rem;
+  color: #fff;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  text-decoration: none;
 }
-
-.section1 .card img {
-  transition: transform 0.3s ease;
-}
-
-.section1 .card:hover img {
-  transform: scale(1.1);
-}
-
-.section1 .card {
-  border: none !important;
-  transition: all 0.3s ease;
-}
-
-.section1 .card:hover {
-  box-shadow: 0 0.75rem 1.25rem rgba(0, 0, 0, 0.15) !important;
-}
-
-/* Buttons in Section 1 */
-.section1 button {
-  border: none !important;
-  width: 20em;
-  background-color: blanchedalmond !important;
-  transition: all 0.3s ease;
-}
-
-.section1 button:hover {
-  background-color: #ffc107 !important;
-  color: #fff !important;
-}
-
-/* Section 2 - Gallery */
-.section2 img {
+.card img {
   height: 200px;
   object-fit: cover;
-  border-radius: 10px;
+  border-radius: 0.75rem;
   transition: transform 0.3s ease;
 }
-
-.section2 img:hover {
+.card:hover {
   transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+.card:hover img {
+  transform: scale(1.1);
+}
+.card-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 10px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0));
+  border-radius: 0.75rem;
+}
+.card-hover {
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+.card-hover:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.faq-accordion {
+  --bs-accordion-bg: transparent;
+  --bs-accordion-border-width: 0;
+  --bs-accordion-btn-focus-box-shadow: none;
+  --bs-accordion-active-bg: transparent;
+  --bs-accordion-active-color: #212529;
+
+  /* Custom icon (chevron) FOR THE ARROW */
+  --bs-accordion-btn-icon: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23212529'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+  --bs-accordion-btn-active-icon: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23212529'%3e%3cpath fill-rule='evenodd' d='M7.646 4.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 5.707l-5.646 5.647a.5.5 0 0 1-.708-.708l6-6z'/%3e%3c/svg%3e");
+}
+
+.faq-accordion .accordion-item {
+  border-bottom: 1px solid var(--bs-border-color, #dee2e6);
+}
+
+.faq-accordion .accordion-button {
+  padding: 1.5rem 0;
+  font-weight: 500;
+}
+
+.faq-accordion .accordion-body {
+  padding: 0.5rem 0 1.5rem;
+}
+.orange-newsletter-section {
+  background-color: #b45309;
+
+  padding: 6rem 0;
+}
+
+.btn-subscribe {
+  background-color: #58290cec !important;
+  color: white;
+  border: 1px solid #58290c !important;
+}
+
+.btn-subscribe:hover {
+  background-color: #4a220a !important;
+  color: white !important;
 }

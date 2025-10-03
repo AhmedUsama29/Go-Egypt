@@ -8,4 +8,9 @@ import { Component } from '@angular/core';
 })
 export class SignUp {
 
+  handleSubmit(event: Event) {
+    event.preventDefault();
+    console.log('Signup submitted');
+  }
+  
 }
