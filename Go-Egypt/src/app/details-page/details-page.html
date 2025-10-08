@@ -1,0 +1,106 @@
+<div class="d-flex flex-column min-vh-100 bg-light">
+
+  <!-- Hero -->
+  <div class="position-relative w-100" style="height: 60vh; overflow: hidden;">
+    <img [src]="location.heroImage" [alt]="location.name" class="w-100 h-100 rounded" style="object-fit: cover;">
+    <div class="position-absolute top-0 start-0 w-100 h-100 bg-dark bg-opacity-50 d-flex flex-column justify-content-end p-4 p-md-5">
+      <div class="text-white">
+        <div class="mb-2 d-flex align-items-center">
+          <i class="fa fa-star text-warning me-1"></i>
+          <span>{{ location.rating }}</span>
+        </div>
+        <h1 class="fw-bold display-4">{{ location.name }}</h1>
+        <div class="d-flex flex-column flex-md-row gap-3">
+          <div><i class="fa fa-map-marker me-2"></i>{{ location.location }}</div>
+          <div><i class="fa fa-clock me-2"></i>{{ location.hours }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Content -->
+  <main class="container my-5 flex-grow-1">
+
+    <!-- Back -->
+    <a routerLink="/" class="text-warning text-decoration-none d-inline-flex align-items-center mb-4">
+      <i class="fa fa-chevron-left me-1"></i> Back to Destinations
+    </a>
+
+    <!-- Overview -->
+    <section class="mb-5">
+      <h2 class="fw-bold mb-3">Overview</h2>
+      <div class="bg-white p-4 rounded border border-warning-subtle shadow-sm">
+        <p class="text-secondary">{{ location.description }}</p>
+      </div>
+    </section>
+
+    <!-- Key Facts -->
+    <section class="mb-5">
+      <h2 class="fw-bold mb-3">Key Facts</h2>
+      <div class="row g-4">
+        <div class="col-md-6" *ngFor="let fact of location.keyFacts">
+          <div class="bg-white p-4 rounded border border-warning-subtle shadow-sm h-100">
+            <h4 class="text-warning fw-semibold">{{ fact.title }}</h4>
+            <p class="text-secondary">{{ fact.content }}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gallery -->
+    <section class="mb-5">
+      <h2 class="fw-bold mb-3">Gallery</h2>
+      <div class="bg-white p-4 rounded border border-warning-subtle shadow-sm text-center position-relative">
+        <div class="position-relative rounded overflow-hidden" style="height: 400px;">
+          <img [src]="location.gallery[activeImageIndex]" class="w-100 h-100 rounded" style="object-fit: cover;">
+          <button (click)="prevImage()" class="btn btn-dark position-absolute top-50 start-0 translate-middle-y ms-3">
+            <i class="fa fa-chevron-left"></i>
+          </button>
+          <button (click)="nextImage()" class="btn btn-dark position-absolute top-50 end-0 translate-middle-y me-3">
+            <i class="fa fa-chevron-right"></i>
+          </button>
+        </div>
+        <div class="d-flex justify-content-center mt-3 gap-2">
+          <button *ngFor="let img of location.gallery; let i = index"
+                  (click)="setImage(i)"
+                  class="rounded-circle"
+                  [ngClass]="activeImageIndex === i ? 'bg-warning' : 'bg-secondary'"
+                  style="width: 12px; height: 12px; border: none;"></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="text-center mb-5">
+      <a routerLink="/book" class="btn btn-warning text-white rounded-pill px-5 py-2 fs-5">Book Your Visit</a>
+    </section>
+
+    <!-- Explore More -->
+    <section>
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <h2 class="fw-bold">Explore More</h2>
+        <a routerLink="/attractions" class="text-warning text-decoration-none">View all</a>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-4" *ngFor="let i of [1,2,3]">
+          <a routerLink="/detail/sample" class="text-decoration-none text-dark">
+            <div class="card border border-warning-subtle shadow-sm h-100">
+              <div class="position-relative" style="height: 200px;">
+                <img src="https://images.unsplash.com/photo-1503177119275-0aa32b3a9368?w=800" class="card-img-top h-100" style="object-fit: cover;">
+                <div class="position-absolute top-0 end-0 bg-white bg-opacity-75 rounded-pill px-2 py-1 m-2">
+                  <i class="fa fa-star text-warning me-1"></i>4.9
+                </div>
+              </div>
+              <div class="card-body">
+                <h5 class="fw-bold text-warning">Sample Destination</h5>
+                <p class="mb-1"><i class="fa fa-map-marker me-2"></i>Location</p>
+                <p><i class="fa fa-clock me-2"></i>8:00 AM - 5:00 PM</p>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+</div>

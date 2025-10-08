@@ -7,6 +7,7 @@ import { Login } from './login/login';
 import { SignUp } from './sign-up/sign-up';
 import { NotFound } from './not-found/not-found';
 import { Symbols } from './symbols/symbols';
+import { DetailsPage } from './details-page/details-page';
 
 export const routes: Routes = [
     { path: '', component: Home },
@@ -16,5 +17,6 @@ export const routes: Routes = [
     { path: 'login', component: Login },
     { path: 'sign-up', component: SignUp },
     { path: 'symbols', component: Symbols },
+    { path: 'details', component: DetailsPage },
     { path: '**', component: NotFound }
 ];

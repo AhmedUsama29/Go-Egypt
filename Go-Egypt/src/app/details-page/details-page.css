@@ -1,0 +1,9 @@
+.hover-warning:hover {
+  color: #E08D00 !important;
+}
+.bg-warning-subtle {
+  border-color: #E8E0CC !important;
+}
+.object-fit-cover {
+  object-fit: cover;
+}
