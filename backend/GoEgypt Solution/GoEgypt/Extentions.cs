@@ -20,6 +20,16 @@ namespace GoEgypt
             });
 
             services.ConfigureJWT(configuration);
+			// CORS to allow Angular dev server
+			services.AddCors(options =>
+			{
+				options.AddPolicy("AllowAngularDev", policy =>
+				{
+					policy.WithOrigins("http://localhost:4200")
+						.AllowAnyHeader()
+						.AllowAnyMethod();
+				});
+			});
 
             return services;
         }

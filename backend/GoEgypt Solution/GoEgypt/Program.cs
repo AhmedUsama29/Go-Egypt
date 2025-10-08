@@ -24,6 +24,9 @@ namespace GoEgypt
             }
 
             app.UseHttpsRedirection();
+            app.UseCors("AllowAngularDev");
+            app.UseAuthentication();
+            app.UseAuthorization();
 
             app.MapControllers();
 
