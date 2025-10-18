@@ -11,6 +11,15 @@
     transition: background-color 0.2s, color 0.2s;
   }
 
+/*paragraph*/
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+
 /*buttons filter*/
 .view-btn {
   color: rgb(217, 119, 6);
@@ -24,5 +33,11 @@
   color: rgb(146, 64, 14);
 }
 
+/*card hover*/
+.card:hover {
+  box-shadow: 0 0.5rem 0.5rem #e5e7eb;
+  transform: translateY(-5px);
+  transition: all 0.3s ease-in-out;
+}
 
 
