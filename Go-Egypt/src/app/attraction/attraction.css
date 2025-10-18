@@ -1,3 +1,28 @@
-.btn-custom:hover {
-    background-color: #f3f4f6;
+  .filter-btn:hover {
+    background-color: #e5e7eb !important;
   }
+
+  .filter-btn.active {
+    background-color: rgb(217, 119, 6) !important;
+    color: white !important;
+  }
+
+  .filter-btn {
+    transition: background-color 0.2s, color 0.2s;
+  }
+
+/*buttons filter*/
+.view-btn {
+  color: rgb(217, 119, 6);
+  background-color: white;
+  border: none;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.view-btn:hover {
+  color: rgb(146, 64, 14);
+}
+
+
+
