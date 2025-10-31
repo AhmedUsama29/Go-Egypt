@@ -11,6 +11,7 @@ import { DetailsPage } from './details-page/details-page';
 
 export const routes: Routes = [
     { path: '', component: Home },
+    {path: '', redirectTo : 'home' , pathMatch: 'full'},
     { path: 'about', component: About },
     { path: 'attractions', component: Attraction },
     { path: 'contact-us', component: ContactUs },
