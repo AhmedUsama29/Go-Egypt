@@ -4,6 +4,7 @@ module.exports = {
     "./src/app/sign-up/**/*.{html,ts}",
     "./src/app/login/**/*.{html,ts}",
     "./src/app/contact-us/**/*.{html,ts}",
+    "./src/app/nav/**/*.{html,ts}",
   ],
   theme: {
     extend: {},

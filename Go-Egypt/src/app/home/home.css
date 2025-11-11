@@ -1,146 +1,253 @@
+/*
+|--------------------------------------------------------------------------
+| 1. GLOBAL RESET & BASE STYLES
+|--------------------------------------------------------------------------
+*/
+/* Ensures custom inputs don't get unwanted box-shadows */
+input.custom {
+    box-shadow: none;
+}
 
-.image{
-    background-image: url(../../assets/img3.wallspic.com-great_pyramid_of_giza-monument-historic_site-wonders_of_the_world-egyptian_pyramids-2880x1800.jpg);
+input.custom:focus {
+    box-shadow: none;
+    /* Focus color matching the brand warning/amber color */
+    border-color: #ffc107 !important;
+    box-shadow: 0 0 0 0.25rem rgba(255, 193, 7, 0.25) !important; 
+}
+
+/* Custom Brand Colors for consistency */
+.text-warning {
+    color: #ffc107 !important; /* Bootstrap warning color */
+}
+
+.btn-warning {
+    background-color: #ffc107;
+    border-color: #ffc107;
+}
+
+.btn-warning:hover {
+    background-color: #e0a800;
+    border-color: #e0a800;
+}
+
+/* Custom Class for dark text on hover for warning links */
+.text-warning.hover-dark-warning:hover {
+    color: #333 !important;
+}
+
+/* Custom Utility Classes for smooth effects */
+.hover-lift {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175) !important;
+}
+
+.hover-shadow:hover {
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15) !important;
+}
+
+.hover-scale {
+    transition: transform 0.5s ease;
+}
+
+.hover-scale:hover {
+    transform: scale(1.05);
+}
+
+/*
+|--------------------------------------------------------------------------
+| 2. HERO SECTION & RESPONSIVENESS
+|--------------------------------------------------------------------------
+*/
+.image {
+    /* تم استبدال المسار بصورة افتراضية لكي يعمل الكود هنا، يرجى التأكد من مسار الصورة الفعلي */
+    background-image: url(../../assets/img3.wallspic.com-great_pyramid_of_giza-monument-historic_site-wonders_of_the_world-egyptian_pyramids-2880x1800.jpg); 
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     height: 95vh;
 }
-input.custom{
-    box-shadow: none;
-}
 
-input.custom:focus{
-    box-shadow: none;
-}
 @media (max-width: 768px) {
-    .cont{
+    .cont {
         width: 90%;
         margin: auto;
     }
-    .explore{
+    .explore {
         width: 100%;
-
     }
 }
-.section1 .card img{
-    transition: transform 0.3s ease;
-}
-.section1 .card:hover img{
-    transform: scale(1.1);
-    transition: transform 0.3s ease;
-}
+
+/*
+|--------------------------------------------------------------------------
+| 3. SECTION 1: FEATURED DESTINATIONS
+|--------------------------------------------------------------------------
+*/
 .section1 {
     position: relative;
     z-index: 2;
     background: white;
+    /* تأثير ظل أبيض خفيف ليتداخل مع قسم الهيرو */
     box-shadow: 0 -30px 30px 30px rgba(255, 255, 255, 0.9);
 }
-.section1 button{
-    border: none;
-    width: 20em;
-    background-color: blanchedalmond;
+
+/* Button Styling (Assuming this refers to "View Details") */
+.section1 button {
+    border: 1px solid #ffc107; /* Added border for outline button */
+    background-color: transparent;
+    color: #ffc107;
+    font-weight: bold;
+    width: 20em; /* يتم إلغاء هذا إذا كنت تستخدم .w-75 أو .w-100 */
+    transition: all 0.3s ease;
 }
-.section1 .card:hover{
+.section1 button:hover {
+    background-color: #ffc107;
+    color: white;
+}
+
+/* Card Hover Effects */
+.section1 .card img {
+    transition: transform 0.3s ease;
+}
+
+.section1 .card:hover img {
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+}
+.section1 .card:hover {
     box-shadow: 0 .5rem 1rem rgba(0, 0, 0, 0.3) !important;
 }
-.section2 img{
+
+/*
+|--------------------------------------------------------------------------
+| 4. SECTION 2: DISCOVER PHARAOHS LAND (Image Gallery)
+|--------------------------------------------------------------------------
+*/
+.section2 img {
     height: 200px;
     object-fit: cover;
     border-radius: 10px;
+    /* إضافة تأثير حركة خفيف على الصور لزيادة الجمالية */
+    transition: transform 0.3s ease;
 }
 
+.section2 img:hover {
+    transform: scale(1.05);
+}
 
+/*
+|--------------------------------------------------------------------------
+| 5. SECTION 3: SYMBOLS & GOVERNORATES CARDS
+|--------------------------------------------------------------------------
+*/
 
-
-
-
-
-
-
-
+/* Symbols Section Background */
 .sec1 {
-  background-color: #fdf4e1;
+    background-color: #fdf4e1; /* لون بيج فاتح للقسم */
 }
 
-.card {
-  border: none;
-  border-radius: 0.75rem;
-  overflow: hidden;
-  position: relative;
-  color: #fff;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  cursor: pointer;
-  text-decoration: none;
+/* General Card Styles (Governorate Cards) */
+.card.governorate-card {
+    border: none;
+    border-radius: 0.75rem;
+    overflow: hidden;
+    position: relative;
+    color: #fff;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    text-decoration: none;
 }
-.card img {
-  height: 200px;
-  object-fit: cover;
-  border-radius: 0.75rem;
-  transition: transform 0.3s ease;
+.card.governorate-card img {
+    height: 100%; /* تأكيد أن الصورة تملأ البطاقة بالكامل */
+    object-fit: cover;
+    border-radius: 0.75rem;
+    transition: transform 0.4s ease;
 }
-.card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+.card.governorate-card:hover {
+    transform: translateY(-5px); /* رفع خفيف */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
 }
-.card:hover img {
-  transform: scale(1.1);
+.card.governorate-card:hover img {
+    transform: scale(1.1);
 }
 .card-overlay {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  padding: 10px;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0));
-  border-radius: 0.75rem;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 1rem;
+    /* تدرج لوني أكثر نعومة للـ overlay */
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0));
+    border-radius: 0.75rem;
 }
+
+/* Card Hover Effect for "Complete Your Experience" */
 .card-hover {
-  transition: all 0.3s ease;
-  cursor: pointer;
+    transition: all 0.3s ease;
+    cursor: pointer;
 }
 .card-hover:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    transform: translateY(-8px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
-.faq-accordion {
-  --bs-accordion-bg: transparent;
-  --bs-accordion-border-width: 0;
-  --bs-accordion-btn-focus-box-shadow: none;
-  --bs-accordion-active-bg: transparent;
-  --bs-accordion-active-color: #212529;
+/*
+|--------------------------------------------------------------------------
+| 6. FAQ (Accordion)
+|--------------------------------------------------------------------------
+*/
 
-  /* Custom icon (chevron) FOR THE ARROW */
-  --bs-accordion-btn-icon: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23212529'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
-  --bs-accordion-btn-active-icon: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23212529'%3e%3cpath fill-rule='evenodd' d='M7.646 4.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 5.707l-5.646 5.647a.5.5 0 0 1-.708-.708l6-6z'/%3e%3c/svg%3e");
+/* Base Accordion Customization */
+.faq-accordion {
+    --bs-accordion-bg: transparent;
+    --bs-accordion-border-width: 0;
+    --bs-accordion-btn-focus-box-shadow: none;
+    --bs-accordion-active-bg: transparent;
+    --bs-accordion-active-color: #ffc107; /* اللون البرتقالي للسؤال المفتوح */
+    --bs-accordion-color: #212529; /* لون النص للسؤال العادي */
+
+    /* Custom icon for the arrow (chevron) matching Bootstrap default style */
+    --bs-accordion-btn-icon: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23212529'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+    /* Active icon (when opened) */
+    --bs-accordion-btn-active-icon: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23ffc107'%3e%3cpath fill-rule='evenodd' d='M7.646 4.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 5.707l-5.646 5.647a.5.5 0 0 1-.708-.708l6-6z'/%3e%3c/svg%3e");
 }
 
 .faq-accordion .accordion-item {
-  border-bottom: 1px solid var(--bs-border-color, #dee2e6);
+    border-bottom: 1px solid var(--bs-border-color, #dee2e6);
 }
 
 .faq-accordion .accordion-button {
-  padding: 1.5rem 0;
-  font-weight: 500;
+    padding: 1.5rem 0;
+    font-weight: 700; /* جعل النص أغمق قليلاً */
 }
 
 .faq-accordion .accordion-body {
-  padding: 0.5rem 0 1.5rem;
+    padding: 0.5rem 0 1.5rem;
 }
-.orange-newsletter-section {
-  background-color: #b45309;
 
-  padding: 6rem 0;
+
+/*
+|--------------------------------------------------------------------------
+| 7. NEWSLETTER SECTION
+|--------------------------------------------------------------------------
+*/
+.orange-newsletter-section {
+    background-color: #b45309; /* لون برتقالي داكن / عنبري */
+    padding: 6rem 0;
 }
 
 .btn-subscribe {
-  background-color: #58290cec !important;
-  color: white;
-  border: 1px solid #58290c !important;
+    background-color: #58290cec !important; /* لون داكن جداً */
+    color: white !important;
+    border: 1px solid #58290c !important;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
 }
 
 .btn-subscribe:hover {
-  background-color: #4a220a !important;
-  color: white !important;
+    background-color: #4a220a !important;
+    color: white !important;
 }
