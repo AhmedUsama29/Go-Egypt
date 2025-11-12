@@ -46,8 +46,8 @@ export class Login {
         this.loading.set(false);
         console.error('Login failed', err);
         
-        if (err.status === 401) {
-          this.error.set('email or password is incorrect.');
+        if (err.status === 404 || err.status === 401) {
+          this.error.set('Those details don\'t seem to match our records. Please check and try again.');
         } else {
           this.error.set('An error occurred. Please try again.');
         }

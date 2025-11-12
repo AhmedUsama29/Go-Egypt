@@ -51,7 +51,19 @@
                 {{ loading() ? 'Signing in...' : 'Sign In' }}
               </button>
 
-              <p *ngIf="error()" class="text-sm text-center text-red-600">{{ error() }}</p>
+                    @if (error()) {
+        <div class="flex items-center w-full p-4 text-sm text-red-800 rounded-lg bg-red-50" role="alert">
+          
+          <svg class="flex-shrink-0 inline w-4 h-4 me-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8v-1h1v-1H8v-1h1v-1H8V9h1V8h1v1h1v1h1v1h-1v1h-1v1Z"/>
+          </svg>
+          
+          <span class="sr-only">Error</span>
+          <div>
+            {{ error() }}
+          </div>
+        </div>
+      }
 
               <!-- Sign Up Link -->
               <p class="text-sm text-center text-gray-600">

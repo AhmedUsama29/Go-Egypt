@@ -12,6 +12,7 @@ import { BookNow } from './Booking/book-now/book-now';
 import { Details } from './Booking/details/details';
 import { Confirmation } from './Booking/confirmation/confirmation';
 import { AuthGuard } from './guards/auth-guard';
+import { LoginGuard } from './guards/login-guard';
 
 export const routes: Routes = [
     { path: '', component: Home },
@@ -19,8 +20,8 @@ export const routes: Routes = [
     { path: 'about', component: About },
     { path: 'attractions', component: Attraction },
     { path: 'contact-us', component: ContactUs },
-    { path: 'login', component: Login },
-    { path: 'sign-up', component: SignUp },
+    { path: 'login', component: Login, canActivate: [LoginGuard]},
+    { path: 'sign-up', component: SignUp, canActivate: [LoginGuard]},
     { path: 'symbols', component: Symbols },
     { path: 'details', component: DetailsPage },
     { path: 'book-now', component: BookNow  , canActivate: [AuthGuard]},
