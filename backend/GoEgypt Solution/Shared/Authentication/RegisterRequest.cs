@@ -13,7 +13,7 @@ namespace Shared.Authentication
         public string Email { get; set; } = default!;
         public string Password { get; set; } = default!;
         public DateOnly DateOfBirth { get; set; }
-        public string Nationality { get; set; }
+        public int NationalityId { get; set; }
         public string Gender { get; set; }
 
     }

@@ -62,7 +62,7 @@ namespace Services
             {
                 Email = request.Email,
                 UserName = request.UserName,
-                Nationality = request.Nationality,
+                NationalityId = request.NationalityId,
                 DisplayName = request.DisplayName,
                 DateOfBirth = request.DateOfBirth,
                 Gender = Enum.TryParse<Gender>(request.Gender, true, out var gender) ? gender : throw new Exception("Wrong Gender Type")

@@ -18,7 +18,8 @@ namespace Domain.Models.Identity
         public string DisplayName { get; set; }
         public DateOnly DateOfBirth { get; set; }
         public Gender Gender { get; set; }
-        public string Nationality { get; set; }
+        public int NationalityId { get; set; }
+        public Nationality? Nationality { get; set; }
 
     }
 }

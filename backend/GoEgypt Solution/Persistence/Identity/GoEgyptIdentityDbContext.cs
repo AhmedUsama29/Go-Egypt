@@ -27,6 +27,11 @@ namespace Persistence.Identity
             builder.Entity<ApplicationUser>().Property(T => T.DateOfBirth)
                 .IsRequired()
                 .HasColumnType("date");
+
+            builder.Entity<ApplicationUser>()
+            .HasOne(u => u.Nationality)
+            .WithMany(n => n.Users)
+            .HasForeignKey(u => u.NationalityId);
         }
     }
 }
