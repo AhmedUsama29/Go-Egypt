@@ -14,4 +14,10 @@
     <ProjectReference Include="..\Services\Services.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="SeedData\nat.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

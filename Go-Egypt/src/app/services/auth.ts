@@ -10,6 +10,7 @@ import { Observable } from 'rxjs/internal/Observable';
 export class Auth {
   
   private apiUrl = 'https://localhost:7212/api/Authentication'
+  private lookupApiUrl = 'https://localhost:7212/api/Lookup';
 
   isLoggedInSignal = signal<boolean>(this.isLoggedIn()); 
   userNameSignal = signal<string | null>(null);
@@ -75,4 +76,9 @@ export class Auth {
       }
     }
   }
+
+  getNationalities(): Observable<any[]> {
+  return this.http.get<any[]>(`${this.lookupApiUrl}/`);
+}
+
 }

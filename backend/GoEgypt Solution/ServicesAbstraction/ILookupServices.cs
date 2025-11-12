@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Shared.Lookup;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,6 +10,6 @@ namespace ServicesAbstraction
     public interface ILookupServices
     {
 
-        Task<List<string>> GetNationalitiesAsync();
+        Task<List<NationalityResponse>> GetNationalitiesAsync();
     }
 }

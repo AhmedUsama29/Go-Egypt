@@ -30,37 +30,37 @@
                 }
               </div>
 
-              <!-- User Name -->
-              <div>
-                <label class="block text-sm font-medium text-gray-700 mb-1">Username</label>
-                <input type="text" formControlName="userName"
-                       class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500"/>
-                @if (isSubmitted && formErrors['userName']) {
-                  <p class="text-xs text-red-600 mt-1">{{ formErrors['userName'] }}</p>
-                }
-              </div>
 
-              <!-- Email -->
-              <div>
-                <label class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
-                <!-- 
-                  هنستخدم (blur) عشان نتأكد من الإيميل أول ما اليوزر يخرج من الحقل 
-                -->
-                <input type="email" formControlName="email" (blur)="checkEmail()"
-                       [class.border-red-500]="emailError()"
-                       class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500"/>
-                
-                <!-- رسالة خاصة للإيميل (لو مستخدم أو بيتحمل) -->
-                @if (emailLoading()) {
-                  <p class="text-xs text-gray-500 mt-1">Checking availability...</p>
-                }
-                @if (emailError()) {
-                  <p class="text-xs text-red-600 mt-1">{{ emailError() }}</p>
-                }
-                @if (isSubmitted && formErrors['email']) {
-                  <p class="text-xs text-red-600 mt-1">{{ formErrors['email'] }}</p>
-                }
-              </div>
+<div>
+  <!-- Email -->
+  <label class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
+  
+    <div class="relative">
+      <input type="email" formControlName="email" (blur)="checkEmail()"
+            [class.border-red-500]="emailError()"
+            [class.border-green-500]="emailSuccess()"  
+            [class.focus:ring-green-500]="emailSuccess()"
+            class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500"/>
+      
+      @if (emailSuccess() && !emailLoading()) {
+        <div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
+          <svg class="h-5 w-5 text-green-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+          </svg>
+        </div>
+      }
+    </div>
+    
+    @if (emailLoading()) {
+      <p class="text-xs text-gray-500 mt-1">Checking availability...</p>
+    }
+    @if (emailError()) {
+      <p class="text-xs text-red-600 mt-1">{{ emailError() }}</p>
+    }
+    @if (isSubmitted && formErrors['email']) {
+      <p class="text-xs text-red-600 mt-1">{{ formErrors['email'] }}</p>
+    }
+  </div>
 
               <!-- Password -->
               <div>
@@ -109,23 +109,28 @@
                   }
                 </div>
                 
-                <!-- Nationality -->
-                <div class="w-full sm:w-1/2">
-                  <label class="block text-sm font-medium text-gray-700 mb-1">Nationality</label>
-                  <select formControlName="nationality"
-                          class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500">
-                    <option value="" disabled>Select nationality</option>
-                    <option value="Egyptian">Egyptian</option>
-                    <option value="American">American</option>
-                    <option value="British">British</option>
-                    <!-- ... ضيف باقي الجنسيات حسب احتياجك ... -->
-                    <option value="Other">Other</option>
-                  </select>
-                  @if (isSubmitted && formErrors['nationality']) {
-                    <p class="text-xs text-red-600 mt-1">{{ formErrors['nationality'] }}</p>
-                  }
-                </div>
+          <!-- Nationality -->
+          <div class="w-full sm:w-1/2">
+            <label class="block text-sm font-medium text-gray-700 mb-1">Nationality</label>
+            
+            <select formControlName="nationalityId"
+                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500">
+              
+              <option value="" disabled>Select nationality</option>
+              
+              @for (nat of nationalitiesSignal(); track nat.id) {
+                <option [value]="nat.id">{{ nat.name }}</option>
+              }
+              
+            </select>
+            
+            @if (isSubmitted && formErrors['nationalityId']) {
+              <p class="text-xs text-red-600 mt-1">{{ formErrors['nationalityId'] }}</p>
+            }
+          </div>
+
               </div>
+
 
               <!-- General Form Error -->
               @if (formError()) {

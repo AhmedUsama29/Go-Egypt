@@ -20,8 +20,18 @@ namespace Persistence
 
                 if (!_dbContext.Set<Nationality>().Any())
                 {
-                    
-                    var data = await File.ReadAllTextAsync(@"..\infrastructure\Persistence\SeedData\nat.json");
+
+                    var baseDirectory = AppContext.BaseDirectory;
+
+                    var filePath = Path.Combine(baseDirectory, "SeedData", "nat.json");
+
+                    if (!File.Exists(filePath))
+                    {
+                        Console.WriteLine($"ERROR: Seed data file not found at {filePath}");
+                        throw new FileNotFoundException("Seed data file not found.", filePath);
+                    }
+
+                    var data = await File.ReadAllTextAsync(filePath);
 
                     var nationalities = JsonSerializer.Deserialize<List<Nationality>>(data);
 

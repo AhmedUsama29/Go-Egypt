@@ -2,6 +2,7 @@
 using Domain.Contracts;
 using Domain.Models.Identity;
 using ServicesAbstraction;
+using Shared.Lookup;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,15 +13,19 @@ namespace Services
 {
     public class LookupServices(IUnitOfWork _unitOfWork) : ILookupServices
     {
-        public async Task<List<string>> GetNationalitiesAsync()
+        public async Task<List<NationalityResponse>> GetNationalitiesAsync()
         {
             var repo = _unitOfWork.GetRepository<Nationality, int>();
 
             var allNationalities = await repo.GetAllAsync();
 
-            var natList = allNationalities.Select(n => n.Name).ToList();
+            var mappedNationalities = allNationalities.Select(n => new NationalityResponse
+            {
+                Id = n.Id,
+                Name = n.Name,
+            });
 
-            return natList;
+            return mappedNationalities.ToList();
 
         }
     }

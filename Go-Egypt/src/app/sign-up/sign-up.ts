@@ -23,20 +23,33 @@ export class SignUp {
   
   emailLoading = signal(false);
   emailError = signal<string | null>(null);
+  emailSuccess = signal<boolean>(false);
+
+  nationalitiesSignal = signal<any[]>([]);
 
   private fb = inject(FormBuilder);
   private authService = inject(Auth);
   private router = inject(Router);
 
+  ngOnInit() {
+    this.authService.getNationalities().subscribe({
+      next: (data) => {
+        this.nationalitiesSignal.set(data);
+      },
+      error: (err) => {
+        console.error('Failed to load nationalities', err);
+      }
+    });
+  }
+
   constructor() {
     this.registerForm = this.fb.group({
       displayName: ['', Validators.required],
-      userName: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]],
       confirmPassword: ['', Validators.required],
       dateOfBirth: ['', Validators.required],
-      nationality: ['', Validators.required],
+      nationalityId: ['', Validators.required],
       gender: ['', Validators.required]
     }, {
       validator: this.passwordMatchValidator
@@ -54,11 +67,21 @@ export class SignUp {
   }
 
 
-  checkEmail() {
+checkEmail() {
     const emailControl = this.registerForm.get('email');
+    
     this.emailError.set(null);
+    this.emailSuccess.set(false);
 
-    if (emailControl?.invalid) {
+if (emailControl?.hasError('emailTaken')) {
+    if (emailControl.errors) { 
+        delete emailControl.errors['emailTaken'];
+    } 
+
+    emailControl.updateValueAndValidity();
+}
+
+    if (emailControl?.invalid) { 
       return; 
     }
 
@@ -69,11 +92,16 @@ export class SignUp {
       next: (exists) => {
         if (exists) {
           this.emailError.set('This email is already taken.');
-          emailControl?.setErrors({ emailTaken: true });
+          emailControl?.setErrors({ ...emailControl.errors, emailTaken: true });
+          this.emailSuccess.set(false);
+        } else {
+          this.emailSuccess.set(true); 
+          this.emailError.set(null);
         }
       },
       error: (err) => {
         this.emailError.set('Could not verify email. Please try again.');
+        this.emailSuccess.set(false);
       }
     });
   }
@@ -91,8 +119,19 @@ export class SignUp {
 
     this.loading.set(true);
     
-    const { confirmPassword, ...registerRequest } = this.registerForm.value;
+    const email = this.registerForm.get('email')?.value;
 
+    const baseUserName = email.split('@')[0];
+
+      const randomSuffix = Math.floor(1000 + Math.random() * 9000); 
+      const userName = `${baseUserName}${randomSuffix}`;
+
+      const { confirmPassword, ...formValue } = this.registerForm.value;
+
+      const registerRequest = {
+        ...formValue,
+        userName: userName 
+      };
     this.authService.register(registerRequest).subscribe({
       next: (response) => {
         this.loading.set(false);
@@ -113,6 +152,10 @@ export class SignUp {
         if (controlErrors['email']) this.formErrors[key] = 'Please enter a valid email.';
         if (controlErrors['minlength']) this.formErrors[key] = 'Password must be at least 6 characters.';
         if (controlErrors['mismatch']) this.formErrors[key] = 'Passwords do not match.';
+        if (key === 'nationalityId' && controlErrors['required']) {
+          this.formErrors['nationalityId'] = 'Please select your nationality.';
+        }
+        
       }
     });
   }
