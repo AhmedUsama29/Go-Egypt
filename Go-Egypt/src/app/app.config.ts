@@ -9,7 +9,7 @@ export const appConfig: ApplicationConfig = {
     provideBrowserGlobalErrorListeners(),
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes,withInMemoryScrolling({
-        scrollPositionRestoration: 'top' // <-- هو ده الحل
+        scrollPositionRestoration: 'enabled'
       })),
     provideHttpClient(
       withInterceptors([authInterceptor])
