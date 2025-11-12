@@ -1,0 +1,30 @@
+<div class="d-flex justify-content-center align-items-center mb-3">
+
+  <button class="btn rounded-circle fw-bold"
+          [ngClass]="currentStep > 1 ? 'btn-success text-white' : (currentStep === 1 ? 'btn-warning text-white' : 'btn-outline-secondary')">
+    <i *ngIf="currentStep > 1" class="bi bi-check-lg"></i>
+    <span *ngIf="currentStep === 1">1</span>
+  </button>
+
+  <div class="border-top mx-2 w-25 d-none d-sm-block"
+       [ngClass]="currentStep > 1 ? 'border-warning' : 'border-secondary'"></div>
+  <div class="border-top d-block d-sm-none"
+       style="width: 30px; margin: 0 10px;"
+       [ngClass]="currentStep > 1 ? 'border-warning' : 'border-secondary'"></div>
+
+  <button class="btn rounded-circle fw-bold"
+          [ngClass]="currentStep === 2 ? 'btn-warning text-white' : (currentStep > 2 ? 'btn-success text-white' : 'btn-outline-secondary')">
+    2
+  </button>
+
+  <div class="border-top mx-2 w-25 d-none d-sm-block"
+       [ngClass]="currentStep > 2 ? 'border-warning' : 'border-secondary'"></div>
+  <div class="border-top d-block d-sm-none"
+       style="width: 30px; margin: 0 10px;"
+       [ngClass]="currentStep > 2 ? 'border-warning' : 'border-secondary'"></div>
+
+  <button class="btn rounded-circle fw-bold"
+          [ngClass]="currentStep === 3 ? 'btn-warning text-white' : 'btn-outline-secondary'">
+    3
+  </button>
+</div>

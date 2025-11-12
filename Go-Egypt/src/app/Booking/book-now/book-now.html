@@ -1,0 +1,47 @@
+<main class="bg-light py-5">
+  <!-- Stepper -->
+  <app-stepper [currentStep]="1"></app-stepper>
+
+  <!-- Heading -->
+  <div class="container text-center my-4">
+    <h1 class="fw-bold">Choose Your Egyptian Adventure</h1>
+  </div>
+
+  <!-- Packages -->
+  <div class="container my-4">
+    <div class="row g-4">
+      <div class="col-12 col-sm-6 col-lg-4" *ngFor="let pkg of packages">
+        <div class="card h-100 shadow-sm selectable"
+             [class.border-warning]="selectedPackageId === pkg.id"
+             [class.border-3]="selectedPackageId === pkg.id"
+             (click)="selectPackage(pkg)">
+          <span class="check-badge" *ngIf="selectedPackageId === pkg.id">
+            <i class="bi bi-check-circle-fill text-warning"></i>
+          </span>
+          <img [src]="pkg.img" [alt]="pkg.name" />
+          <div class="card-body">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <h5 class="mb-0 fw-bold">{{ pkg.name }}</h5>
+              <span class="text-warning fw-bold fs-6">{{ pkg.price }}</span>
+            </div>
+            <div class="d-flex align-items-center text-secondary mb-3">
+              <i class="bi bi-calendar-check me-2"></i>
+              <span class="fw-bold">{{ pkg.days }}</span>
+            </div>
+            <p class="card-text text-secondary py-2 fs-6">{{ pkg.desc }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Continue Button -->
+  <div class="text-center my-4">
+    <button class="btn btn-lg px-5"
+            [ngClass]="selectedPackageId ? 'btn-warning text-white' : 'btn-secondary text-light'"
+            [disabled]="!selectedPackageId"
+            (click)="continue()">
+      Continue To Details
+    </button>
+  </div>
+</main>

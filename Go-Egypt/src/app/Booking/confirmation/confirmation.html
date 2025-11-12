@@ -1,0 +1,113 @@
+<div class="container my-5">
+  <app-stepper [currentStep]="3"></app-stepper>
+
+  <h2 class="mb-4 text-center">Booking Confirmation</h2>
+
+  <!-- ✅ Selected Package Section -->
+  <div class="d-flex justify-content-center my-4" *ngIf="selectedPackage">
+    <div class="card shadow h-100" style="max-width: 900px">
+      <div class="row g-0">
+        <div class="col-md-4">
+          <img [src]="selectedPackage?.img" class="img-fluid rounded-start h-100 object-fit-cover" [alt]="selectedPackage?.name">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title fw-bold">{{ selectedPackage?.name }}</h5>
+            <div class="d-flex align-items-center text-secondary mb-2">
+              <i class="bi bi-calendar-check me-2"></i>
+              <span class="fw-bold">{{ selectedPackage?.days }}</span>
+            </div>
+            <p class="card-text text-secondary py-2 fs-6">{{ selectedPackage?.desc }}</p>
+            <p class="card-text text-warning fw-bold fs-5">{{ selectedPackage?.price }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 🧍 Traveler Info -->
+  <div *ngIf="travelerInfo" class="mb-3">
+    <h4>Traveler Information</h4>
+    <p><strong>First Name:</strong> {{ travelerInfo?.firstName }}</p>
+    <p><strong>Last Name:</strong> {{ travelerInfo?.lastName }}</p>
+    <p><strong>Email:</strong> {{ travelerInfo?.email }}</p>
+    <p><strong>Phone:</strong> {{ travelerInfo?.phone }}</p>
+  </div>
+
+  <!-- 🧳 Trip Details -->
+  <div *ngIf="tripDetails" class="mb-3">
+    <h4>Trip Details</h4>
+    <p><strong>Start Date:</strong> {{ tripDetails?.startDate }}</p>
+    <p><strong>Number of Travelers:</strong> {{ tripDetails?.numberOfTravelers }}</p>
+    <p><strong>Special Requests:</strong>
+      <span *ngIf="tripDetails?.specialRequests; else none">{{ tripDetails?.specialRequests }}</span>
+      <ng-template #none>None</ng-template>
+    </p>
+  </div>
+
+  <!-- 💳 Payment Info -->
+  <div *ngIf="paymentInfo" class="mb-3">
+    <h4>Payment Information</h4>
+    <p class="fs-5">
+      <span class="text-warning">{{ getCardStars() }}</span>
+      {{ paymentInfo?.cardNumber?.slice(-4) }}
+    </p>
+    <p><strong>Expiry Date:</strong> {{ paymentInfo?.expiryDate }}</p>
+  </div>
+
+  <!-- 🟡 Action Buttons -->
+  <div class="d-flex gap-3 mt-4">
+    <button class="btn btn-warning btn-lg flex-fill" data-bs-toggle="modal" data-bs-target="#confirmModal">
+      Confirm Booking
+    </button>
+    <button class="btn btn-danger btn-lg flex-fill" data-bs-toggle="modal" data-bs-target="#cancelModal">
+      Cancel Trip
+    </button>
+  </div>
+</div>
+
+<!-- ✅ Confirm Modal -->
+<div class="modal fade" id="confirmModal" tabindex="-1" aria-labelledby="confirmModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content text-center">
+      <div class="modal-header bg-warning text-dark">
+        <h5 class="modal-title w-100" id="confirmModalLabel">Confirm Booking</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <p>Are you sure you want to confirm this booking?</p>
+      </div>
+      <div class="modal-footer justify-content-center">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <!-- 
+          FIX: Added data-bs-dismiss="modal"
+          This will close the modal (and the dim backdrop) *before* the (click) event fires.
+        -->
+        <button type="button" class="btn btn-warning" data-bs-dismiss="modal" (click)="onConfirm()">Yes, Confirm</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ❌ Cancel Modal -->
+<div class="modal fade" id="cancelModal" tabindex="-1" aria-labelledby="cancelModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content text-center">
+      <div class="modal-header bg-danger text-white">
+        <h5 class="modal-title w-100" id="cancelModalLabel">Cancel Trip</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <p>Are you sure you want to cancel this trip?</p>
+      </div>
+      <div class="modal-footer justify-content-center">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <!-- 
+          FIX: Added data-bs-dismiss="modal"
+          This will close the modal (and the dim backdrop) *before* the (click) event fires.
+        -->
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal" (click)="onCancel()">Yes, Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>

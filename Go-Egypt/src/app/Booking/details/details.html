@@ -1,0 +1,90 @@
+
+<main class="bg-light py-5">
+  <app-stepper [currentStep]="2"></app-stepper>
+
+  <div class="d-flex justify-content-center my-4" *ngIf="selectedPackage">
+    <div class="card shadow h-100" style="max-width: 900px">
+      <div class="row g-0">
+        <div class="col-md-4">
+          <img [src]="selectedPackage.img" class="img-fluid rounded-start h-100 object-fit-cover" [alt]="selectedPackage.name">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title fw-bold">{{ selectedPackage.name }}</h5>
+            <div class="d-flex align-items-center text-secondary mb-2">
+              <i class="bi bi-calendar-check me-2"></i>
+              <span class="fw-bold">{{ selectedPackage.days }}</span>
+            </div>
+            <p class="card-text text-secondary py-2 fs-6">{{ selectedPackage.desc }}</p>
+            <p class="card-text text-warning fw-bold fs-5">{{ selectedPackage.price }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container" style="max-width: 900px;">
+    <div class="card shadow p-4">
+      <form (ngSubmit)="completeBooking()" #bookingForm="ngForm">
+        <p class="fs-5 fw-bold">Traveler Information</p>
+        <div class="row g-3">
+          <div class="col-md-6">
+            <label class="form-label">First Name</label>
+            <input type="text" class="form-control" [(ngModel)]="traveler.firstName" name="firstName" required />
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Last Name</label>
+            <input type="text" class="form-control" [(ngModel)]="traveler.lastName" name="lastName" required />
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Email</label>
+            <input type="email" class="form-control" [(ngModel)]="traveler.email" name="email" required />
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Phone</label>
+            <input type="text" class="form-control" [(ngModel)]="traveler.phone" name="phone" required />
+          </div>
+        </div>
+
+        <p class="fs-5 fw-bold mt-4">Trip Details</p>
+        <div class="row g-3">
+          <div class="col-md-4">
+            <label class="form-label">Start Date</label>
+            <input type="date" class="form-control" [(ngModel)]="traveler.startDate" name="startDate" required />
+          </div>
+          <div class="col-md-4">
+            <label class="form-label">Number of Travelers</label>
+            <select class="form-select" [(ngModel)]="traveler.travelers" name="travelers" required>
+              <option *ngFor="let n of [1,2,3,4,5]" [value]="n">{{ n }}</option>
+            </select>
+          </div>
+          <div class="col-md-4">
+            <label class="form-label">Special Requests</label>
+            <input type="text" class="form-control" [(ngModel)]="traveler.specialRequests" name="specialRequests" placeholder="Optional" />
+          </div>
+        </div>
+
+        <p class="fs-5 fw-bold mt-4">Payment Information</p>
+        <div class="row g-3">
+          <div class="col-md-6">
+            <label class="form-label">Card Number</label>
+            <input type="text" class="form-control" [(ngModel)]="traveler.cardNumber" name="cardNumber" maxlength="16" required />
+          </div>
+          <div class="col-md-3">
+            <label class="form-label">Expiry</label>
+            <input type="text" class="form-control" [(ngModel)]="traveler.expiry" name="expiry" placeholder="MM/YY" maxlength="5" required />
+          </div>
+          <div class="col-md-3">
+            <label class="form-label">CVV</label>
+            <input type="text" class="form-control" [(ngModel)]="traveler.cvv" name="cvv" maxlength="3" required />
+          </div>
+        </div>
+
+        <div class="d-flex justify-content-between mt-4">
+          <button type="button" class="btn btn-secondary btn-lg w-25" (click)="back()">Back to Packages</button>
+          <button type="submit" class="btn btn-warning btn-lg w-25 text-white" [disabled]="!bookingForm.form.valid" (click)="completeBooking()">Complete Booking</button>
+        </div>
+      </form>      
+    </div>
+  </div>
+</main>
