@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Component, inject, signal } from '@angular/core';
+import { Router, RouterLink } from '@angular/router';
+import { Auth } from '../services/auth';
 
 @Component({
   selector: 'app-nav',
@@ -9,9 +10,21 @@ import { RouterLink } from '@angular/router';
   styleUrl: './nav.css'
 })
 export class Nav {
-  isMenuOpen = false;
+ authService = inject(Auth);
+  
+  private router = inject(Router);
+
+  isMenuOpen = signal(false);
+
+  constructor() {}
+
+  logout() {
+    this.authService.logout();
+    this.router.navigate(['/']); 
+    this.isMenuOpen.set(false);
+  }
 
   toggleMenu() {
-    this.isMenuOpen = !this.isMenuOpen;
+    this.isMenuOpen.update(prev => !prev);
   }
 }
