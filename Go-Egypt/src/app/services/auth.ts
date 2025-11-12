@@ -1,7 +1,8 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable, signal } from '@angular/core';
 import { tap } from 'rxjs/internal/operators/tap';
 import { jwtDecode } from 'jwt-decode';
+import { Observable } from 'rxjs/internal/Observable';
 
 @Injectable({
   providedIn: 'root'
@@ -29,8 +30,14 @@ export class Auth {
       );
     }
 
-    register(userInfo: any) {
-    return this.http.post<any>(`${this.apiUrl}/register`, userInfo);
+  register(userInfo: any) {
+    return this.http.post<any>(`${this.apiUrl}/register`, userInfo).pipe(
+      tap(response => {
+        localStorage.setItem('authToken', response.token); 
+        this.isLoggedInSignal.set(true); 
+        this.decodeAndSetUser(response.token);
+      })
+    );
   }
 
   logout() {
@@ -45,6 +52,12 @@ export class Auth {
 
   isLoggedIn(): boolean {
     return this.getToken() !== null;
+  }
+
+  checkEmailExists(email: string): Observable<boolean> {
+    const params = new HttpParams().set('email', email);
+    
+    return this.http.get<boolean>(`${this.apiUrl}/emailExists`, { params });
   }
 
   private decodeAndSetUser(tokenString?: string) {
