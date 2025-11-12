@@ -20,8 +20,13 @@ namespace Services
 
             services.AddScoped<IAuthenticationService, AuthenticationService>();
 
+            services.AddScoped<ILookupServices, LookupServices>();
+
             services.AddScoped<Func<IAuthenticationService>>(provider => ()
             => provider.GetRequiredService<IAuthenticationService>());
+
+            services.AddScoped<Func<ILookupServices>>(provider => ()
+            => provider.GetRequiredService<ILookupServices>());
 
             services.Configure<JWTOptions>(configuration.GetSection("JWTOptions"));
 

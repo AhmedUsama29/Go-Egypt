@@ -9,8 +9,11 @@ using System.Threading.Tasks;
 
 namespace Services
 {
-    public class ServiceManagerWithFactoryDelegate(Func<IAuthenticationService> AuthFactory) : IServiceManager
+    public class ServiceManagerWithFactoryDelegate(Func<IAuthenticationService> AuthFactory,
+                                                    Func<ILookupServices> LookUpService) : IServiceManager
     {
         public IAuthenticationService AuthenticationService => AuthFactory.Invoke();
+
+        public ILookupServices LookupServices => LookUpService.Invoke();
     }
 }

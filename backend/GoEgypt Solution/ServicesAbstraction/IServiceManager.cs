@@ -10,5 +10,7 @@ namespace ServicesAbstraction
     {
         public IAuthenticationService AuthenticationService { get; }
 
+        public ILookupServices LookupServices { get; }
+
     }
 }

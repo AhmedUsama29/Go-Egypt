@@ -1,9 +1,11 @@
-﻿using Domain.Models.Identity;
+﻿using Domain.Contracts;
+using Domain.Models.Identity;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Persistence.Identity;
+using Persistence.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,6 +23,10 @@ namespace Persistence
             services.AddDbContext<GoEgyptIdentityDbContext>(options =>
                             options.UseSqlServer(configurations.GetConnectionString("GoEgyptIdentityConnection")));
 
+
+            services.AddScoped<IDbInitializer, DbInitializer>();
+
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
 
             services.RegisterIdentity();
 

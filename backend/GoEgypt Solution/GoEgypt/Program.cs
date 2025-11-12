@@ -1,11 +1,12 @@
 using GoEgypt.Middelwares;
 using Persistence;
 using Services;
+
 namespace GoEgypt
 {
     public class Program
     {
-        public static void Main(string[] args)
+        public static async Task Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
 
@@ -14,6 +15,8 @@ namespace GoEgypt
             builder.Services.AddAplicationServices(builder.Configuration);
 
             var app = builder.Build();
+
+            await app.InitializeDbAsync();
 
             app.UseMiddleware<CustomExceptionHandlerMiddleware>();
 

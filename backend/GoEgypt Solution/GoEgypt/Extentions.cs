@@ -1,4 +1,5 @@
-﻿using GoEgypt.Factories;
+﻿using Domain.Contracts;
+using GoEgypt.Factories;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
@@ -39,6 +40,17 @@ namespace GoEgypt
             services.AddEndpointsApiExplorer();
             services.AddSwaggerGen();
         }
+
+        public static async Task<WebApplication> InitializeDbAsync(this WebApplication app)
+        {
+
+            using var Scope = app.Services.CreateScope(); //BG Services
+            var dbInitializer = Scope.ServiceProvider.GetRequiredService<IDbInitializer>();
+            await dbInitializer.InitializeIdentityAsync();
+            return app;
+
+        }
+
 
         private static void ConfigureJWT(this IServiceCollection services, IConfiguration configuration)
         {
