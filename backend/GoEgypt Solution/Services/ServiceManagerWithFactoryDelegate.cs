@@ -10,10 +10,13 @@ using System.Threading.Tasks;
 namespace Services
 {
     public class ServiceManagerWithFactoryDelegate(Func<IAuthenticationService> AuthFactory,
-                                                    Func<ILookupServices> LookUpService) : IServiceManager
+                                                    Func<ILookupServices> LookUpService,
+                                                    Func<IAttractionService> AttractionFactory) : IServiceManager
     {
         public IAuthenticationService AuthenticationService => AuthFactory.Invoke();
 
         public ILookupServices LookupServices => LookUpService.Invoke();
+
+        public IAttractionService AttractionService => AttractionFactory.Invoke();
     }
 }

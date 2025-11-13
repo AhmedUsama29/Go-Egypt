@@ -15,7 +15,6 @@ namespace Persistence.Data.Configurations
         public void Configure(EntityTypeBuilder<Attraction> builder)
         {
             builder.HasKey(a => a.Id);
-            builder.ToTable("Attractions");
 
             builder.Property(a => a.Name)
                 .IsRequired()

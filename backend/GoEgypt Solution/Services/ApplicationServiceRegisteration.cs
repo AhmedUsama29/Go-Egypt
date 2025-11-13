@@ -22,11 +22,17 @@ namespace Services
 
             services.AddScoped<ILookupServices, LookupServices>();
 
+            services.AddScoped<IAttractionService, AttractionService>();
+
+
             services.AddScoped<Func<IAuthenticationService>>(provider => ()
             => provider.GetRequiredService<IAuthenticationService>());
 
             services.AddScoped<Func<ILookupServices>>(provider => ()
             => provider.GetRequiredService<ILookupServices>());
+
+            services.AddScoped<Func<IAttractionService>>(provider => ()
+            => provider.GetRequiredService<IAttractionService>());
 
             services.Configure<JWTOptions>(configuration.GetSection("JWTOptions"));
 
