@@ -37,7 +37,7 @@ namespace Services
             });
 
             var items = await mappedQuery
-            .Skip((queryParams.PageIndex - 1) * queryParams.PageSize) // لو صفحة 1، هيعمل Skip لـ 0
+            .Skip((queryParams.PageIndex - 1) * queryParams.PageSize) 
                 .Take(queryParams.PageSize)
             .ToListAsync();
 
