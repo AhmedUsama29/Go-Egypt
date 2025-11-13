@@ -64,9 +64,30 @@
             <div class="card-image overflow-hidden rounded-top">
               <img [src]="card.image" class="card-img-top" alt="...">
             </div>
-            <div class="card-body">
-              <h5 class="card-title">{{ card.title }}</h5>
-              <p class="card-text">{{ card.description }}</p>
+            <!-- Image Gallery -->
+            <div class="col-md-6 col-sm-12 p-3 p-md-5">
+                <div class="row g-3">
+                    <div class="col-6">
+                        <div class="overflow-hidden rounded-3 shadow-sm mb-3">
+                            <img src="assets/img1.wallspic.com-archaeological_site-landscape-pyramid-great_pyramid_of_giza-pharaoh-3182x2116.jpg"
+                                class="img-fluid w-100 object-fit-cover hover-scale" alt="Image 1" style="height: 170px;">
+                        </div>
+                        <div class="overflow-hidden rounded-3 shadow-sm">
+                            <img src="assets/home1.jpg"
+                                class="img-fluid w-100 object-fit-cover hover-scale" alt="Image 2" style="height: 200px;">
+                        </div>
+                    </div>
+                    <div class="col-6 mt-5 pt-3">
+                        <div class="overflow-hidden rounded-3 shadow-sm mb-3">
+                            <img src="assets/home2.jpg"
+                                class="img-fluid w-100 object-fit-cover hover-scale" alt="Image 3" style="height: 200px;">
+                        </div>
+                        <div class="overflow-hidden rounded-3 shadow-sm">
+                            <img src="assets/home3.jpg"
+                                class="img-fluid w-100 object-fit-cover hover-scale" alt="Image 4" style="height: 170px;">
+                        </div>
+                    </div>
+                </div>
             </div>
             <button type="button" class="btn fw-bold mb-3 mx-auto px-5 w-75">View Details</button>
           </div>
