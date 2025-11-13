@@ -23,7 +23,7 @@ export const routes: Routes = [
     { path: 'login', component: Login, canActivate: [LoginGuard]},
     { path: 'sign-up', component: SignUp, canActivate: [LoginGuard]},
     { path: 'symbols', component: Symbols },
-    { path: 'details', component: DetailsPage },
+    { path: 'attractions/:id', component: DetailsPage },
     { path: 'book-now', component: BookNow  , canActivate: [AuthGuard]},
     { path: 'book/details', component: Details },
     { path: 'book/confirmation', component: Confirmation },

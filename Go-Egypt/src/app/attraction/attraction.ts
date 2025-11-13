@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core'; 
 import { CommonModule } from '@angular/common'; 
 import { AttractionService, PaginatedResponse, CardAttractions } from '../services/attraction'; 
+import { Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-attraction',
   standalone: true, 
-  imports: [CommonModule], 
+  imports: [CommonModule,RouterModule], 
   templateUrl: './attraction.html',
   styleUrl: './attraction.css'
 })

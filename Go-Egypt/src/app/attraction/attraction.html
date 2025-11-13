@@ -55,7 +55,9 @@
                     style="background-color: #fef3c7; color: #92400e; font-size: 0.75rem; letter-spacing: 0.05em;">
                 {{ attraction.category }}
               </span>
-              <button class="view-btn fw-medium small">View Details</button>
+              <a [routerLink]="['/attractions', attraction.id]" class="view-btn fw-medium small text-decoration-none">
+  View Details
+</a>
             </div>
           </div>
         </div>
