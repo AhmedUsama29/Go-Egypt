@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ServicesAbstraction;
+using Shared;
 using Shared.Attractions;
 using System;
 using System.Collections.Generic;
@@ -15,7 +16,7 @@ namespace Presentation.Controllers
     {
 
         [HttpGet("GetAllCardAttractions")]
-        public async Task<ActionResult<CardAttractions>> GetAllCardAtractions(AttractionsQueryParams queryParams)
+        public async Task<ActionResult<PaginatedResponse<CardAttractions>>> GetAllCardAtractions(AttractionsQueryParams queryParams)
         {
             var attractions = await _serviceManager.AttractionService.GetAllAttractionsAsync(queryParams);
 

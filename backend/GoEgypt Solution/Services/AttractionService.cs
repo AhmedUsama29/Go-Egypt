@@ -2,6 +2,7 @@
 using Domain.Exceptions;
 using Domain.Models;
 using Microsoft.AspNetCore.Http.HttpResults;
+using Microsoft.EntityFrameworkCore;
 using ServicesAbstraction;
 using Shared;
 using Shared.Attractions;
@@ -19,8 +20,11 @@ namespace Services
         {
             var repo = _unitOfWork.GetRepository<Attraction, int>();
 
-            var allAttractions = await repo.GetAllAppDbAsync();
-            var mappedAttractions = allAttractions.Select(attraction => new CardAttractions
+            var query = repo.GetAllAppDbAsync();
+
+            var totalCount = await query.CountAsync();
+
+            var mappedQuery = query.Select(attraction => new CardAttractions
             {
                 Id = attraction.Id,
                 Name = attraction.Name,
@@ -32,14 +36,17 @@ namespace Services
                 Category = attraction.Category
             });
 
-            var totalCount = mappedAttractions.Count();
+            var items = await mappedQuery
+            .Skip((queryParams.PageIndex - 1) * queryParams.PageSize) // لو صفحة 1، هيعمل Skip لـ 0
+                .Take(queryParams.PageSize)
+            .ToListAsync();
 
             return new PaginatedResponse<CardAttractions>()
             {
                 PageIndex = queryParams.PageIndex,
                 PageSize = queryParams.PageSize,
                 Count = totalCount,
-                Data = mappedAttractions
+                Data = items
             };
         }
 
@@ -76,7 +83,7 @@ namespace Services
         {
             var repo = _unitOfWork.GetRepository<Attraction, int>();
 
-            var allAttractions = await repo.GetAllAppDbAsync();
+            var allAttractions = await repo.GetAllAppDbAsync().ToListAsync();
 
             var mappedAttractions = allAttractions.Select(attraction => new HomeAttractions
             {

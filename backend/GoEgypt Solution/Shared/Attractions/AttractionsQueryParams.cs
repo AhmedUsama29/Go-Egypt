@@ -10,7 +10,7 @@ namespace Shared.Attractions
     {
 
         private const int _dafaultPageSize = 5;
-        private const int _maxPageSize = 5;
+        private const int _maxPageSize = 10;
 
         private int pageSize = _dafaultPageSize;
 

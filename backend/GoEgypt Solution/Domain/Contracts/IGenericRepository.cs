@@ -21,6 +21,6 @@ namespace Domain.Contracs
         void UpdateAppDb(TEntity entity);
         void DeleteAppDb(TEntity entity);
         Task<TEntity?> GetByIdAppDbAsync(TKey id);
-        Task<IEnumerable<TEntity>> GetAllAppDbAsync();
+        IQueryable<TEntity> GetAllAppDbAsync();
     }
 }

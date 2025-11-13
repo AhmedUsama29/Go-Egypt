@@ -56,9 +56,9 @@ namespace Persistence.Repositories
             _egyDbContext.Set<TEntity>().Remove(entity);
         }
 
-        public async Task<IEnumerable<TEntity>> GetAllAppDbAsync()
+        public IQueryable<TEntity> GetAllAppDbAsync()
         {
-            return await _egyDbContext.Set<TEntity>().ToListAsync();
+            return _egyDbContext.Set<TEntity>();
         }
 
         public async Task<TEntity?> GetByIdAppDbAsync(TKey id)
