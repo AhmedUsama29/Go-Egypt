@@ -3,13 +3,13 @@
     "Name": "Step Pyramid of Djoser",
     "Location": "Saqqara, Giza",
     "Overview": "The Step Pyramid of Djoser is considered the earliest colossal stone building in Egypt and the first pyramid ever built, designed by the architect Imhotep for Pharaoh Djoser.",
-    "MainPhotoPath": "assets/pyramid-image.jpg",
+    "MainPhotoPath": "assets/step pyramid of Djoser.jpg",
     "Category": "Historical",
     "OpeningTime": "08:00:00",
     "ClosingTime": "17:00:00",
     "Gallery": [
-      "assets/pyramid.png",
-      "assets/s1.png"
+      "assets/pyramid.jpg",
+      "assets/s1.jpg"
     ],
     "KeyFacts": [
       {
@@ -26,13 +26,13 @@
     "Name": "Temple of Karnak",
     "Location": "Luxor",
     "Overview": "The Karnak Temple Complex is one of the largest religious sites ever built, dedicated to the Theban triad of Amun, Mut, and Khonsu. It features massive pylons, obelisks, and the famous Hypostyle Hall.",
-    "MainPhotoPath": "assets/s2.png",
+    "MainPhotoPath": "assets/Template of Karnak.jpg",
     "Category": "Historical",
     "OpeningTime": "06:00:00",
     "ClosingTime": "17:00:00",
     "Gallery": [
-      "assets/s3.png",
-      "assets/s11.png"
+      "assets/s3.jpg",
+      "assets/s11.jpg"
     ],
     "KeyFacts": [
       {
@@ -49,13 +49,13 @@
     "Name": "Temple of Hatshepsut (Deir el-Bahari)",
     "Location": "Luxor",
     "Overview": "The Mortuary Temple of Hatshepsut is an architectural masterpiece built into the cliffs of Deir el-Bahari. It honors one of Egypt’s most successful female pharaohs.",
-    "MainPhotoPath": "assets/Pschent.png",
+    "MainPhotoPath": "assets/queen-hatshepsut-temple.jpg",
     "Category": "Historical",
     "OpeningTime": "06:00:00",
     "ClosingTime": "17:00:00",
     "Gallery": [
-      "assets/Ra.png",
-      "assets/Sa Symbol.png"
+      "assets/Ra.jpg",
+      "assets/Sa Symbol.jpg"
     ],
     "KeyFacts": [
       {
@@ -72,13 +72,13 @@
     "Name": "Dendera Temple Complex",
     "Location": "Qena",
     "Overview": "Dedicated to the goddess Hathor, the Dendera Temple is famous for its astronomical ceiling and detailed hieroglyphic reliefs. It dates back to the late Ptolemaic and Roman periods.",
-    "MainPhotoPath": "assets/Scarab (Kheper).png",
+    "MainPhotoPath": "assets/dendera-temple-complex.jpg",
     "Category": "Historical",
     "OpeningTime": "08:00:00",
     "ClosingTime": "17:00:00",
     "Gallery": [
-      "assets/Scorpion.png",
-      "assets/Sekhem Scepter.png"
+      "assets/Scorpion.jpg",
+      "assets/Sekhem Scepter.jpg"
     ],
     "KeyFacts": [
       {
@@ -95,13 +95,13 @@
     "Name": "Siwa Oasis",
     "Location": "Western Desert",
     "Overview": "A remote oasis famous for its salt lakes, ancient ruins, and unique Berber culture. Siwa offers a blend of history, desert scenery, and traditional life.",
-    "MainPhotoPath": "assets/Sekhmet.png",
+    "MainPhotoPath": "assets/Siwa-Oasis-lake.jpg",
     "Category": "Nature / Cultural",
     "OpeningTime": "06:00:00",
     "ClosingTime": "18:00:00",
     "Gallery": [
-      "assets/Set.png",
-      "assets/snake.png"
+      "assets/Set.jpg",
+      "assets/snake.jpg"
     ],
     "KeyFacts": [
       {
@@ -118,13 +118,13 @@
     "Name": "Mosque of Muhammad Ali",
     "Location": "Cairo Citadel, Cairo",
     "Overview": "Built in the Ottoman style, the Mosque of Muhammad Ali dominates the skyline of Cairo. It is one of the city’s most famous landmarks, located inside the Citadel.",
-    "MainPhotoPath": "assets/sobek.png",
+    "MainPhotoPath": "assets/Mosque of Mohamed Ali.jpg",
     "Category": "Religious / Historical",
     "OpeningTime": "08:00:00",
     "ClosingTime": "17:00:00",
     "Gallery": [
-      "assets/spider.png",
-      "assets/Swallow.png"
+      "assets/spider.jpg",
+      "assets/Swallow.jpg"
     ],
     "KeyFacts": [
       {
@@ -141,13 +141,13 @@
     "Name": "Luxor Temple",
     "Location": "Luxor",
     "Overview": "Located on the east bank of the Nile, the Luxor Temple was dedicated to the rejuvenation of kingship and is beautifully illuminated at night.",
-    "MainPhotoPath": "assets/Redsea.jpg",
+    "MainPhotoPath": "assets/luxor-temple-at-night.jpg",
     "Category": "Historical",
     "OpeningTime": "06:00:00",
     "ClosingTime": "22:00:00",
     "Gallery": [
       "assets/Reed bundle.jpg",
-      "assets/Reed Leaf.png"
+      "assets/Reed Leaf.jpg"
     ],
     "KeyFacts": [
       {
@@ -164,13 +164,13 @@
     "Name": "Catacombs of Kom El Shoqafa",
     "Location": "Alexandria",
     "Overview": "A historical archaeological site in Alexandria and one of the Seven Wonders of the Middle Ages, blending Egyptian, Greek, and Roman cultural elements.",
-    "MainPhotoPath": "assets/red crown.png",
+    "MainPhotoPath": "assets/Catacombs of Kom .jpg",
     "Category": "Historical",
     "OpeningTime": "09:00:00",
     "ClosingTime": "17:00:00",
     "Gallery": [
       "assets/Sharm El sheikh.jpg",
-      "assets/Shen-removebg-preview.png"
+      "assets/Shen-removebg-preview.jpg"
     ],
     "KeyFacts": [
       {
@@ -187,7 +187,7 @@
     "Name": "Mount Sinai (Jebel Musa)",
     "Location": "Sinai Peninsula",
     "Overview": "Mount Sinai is a sacred site in Christianity, Judaism, and Islam. It is believed to be the mountain where Moses received the Ten Commandments.",
-    "MainPhotoPath": "assets/profile b1.jpg",
+    "MainPhotoPath": "assets/Jebel Mousa.jpg",
     "Category": "Religious / Natural",
     "OpeningTime": "04:30:00",
     "ClosingTime": "19:00:00",
@@ -210,13 +210,13 @@
     "Name": "White Desert National Park",
     "Location": "Far Western Desert",
     "Overview": "Known for its surreal white chalk formations shaped by wind erosion, the White Desert is one of Egypt’s most unique natural wonders.",
-    "MainPhotoPath": "assets/pyramid-image.jpg",
+    "MainPhotoPath": "assets/white desert.jpg",
     "Category": "Nature",
     "OpeningTime": "06:00:00",
     "ClosingTime": "18:00:00",
     "Gallery": [
-      "assets/pyramid.png",
-      "assets/s1.png"
+      "assets/pyramid.jpg",
+      "assets/s1.jpg"
     ],
     "KeyFacts": [
       {
