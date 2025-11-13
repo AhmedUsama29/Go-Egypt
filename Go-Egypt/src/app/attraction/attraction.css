@@ -1,17 +1,17 @@
-  .filter-btn:hover {
-    background-color: #e5e7eb !important;
-  }
+/* --- ستايلز الفلترة والفيو (الأصلي) --- */
+.filter-btn:hover {
+  background-color: #e5e7eb !important;
+}
 
-  .filter-btn.active {
-    background-color: rgb(217, 119, 6) !important;
-    color: white !important;
-  }
+.filter-btn.active {
+  background-color: rgb(217, 119, 6) !important;
+  color: white !important;
+}
 
-  .filter-btn {
-    transition: background-color 0.2s, color 0.2s;
-  }
+.filter-btn {
+  transition: background-color 0.2s, color 0.2s;
+}
 
-/*paragraph*/
 .line-clamp-2 {
   display: -webkit-box;
   -webkit-line-clamp: 2;
@@ -19,32 +19,67 @@
   overflow: hidden;
 }
 
-
-/*buttons filter*/
 .view-btn {
-  color: rgb(217, 119, 6);
-  background-color: white;
+  color: #d97706;
+  background-color: transparent;
   border: none;
+  font-weight: 500;
   cursor: pointer;
   transition: color 0.3s;
 }
 
 .view-btn:hover {
-  color: rgb(146, 64, 14);
+  color: #b45309;
 }
 
-/*card hover*/
+/* --- ستايلز الكارت (الأصلي) --- */
 .card:hover {
   box-shadow: 0 0.5rem 0.5rem #e5e7eb;
   transform: translateY(-5px);
   transition: all 0.3s ease-in-out;
 }
 
-/*image card*/
 .card-img-top {
-  width: 100%;          
+  width: 100%;        
   height: 200px;        
   object-fit: cover; 
 }
 
 
+/*
+=========================================
+=== (جديد) ستايل أزرار الـ Pagination ===
+=========================================
+*/
+.pagination-btn {
+  display: inline-block;
+  padding: 0.5rem 1rem; /* حجم الزرار */
+  margin: 0 0.2rem;
+  font-weight: 600;
+  font-size: 0.9rem;
+  border-radius: 9999px; /* مدور */
+  border: 1px solid #d97706; /* بوردر برتقالي */
+  color: #d97706; /* لون الخط برتقالي */
+  background-color: #ffffff; /* خلفية بيضا */
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.pagination-btn:hover {
+  background-color: #fef3c7; /* خلفية أصفر باهت عند الـ hover */
+}
+
+/* ستايل الزرار الـ Active (نفس لون الثيم) */
+.pagination-btn.active {
+  background-color: rgb(217, 119, 6);
+  color: white;
+  border-color: rgb(217, 119, 6);
+}
+
+/* ستايل الزرار الـ Disabled */
+.pagination-btn:disabled {
+  color: #9ca3af;
+  border-color: #e5e7eb;
+  background-color: #f9fafb;
+  cursor: not-allowed;
+}
