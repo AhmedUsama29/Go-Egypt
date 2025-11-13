@@ -47,6 +47,7 @@ namespace GoEgypt
             using var Scope = app.Services.CreateScope(); //BG Services
             var dbInitializer = Scope.ServiceProvider.GetRequiredService<IDbInitializer>();
             await dbInitializer.InitializeIdentityAsync();
+            await dbInitializer.InitializeAppDbAsync();
             return app;
 
         }

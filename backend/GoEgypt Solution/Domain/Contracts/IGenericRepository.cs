@@ -9,14 +9,18 @@ using System.Threading.Tasks;
 
 namespace Domain.Contracs
 {
-    public interface IGenericRepository<TEntity,TKey> where TEntity : class
+    public interface IGenericRepository<TEntity, TKey> where TEntity : class
     {
-
-        void Add(TEntity entity);
+        void Add(TEntity entity);
         void Update(TEntity entity);
         void Delete(TEntity entity);
-        Task<TEntity?> GetByIdAsync(TKey id); 
+        Task<TEntity?> GetByIdAsync(TKey id);
         Task<IEnumerable<TEntity>> GetAllAsync();
 
+        void AddAppDb(TEntity entity);
+        void UpdateAppDb(TEntity entity);
+        void DeleteAppDb(TEntity entity);
+        Task<TEntity?> GetByIdAppDbAsync(TKey id);
+        IQueryable<TEntity> GetAllAppDbAsync();
     }
 }

@@ -12,5 +12,7 @@ namespace ServicesAbstraction
 
         public ILookupServices LookupServices { get; }
 
+        public IAttractionService AttractionService { get; }
+
     }
 }

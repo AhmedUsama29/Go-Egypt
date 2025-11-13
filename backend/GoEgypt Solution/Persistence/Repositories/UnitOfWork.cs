@@ -1,6 +1,7 @@
 ﻿using Domain.Contracs;
 using Domain.Contracts;
 using Domain.Models;
+using Persistence.Data;
 using Persistence.Identity;
 using System;
 using System.Collections.Generic;
@@ -10,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Persistence.Repositories
 {
-    public class UnitOfWork(GoEgyptIdentityDbContext _dbContext) : IUnitOfWork
+    public class UnitOfWork(GoEgyptIdentityDbContext _dbContext, GoEgyptDbContext _egyDBContext) : IUnitOfWork
     {
 
         private readonly Dictionary<string, object> _repositories = [];
@@ -22,7 +23,7 @@ namespace Persistence.Repositories
                 return (GenericRepository<TEntity, TKey>) _repositories[typeName];
 
 
-            var repo = new GenericRepository<TEntity, TKey>(_dbContext);
+            var repo = new GenericRepository<TEntity, TKey>(_dbContext, _egyDBContext);
 
             _repositories[typeName] = repo;
 

@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Persistence.Data;
 using Persistence.Identity;
 using Persistence.Repositories;
 using System;
@@ -22,6 +23,9 @@ namespace Persistence
 
             services.AddDbContext<GoEgyptIdentityDbContext>(options =>
                             options.UseSqlServer(configurations.GetConnectionString("GoEgyptIdentityConnection")));
+
+            services.AddDbContext<GoEgyptDbContext>(options =>
+                            options.UseSqlServer(configurations.GetConnectionString("GoEgyptConnection")));
 
 
             services.AddScoped<IDbInitializer, DbInitializer>();
