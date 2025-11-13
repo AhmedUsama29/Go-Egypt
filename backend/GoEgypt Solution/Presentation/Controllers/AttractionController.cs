@@ -16,7 +16,7 @@ namespace Presentation.Controllers
     {
 
         [HttpGet("GetAllCardAttractions")]
-        public async Task<ActionResult<PaginatedResponse<CardAttractions>>> GetAllCardAtractions(AttractionsQueryParams queryParams)
+        public async Task<ActionResult<PaginatedResponse<CardAttractions>>> GetAllCardAtractions([FromQuery]AttractionsQueryParams queryParams)
         {
             var attractions = await _serviceManager.AttractionService.GetAllAttractionsAsync(queryParams);
 

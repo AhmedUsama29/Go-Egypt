@@ -1,170 +1,85 @@
-    <!--colors
-    Discover background gradient: #f59e0b to #b45309
-    discover text: rgb(255 255 255)
-    filter background: rgb(249 250 251)
-    attraction background: rgb(217 119 6)
-    filter symbol color: rgb(107 114 128)
-    card:
-    historical text:rgb(146 64 14)
-    historical background: rgb(254 243 199)
-    view details text:rgb(217 119 6)
-    star color: rgb(245 158 11)
-    star fill:#f59e0b
-    paragraph text, time, location: rgb(75 85 99)
-    title: rgb(17 24 39)
-    -->
-
-  <!--header section-->
-  <section class="position-relative py-4 text-white" style="background: linear-gradient(to right, #b45309, #f59e0b);">
-    <div class="container-fluid mx-auto px-4 mt-3">
-      <h1 class="fw-bold mb-3 display-5 display-md-3" style="font-size: 3rem;">Discover Egypt's Wonders</h1>
-      <p class="fs-5 me-auto mb-3" style="max-width: 42rem;">Explore ancient temples, breathtaking landscapes,
-        and cultural treasures across the land of the pharaohs</p>
-    </div>
-  </section>
-
-  <!--filter section-->
-  <section class="py-4 border-bottom bg-light">
-    <div class="container-fluid mx-auto px-4">
-      <div class="d-flex align-items-center overflow-auto pb-1 gap-2">
-        <i class="bi bi-funnel fs-5 fw-bold" style="color: rgb(107 114 128);"></i>
-        <button class="filter-btn active px-3 py-2 rounded-pill fs-6 fw-semibold border-0 bg-white" style="color: rgb(55 65 81) ; font-size: 0.875rem; line-height: 1.25rem; cursor: pointer;">All Attractions</button>
-        <button class="filter-btn px-3 py-2 rounded-pill fs-6 fw-semibold border-0 bg-white" style="color: rgb(55 65 81) ; font-size: 0.875rem; line-height: 1.25rem; cursor: pointer;">Historical</button>
-        <button class="filter-btn px-3 py-2 rounded-pill fs-6 fw-semibold border-0 bg-white" style="color: rgb(55 65 81) ; font-size: 0.875rem; line-height: 1.25rem; cursor: pointer;">Cultural</button>
-        <button class="filter-btn px-3 py-2 rounded-pill fs-6 fw-semibold border-0 bg-white" style="color: rgb(55 65 81) ; font-size: 0.875rem; line-height: 1.25rem; cursor: pointer;">Natural Wonders</button>
-      </div>
-    </div>
-  </section>
-
-  <!--cards section-->
-<section class="py-5">
-  <div class="container mx-auto px-4">
-    <div class="row row-cols-1 row-cols-md-3 g-4">
-
-      <!-- Card 1 -->
-      <div class="col">
-        <div class="card h-100">
-          <img src="assets/pyramid.png" class="card-img-top" alt="Pyramids of Giza">
-          <div class="position-absolute top-0 end-0 bg-white rounded-pill d-flex align-items-center px-2 py-1"
-            style="margin-top: 1rem; margin-right: 1rem; background-color: rgba(255, 255, 255, 0.9); backdrop-filter: blur(4px);">
-            <i class="bi bi-star-fill text-warning me-1"></i>
-            <span class="fw-semibold" style="color: #111827;">4.8</span>
-          </div>
-          <div class="card-body p-4">
-            <h3 class="card-title fs-5 fw-bold mb-2">Pyramids of Giza</h3>
-            <i class="bi bi-geo-alt me-2" style="color: #4B5563;"></i>
-            <span style="color: #4B5563;">Giza, Egypt</span>
-            <div class="d-flex align-items-center mb-3" style="color: #4B5563;">
-              <i class="bi bi-clock me-1"></i>
-              <span>8:00 AM - 5:00 PM</span>
-            </div>
-            <p class="text-gray-600 mb-4 line-clamp-2">
-              The Great Pyramid of Giza is the oldest and largest of the pyramids in the Giza pyramid complex bordering present-day Giza in Greater Cairo, Egypt.
-            </p>
-            <div class="d-flex justify-content-between align-items-center">
-              <span class="d-inline-block rounded-pill px-2 py-1 fw-semibold text-uppercase"
-                    style="background-color: #fef3c7; color: #92400e; font-size: 0.75rem; letter-spacing: 0.05em;">
-                historical
-              </span>
-              <button class="view-btn fw-medium small">View Details</button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Card 2 -->
-      <div class="col">
-        <div class="card h-100">
-          <img src="assets/valley.jpg" class="card-img-top" alt="Valley of the Kings">
-          <div class="position-absolute top-0 end-0 bg-white rounded-pill d-flex align-items-center px-2 py-1"
-            style="margin-top: 1rem; margin-right: 1rem; background-color: rgba(255, 255, 255, 0.9); backdrop-filter: blur(4px);">
-            <i class="bi bi-star-fill text-warning me-1"></i>
-            <span class="fw-semibold" style="color: #111827;">4.9</span>
-          </div>
-          <div class="card-body p-4">
-            <h3 class="card-title fs-5 fw-bold mb-2">Valley of the Kings</h3>
-            <i class="bi bi-geo-alt me-2" style="color: #4B5563;"></i>
-            <span style="color: #4B5563;">Giza, Egypt</span>
-            <div class="d-flex align-items-center mb-3" style="color: #4B5563;">
-              <i class="bi bi-clock me-1"></i>
-              <span>8:00 AM - 5:00 PM</span>
-            </div>
-            <p class="text-gray-600 mb-4 line-clamp-2">
-              The Valley of the Kings is a valley in Egypt where, for a period of nearly 500 years, rock-cut tombs were excavated for the pharaohs and powerful nobles of the New Kingdom.
-            </p>
-            <div class="d-flex justify-content-between align-items-center">
-              <span class="d-inline-block rounded-pill px-2 py-1 fw-semibold text-uppercase"
-                    style="background-color: #fef3c7; color: #92400e; font-size: 0.75rem; letter-spacing: 0.05em;">
-                historical
-              </span>
-              <button class="view-btn fw-medium small">View Details</button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Card 3 -->
-      <div class="col">
-        <div class="card h-100">
-          <img src="assets/pyramid.png" class="card-img-top" alt="Pyramids of Giza">
-          <div class="position-absolute top-0 end-0 bg-white rounded-pill d-flex align-items-center px-2 py-1"
-            style="margin-top: 1rem; margin-right: 1rem; background-color: rgba(255, 255, 255, 0.9); backdrop-filter: blur(4px);">
-            <i class="bi bi-star-fill text-warning me-1"></i>
-            <span class="fw-semibold" style="color: #111827;">4.8</span>
-          </div>
-          <div class="card-body p-4">
-            <h3 class="card-title fs-5 fw-bold mb-2">Abu Simbel Temples</h3>
-            <i class="bi bi-geo-alt me-2" style="color: #4B5563;"></i>
-            <span style="color: #4B5563;">Aswan, Egypt</span>
-            <div class="d-flex align-items-center mb-3" style="color: #4B5563;">
-              <i class="bi bi-clock me-1"></i>
-              <span>8:00 AM - 5:00 PM</span>
-            </div>
-            <p class="text-gray-600 mb-4 line-clamp-2">
-              The Great Pyramid of Giza is the oldest and largest of the pyramids in the Giza pyramid complex bordering present-day Giza in Greater Cairo, Egypt.
-            </p>
-            <div class="d-flex justify-content-between align-items-center">
-              <span class="d-inline-block rounded-pill px-2 py-1 fw-semibold text-uppercase"
-                    style="background-color: #fef3c7; color: #92400e; font-size: 0.75rem; letter-spacing: 0.05em;">
-                historical
-              </span>
-              <button class="view-btn fw-medium small">View Details</button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Card 4 -->
-      <div class="col">
-        <div class="card h-100">
-          <img src="assets/pyramid.png" class="card-img-top" alt="Pyramids of Giza">
-          <div class="position-absolute top-0 end-0 bg-white rounded-pill d-flex align-items-center px-2 py-1"
-            style="margin-top: 1rem; margin-right: 1rem; background-color: rgba(255, 255, 255, 0.9); backdrop-filter: blur(4px);">
-            <i class="bi bi-star-fill text-warning me-1"></i>
-            <span class="fw-semibold" style="color: #111827;">4.9</span>
-          </div>
-          <div class="card-body p-4">
-            <h3 class="card-title fs-5 fw-bold mb-2">Pyramids of Giza</h3>
-            <i class="bi bi-geo-alt me-2" style="color: #4B5563;"></i>
-            <span style="color: #4B5563;">Giza, Egypt</span>
-            <div class="d-flex align-items-center mb-3" style="color: #4B5563;">
-              <i class="bi bi-clock me-1"></i>
-              <span>8:00 AM - 5:00 PM</span>
-            </div>
-            <p class="text-gray-600 mb-4 line-clamp-2">
-              The Great Pyramid of Giza is the oldest and largest of the pyramids in the Giza pyramid complex bordering present-day Giza in Greater Cairo, Egypt.
-            </p>
-            <div class="d-flex justify-content-between align-items-center">
-              <span class="d-inline-block rounded-pill px-2 py-1 fw-semibold text-uppercase"
-                    style="background-color: #fef3c7; color: #92400e; font-size: 0.75rem; letter-spacing: 0.05em;">
-                historical
-              </span>
-              <button class="view-btn fw-medium small">View Details</button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-    </div>
+<section class="position-relative py-4 text-white" style="background: linear-gradient(to right, #b45309, #f59e0b);">
+  <div class="container-fluid mx-auto px-4 mt-3">
+    <h1 class="fw-bold mb-3 display-5 display-md-3" style="font-size: 3rem;">Discover Egypt's Wonders</h1>
+    <p class="fs-5 me-auto mb-3" style="max-width: 42rem;">Explore ancient temples, breathtaking landscapes,
+      and cultural treasures across the land of the pharaohs</p>
   </div>
 </section>
+
+<section class="py-4 border-bottom bg-light">
+  <div class="container-fluid mx-auto px-4">
+    <div class="d-flex align-items-center overflow-auto pb-1 gap-2">
+      <i class="bi bi-funnel fs-5 fw-bold" style="color: rgb(107 114 128);"></i>
+      <button class="filter-btn active px-3 py-2 rounded-pill fs-6 fw-semibold border-0 bg-white" style="color: rgb(55 65 81) ; font-size: 0.875rem; line-height: 1.25rem; cursor: pointer;">All Attractions</button>
+      <button class="filter-btn px-3 py-2 rounded-pill fs-6 fw-semibold border-0 bg-white" style="color: rgb(55 65 81) ; font-size: 0.875rem; line-height: 1.25rem; cursor: pointer;">Historical</button>
+      </div>
+  </div>
+</section>
+
+<section class="py-5">
+  <div class="container mx-auto px-4">
+    
+    <div *ngIf="!attractionsResponse">
+      Loading attractions...
+    </div>
+
+    <div *ngIf="attractionsResponse" class="row row-cols-1 row-cols-md-3 g-4">
+
+      <div *ngFor="let attraction of attractionsResponse.data" class="col">
+        <div class="card h-100">
+          
+          <img [src]="attraction.mainPhotoPath" class="card-img-top" [alt]="attraction.name">
+          
+          <div class="position-absolute top-0 end-0 bg-white rounded-pill d-flex align-items-center px-2 py-1"
+            style="margin-top: 1rem; margin-right: 1rem; background-color: rgba(255, 255, 255, 0.9); backdrop-filter: blur(4px);">
+            <i class="bi bi-star-fill text-warning me-1"></i>
+            <span class="fw-semibold" style="color: #111827;">4.8</span> </div>
+
+          <div class="card-body p-4">
+            <h3 class="card-title fs-5 fw-bold mb-2">{{ attraction.name }}</h3>
+            
+            <i class="bi bi-geo-alt me-2" style="color: #4B5563;"></i>
+            <span style="color: #4B5563;">{{ attraction.location }}</span>
+            
+            <div class="d-flex align-items-center mb-3" style="color: #4B5563;">
+              <i class="bi bi-clock me-1"></i>
+              <span>{{ attraction.openingTime | slice:0:5 }} - {{ attraction.closingTime | slice:0:5 }}</span>
+            </div>
+            
+            <p class="text-gray-600 mb-4 line-clamp-2">
+              {{ attraction.overview }}
+            </p>
+            
+            <div class="d-flex justify-content-between align-items-center">
+              <span class="d-inline-block rounded-pill px-2 py-1 fw-semibold text-uppercase"
+                    style="background-color: #fef3c7; color: #92400e; font-size: 0.75rem; letter-spacing: 0.05em;">
+                {{ attraction.category }}
+              </span>
+              <a [routerLink]="['/attractions', attraction.id]" class="view-btn fw-medium small text-decoration-none">
+  View Details
+</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> </div>
+</section>
+<section class="py-4 d-flex justify-content-center align-items-center gap-2" *ngIf="totalPages > 1">
+  
+  <button class="pagination-btn" 
+          (click)="previousPage()" 
+          [disabled]="currentPage === 1">
+    &laquo; </button>
+  
+  <button *ngFor="let page of pages"
+          class="pagination-btn"
+          (click)="goToPage(page)"
+          [class.active]="page === currentPage"> {{ page }}
+  </button>
+  
+  <button class="pagination-btn" 
+          (click)="nextPage()" 
+          [disabled]="currentPage === totalPages">
+    &raquo; </button>
+
+</section>  
