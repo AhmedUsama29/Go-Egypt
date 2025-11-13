@@ -31,7 +31,7 @@ namespace Persistence.Data.Configurations
 
             builder.Property(a => a.Category)
                 .IsRequired()
-                .HasMaxLength(20);
+                .HasMaxLength(30);
 
             builder.Property(a => a.OpeningTime)
                 .HasColumnType("time");

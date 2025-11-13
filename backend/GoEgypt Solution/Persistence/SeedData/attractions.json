@@ -1,0 +1,232 @@
+[
+  {
+    "Name": "Step Pyramid of Djoser",
+    "Location": "Saqqara, Giza",
+    "Overview": "The Step Pyramid of Djoser is considered the earliest colossal stone building in Egypt and the first pyramid ever built, designed by the architect Imhotep for Pharaoh Djoser.",
+    "MainPhotoPath": "images/saqqara_step_pyramid.jpg",
+    "Category": "Historical",
+    "OpeningTime": "08:00:00",
+    "ClosingTime": "17:00:00",
+    "Gallery": [
+      "images/saqqara_step_pyramid_side.jpg",
+      "images/saqqara_step_pyramid_detail.jpg"
+    ],
+    "KeyFacts": [
+      {
+        "Headline": "Architect",
+        "Description": "Designed by Imhotep, the first recorded architect in history."
+      },
+      {
+        "Headline": "Built",
+        "Description": "Circa 2667–2648 BC."
+      }
+    ]
+  },
+  {
+    "Name": "Temple of Karnak",
+    "Location": "Luxor",
+    "Overview": "The Karnak Temple Complex is one of the largest religious sites ever built, dedicated to the Theban triad of Amun, Mut, and Khonsu. It features massive pylons, obelisks, and the famous Hypostyle Hall.",
+    "MainPhotoPath": "images/karnak_temple.jpg",
+    "Category": "Historical",
+    "OpeningTime": "06:00:00",
+    "ClosingTime": "17:00:00",
+    "Gallery": [
+      "images/karnak_hypostyle_hall.jpg",
+      "images/karnak_colonnade.jpg"
+    ],
+    "KeyFacts": [
+      {
+        "Headline": "Highlight",
+        "Description": "The Hypostyle Hall with 134 massive columns reaching 23 meters high."
+      },
+      {
+        "Headline": "Timeline",
+        "Description": "Construction and expansion spanned over 1,500 years."
+      }
+    ]
+  },
+  {
+    "Name": "Temple of Hatshepsut (Deir el-Bahari)",
+    "Location": "Luxor",
+    "Overview": "The Mortuary Temple of Hatshepsut is an architectural masterpiece built into the cliffs of Deir el-Bahari. It honors one of Egypt’s most successful female pharaohs.",
+    "MainPhotoPath": "images/hatshepsut_temple.jpg",
+    "Category": "Historical",
+    "OpeningTime": "06:00:00",
+    "ClosingTime": "17:00:00",
+    "Gallery": [
+      "images/hatshepsut_temple_terraces.jpg",
+      "images/hatshepsut_temple_statues.jpg"
+    ],
+    "KeyFacts": [
+      {
+        "Headline": "Built",
+        "Description": "Around 1479–1458 BC."
+      },
+      {
+        "Headline": "Architect",
+        "Description": "Designed by Senenmut, Hatshepsut’s royal architect."
+      }
+    ]
+  },
+  {
+    "Name": "Dendera Temple Complex",
+    "Location": "Qena",
+    "Overview": "Dedicated to the goddess Hathor, the Dendera Temple is famous for its astronomical ceiling and detailed hieroglyphic reliefs. It dates back to the late Ptolemaic and Roman periods.",
+    "MainPhotoPath": "images/dendera_temple.jpg",
+    "Category": "Historical",
+    "OpeningTime": "08:00:00",
+    "ClosingTime": "17:00:00",
+    "Gallery": [
+      "images/dendera_temple_roof.jpg",
+      "images/dendera_temple_reliefs.jpg"
+    ],
+    "KeyFacts": [
+      {
+        "Headline": "Highlight",
+        "Description": "Astrological ceiling featuring the Dendera Zodiac."
+      },
+      {
+        "Headline": "Period",
+        "Description": "Constructed during the Ptolemaic and Roman eras."
+      }
+    ]
+  },
+  {
+    "Name": "Siwa Oasis",
+    "Location": "Western Desert",
+    "Overview": "A remote oasis famous for its salt lakes, ancient ruins, and unique Berber culture. Siwa offers a blend of history, desert scenery, and traditional life.",
+    "MainPhotoPath": "images/siwa_oasis.jpg",
+    "Category": "Nature / Cultural",
+    "OpeningTime": "06:00:00",
+    "ClosingTime": "18:00:00",
+    "Gallery": [
+      "images/siwa_oasis_lake.jpg",
+      "images/siwa_oasis_castle.jpg"
+    ],
+    "KeyFacts": [
+      {
+        "Headline": "Distance from Cairo",
+        "Description": "Approximately 560 km southwest of Cairo."
+      },
+      {
+        "Headline": "Famous Spot",
+        "Description": "Cleopatra’s Bath and the Temple of the Oracle of Amun."
+      }
+    ]
+  },
+  {
+    "Name": "Mosque of Muhammad Ali",
+    "Location": "Cairo Citadel, Cairo",
+    "Overview": "Built in the Ottoman style, the Mosque of Muhammad Ali dominates the skyline of Cairo. It is one of the city’s most famous landmarks, located inside the Citadel.",
+    "MainPhotoPath": "images/mohammed_ali_mosque.jpg",
+    "Category": "Religious / Historical",
+    "OpeningTime": "08:00:00",
+    "ClosingTime": "17:00:00",
+    "Gallery": [
+      "images/mohammed_ali_interior.jpg",
+      "images/mohammed_ali_view.jpg"
+    ],
+    "KeyFacts": [
+      {
+        "Headline": "Construction",
+        "Description": "Built between 1830 and 1848 by Muhammad Ali Pasha."
+      },
+      {
+        "Headline": "Architectural Style",
+        "Description": "Modeled after the Blue Mosque in Istanbul."
+      }
+    ]
+  },
+  {
+    "Name": "Luxor Temple",
+    "Location": "Luxor",
+    "Overview": "Located on the east bank of the Nile, the Luxor Temple was dedicated to the rejuvenation of kingship and is beautifully illuminated at night.",
+    "MainPhotoPath": "images/luxor_temple.jpg",
+    "Category": "Historical",
+    "OpeningTime": "06:00:00",
+    "ClosingTime": "22:00:00",
+    "Gallery": [
+      "images/luxor_temple_colossi.jpg",
+      "images/luxor_temple_avenue.jpg"
+    ],
+    "KeyFacts": [
+      {
+        "Headline": "Built",
+        "Description": "Around 1400 BC during the reign of Amenhotep III."
+      },
+      {
+        "Headline": "Night Experience",
+        "Description": "Open at night for visitors to enjoy the illuminated ruins."
+      }
+    ]
+  },
+  {
+    "Name": "Catacombs of Kom El Shoqafa",
+    "Location": "Alexandria",
+    "Overview": "A historical archaeological site in Alexandria and one of the Seven Wonders of the Middle Ages, blending Egyptian, Greek, and Roman cultural elements.",
+    "MainPhotoPath": "images/koum_el_shoukafa.jpg",
+    "Category": "Historical",
+    "OpeningTime": "09:00:00",
+    "ClosingTime": "17:00:00",
+    "Gallery": [
+      "images/koum_el_shoukafa_tomb.jpg",
+      "images/koum_el_shoukafa_statues.jpg"
+    ],
+    "KeyFacts": [
+      {
+        "Headline": "Era",
+        "Description": "Built in the 2nd century AD."
+      },
+      {
+        "Headline": "Features",
+        "Description": "Underground burial chambers and Greco-Roman sculptures."
+      }
+    ]
+  },
+  {
+    "Name": "Mount Sinai (Jebel Musa)",
+    "Location": "Sinai Peninsula",
+    "Overview": "Mount Sinai is a sacred site in Christianity, Judaism, and Islam. It is believed to be the mountain where Moses received the Ten Commandments.",
+    "MainPhotoPath": "images/mount_sinai.jpg",
+    "Category": "Religious / Natural",
+    "OpeningTime": "04:30:00",
+    "ClosingTime": "19:00:00",
+    "Gallery": [
+      "images/mount_sinai_sunrise.jpg",
+      "images/mount_sinai_monastery.jpg"
+    ],
+    "KeyFacts": [
+      {
+        "Headline": "Elevation",
+        "Description": "Approximately 2,285 meters above sea level."
+      },
+      {
+        "Headline": "Visitor Tip",
+        "Description": "Many tourists climb at night to witness the sunrise."
+      }
+    ]
+  },
+  {
+    "Name": "White Desert National Park",
+    "Location": "Far Western Desert",
+    "Overview": "Known for its surreal white chalk formations shaped by wind erosion, the White Desert is one of Egypt’s most unique natural wonders.",
+    "MainPhotoPath": "images/white_desert.jpg",
+    "Category": "Nature",
+    "OpeningTime": "06:00:00",
+    "ClosingTime": "18:00:00",
+    "Gallery": [
+      "images/white_desert_rock_formations.jpg",
+      "images/white_desert_camp.jpg"
+    ],
+    "KeyFacts": [
+      {
+        "Headline": "Rock Formations",
+        "Description": "Wind-carved limestone and chalk pillars resembling mushrooms and animals."
+      },
+      {
+        "Headline": "Activities",
+        "Description": "Popular for camping and desert safaris under the stars."
+      }
+    ]
+  }
+]
