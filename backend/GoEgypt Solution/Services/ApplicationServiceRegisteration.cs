@@ -24,6 +24,8 @@ namespace Services
 
             services.AddScoped<IAttractionService, AttractionService>();
 
+            services.AddScoped<IReviewService, ReviewService>();
+
 
             services.AddScoped<Func<IAuthenticationService>>(provider => ()
             => provider.GetRequiredService<IAuthenticationService>());
@@ -33,6 +35,9 @@ namespace Services
 
             services.AddScoped<Func<IAttractionService>>(provider => ()
             => provider.GetRequiredService<IAttractionService>());
+
+            services.AddScoped<Func<IReviewService>>(provider => ()
+            => provider.GetRequiredService<IReviewService>());
 
             services.Configure<JWTOptions>(configuration.GetSection("JWTOptions"));
 

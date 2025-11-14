@@ -1,4 +1,4 @@
-﻿using Domain.Contracs;
+using Domain.Contracs;
 using Domain.Contracts;
 using Domain.Models;
 using Persistence.Data;
@@ -33,6 +33,10 @@ namespace Persistence.Repositories
         public async Task<int> SaveChanges()
         {
             return await _dbContext.SaveChangesAsync();
+        }
+        public async Task<int> SaveChangesAppDb()
+        {
+            return await _egyDBContext.SaveChangesAsync();
         }
     }
 }

@@ -19,6 +19,7 @@ namespace Persistence.Data
         }
 
         public DbSet<Attraction> Attractions { get; set; }
+        public DbSet<Review> Reviews { get; set; }
 
     }
 }

@@ -14,5 +14,7 @@ namespace ServicesAbstraction
 
         public IAttractionService AttractionService { get; }
 
+        public IReviewService ReviewService { get; }
+
     }
 }

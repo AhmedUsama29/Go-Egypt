@@ -1,4 +1,4 @@
-﻿using Domain.Contracts;
+using Domain.Contracts;
 using Domain.Exceptions;
 using Domain.Models;
 using Microsoft.AspNetCore.Http.HttpResults;
@@ -37,15 +37,16 @@ namespace Services
             });
 
             var items = await mappedQuery
-            .Skip((queryParams.PageIndex - 1) * queryParams.PageSize)
+                .Skip((queryParams.PageIndex - 1) * queryParams.PageSize)
                 .Take(queryParams.PageSize)
-            .ToListAsync();
+                .ToListAsync();
 
             return new PaginatedResponse<CardAttractions>()
             {
-                PageIndex = queryParams.PageIndex,
+                PageNumber = queryParams.PageIndex,
                 PageSize = queryParams.PageSize,
-                Count = totalCount,
+                TotalCount = totalCount,
+                TotalPages = (int)Math.Ceiling(totalCount / (double)queryParams.PageSize),
                 Data = items
             };
         }

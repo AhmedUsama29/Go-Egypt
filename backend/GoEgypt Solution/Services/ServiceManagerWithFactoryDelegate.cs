@@ -11,12 +11,15 @@ namespace Services
 {
     public class ServiceManagerWithFactoryDelegate(Func<IAuthenticationService> AuthFactory,
                                                     Func<ILookupServices> LookUpService,
-                                                    Func<IAttractionService> AttractionFactory) : IServiceManager
+                                                    Func<IAttractionService> AttractionFactory,
+                                                    Func<IReviewService> ReviewFactory) : IServiceManager
     {
         public IAuthenticationService AuthenticationService => AuthFactory.Invoke();
 
         public ILookupServices LookupServices => LookUpService.Invoke();
 
         public IAttractionService AttractionService => AttractionFactory.Invoke();
+
+        public IReviewService ReviewService => ReviewFactory.Invoke();
     }
 }

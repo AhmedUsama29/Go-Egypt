@@ -12,6 +12,6 @@ namespace Domain.Contracts
 
         Task<int> SaveChanges();
         IGenericRepository<TEntity, TKey> GetRepository<TEntity, TKey>() where TEntity : class;
-
+        Task<int> SaveChangesAppDb();
     }
 }
