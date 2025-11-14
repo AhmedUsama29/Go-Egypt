@@ -11,6 +11,15 @@ export interface PaginatedResponse<T> {
   data: T[]; // الداتا
 }
 
+export interface HomeAttractions {
+  id: number;
+  name: string;
+  mainPhotoPath: string;
+  location: string;
+  openingTime: string; // C# TimeOnly تتحول إلى string في JSON
+  closingTime: string; // C# TimeOnly تتحول إلى string في JSON
+}
+
 export interface CardAttractions {
   id: number;
   name: string;
@@ -65,6 +74,12 @@ export class AttractionService {
           PageSize: size.toString()
         }
       }
+    );
+  }
+
+getHomeAttractions(): Observable<HomeAttractions[]> {
+    return this.http.get<HomeAttractions[]>(
+      `${this.apiUrl}/GetHomeAttractions`
     );
   }
 
