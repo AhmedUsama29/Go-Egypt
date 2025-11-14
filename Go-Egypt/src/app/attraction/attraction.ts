@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core'; 
-import { CommonModule } from '@angular/common'; 
+import { CommonModule, ViewportScroller } from '@angular/common'; 
 import { AttractionService, PaginatedResponse, CardAttractions } from '../services/attraction'; 
 import { Router, RouterModule } from '@angular/router';
 
@@ -22,7 +22,9 @@ export class Attraction implements OnInit {
   // (جديد) Array عشان نحط فيه أرقام الصفحات
   pages: number[] = [];
 
-  constructor(private attractionService: AttractionService) {}
+  constructor(private attractionService: AttractionService,
+              private viewportScroller: ViewportScroller
+  ) {}
 
   ngOnInit(): void {
     this.loadAttractions(); 
@@ -54,6 +56,7 @@ export class Attraction implements OnInit {
     if (this.currentPage < this.totalPages) {
       this.currentPage++; 
       this.loadAttractions(); 
+      this.viewportScroller.scrollToPosition([0, 0]);
     }
   }
 
@@ -64,6 +67,7 @@ export class Attraction implements OnInit {
     if (this.currentPage > 1) {
       this.currentPage--; 
       this.loadAttractions(); 
+      this.viewportScroller.scrollToPosition([0, 0]);
     }
   }
 
@@ -75,6 +79,7 @@ export class Attraction implements OnInit {
     if (page >= 1 && page <= this.totalPages && page !== this.currentPage) {
       this.currentPage = page;
       this.loadAttractions();
+      this.viewportScroller.scrollToPosition([0, 0]);
     }
   }
 }

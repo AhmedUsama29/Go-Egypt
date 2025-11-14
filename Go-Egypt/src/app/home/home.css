@@ -82,47 +82,39 @@ input.custom:focus {
         width: 100%;
     }
 }
-
 /*
 |--------------------------------------------------------------------------
-| 3. SECTION 1: FEATURED DESTINATIONS
+| 3. SECTION 1: FEATURED DESTINATIONS (Static Grid)
 |--------------------------------------------------------------------------
 */
-.section1 {
-    position: relative;
-    z-index: 2;
-    background: white;
-    /* تأثير ظل أبيض خفيف ليتداخل مع قسم الهيرو */
-    box-shadow: 0 -30px 30px 30px rgba(255, 255, 255, 0.9);
+
+/* --- 1. ستايل الصور (كما هو) --- */
+.card-img-wrapper {
+  overflow: hidden; 
+  position: relative;
+  height: 200px;
+}
+.card-img-zoom {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+.card:hover .card-img-zoom {
+  transform: scale(1.05);
 }
 
-/* Button Styling (Assuming this refers to "View Details") */
-.section1 button {
-    border: 1px solid #ffc107; /* Added border for outline button */
-    background-color: transparent;
-    color: #ffc107;
-    font-weight: bold;
-    width: 20em; /* يتم إلغاء هذا إذا كنت تستخدم .w-75 أو .w-100 */
-    transition: all 0.3s ease;
+/* --- 2. ستايل الزر الداخلي (كما هو) --- */
+.btn-details-custom {
+  background-color: #FFFBEB; 
+  color: #B45309;           
+  /* border: 1px solid #FDE68A;  */
+  transition: all 0.3s ease;
 }
-.section1 button:hover {
-    background-color: #ffc107;
-    color: white;
+.btn-details-custom:hover {
+  background-color: #FEF3C7; 
+  /* border-color: #B45309; */
 }
-
-/* Card Hover Effects */
-.section1 .card img {
-    transition: transform 0.3s ease;
-}
-
-.section1 .card:hover img {
-    transform: scale(1.1);
-    transition: transform 0.3s ease;
-}
-.section1 .card:hover {
-    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, 0.3) !important;
-}
-
 /*
 |--------------------------------------------------------------------------
 | 4. SECTION 2: DISCOVER PHARAOHS LAND (Image Gallery)

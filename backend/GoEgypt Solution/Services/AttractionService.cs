@@ -37,7 +37,7 @@ namespace Services
             });
 
             var items = await mappedQuery
-            .Skip((queryParams.PageIndex - 1) * queryParams.PageSize) // لو صفحة 1، هيعمل Skip لـ 0
+            .Skip((queryParams.PageIndex - 1) * queryParams.PageSize)
                 .Take(queryParams.PageSize)
             .ToListAsync();
 
@@ -83,14 +83,18 @@ namespace Services
         {
             var repo = _unitOfWork.GetRepository<Attraction, int>();
 
-            var allAttractions = await repo.GetAllAppDbAsync().ToListAsync();
+            var allAttractions = await repo.GetAllAppDbAsync()
+                                            .Take(4)
+                                            .ToListAsync();
 
             var mappedAttractions = allAttractions.Select(attraction => new HomeAttractions
             {
                 id = attraction.Id,
                 Name = attraction.Name,
-                Overview = attraction.Overview,
-                MainPhotoPath = attraction.MainPhotoPath
+                MainPhotoPath = attraction.MainPhotoPath,
+                Location = attraction.Location,
+                OpeningTime = attraction.OpeningTime,
+                ClosingTime = attraction.ClosingTime
             }).ToList();
 
             return mappedAttractions;
