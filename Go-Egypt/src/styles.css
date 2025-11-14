@@ -1,3 +1,291 @@
 body {
-  padding-top: 69px;
+  padding-top: 79px;
+}
+
+/* @import url("https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css");
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"); */
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.image{
+    background-image: url(../src/assets/img3.wallspic.com-great_pyramid_of_giza-monument-historic_site-wonders_of_the_world-egyptian_pyramids-2880x1800.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 95vh;
+}
+input.custom{
+    box-shadow: none;
+}
+.explore{
+    background-color: rgb(217, 119, 6) !important;
+}
+.explore:hover{
+    background-color: rgb(180 83 9) !important;
+}
+
+input.custom:focus{
+    box-shadow: none;
+}
+@media (max-width: 768px) {
+    .cont{
+        width: 90%;
+        margin: auto;
+    }
+    .explore{
+        width: 100%;
+
+    }
+}
+.section1 .card img{
+    transition: transform 0.3s ease;
+}
+.section1 .card:hover img{
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+}
+.section1 {
+    position: relative;
+    z-index: 2;
+    background: white;
+    box-shadow: 0 -30px 30px 30px rgba(255, 255, 255, 0.9);
+}
+.section1 button{
+    border: none;
+    width: 20em;
+    background-color:rgb(253, 250, 231) !important;
+    color: rgb(180 83 9);
+}
+.section1 button:hover{
+    border: none;
+    width: 20em;
+    background-color: rgb(253, 243, 177) !important;
+    color: rgb(180 83 9);
+}
+.section1 .card:hover{
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, 0.3) !important;
+}
+.section2 img{
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+.section2{
+    background: linear-gradient(to left, #d97706, #92400e);
+    color: white;
+}
+.btnAttractions{
+    background-color: whitesmoke !important;
+    color: #92400e !important;
+}
+.btnAttractions:hover{
+    background-color: wheat !important;
+}
+.btnjourney{
+    color: whitesmoke !important;
+}
+.btnjourney:hover{
+    background-color: rgba(245, 245, 245, 0.166) !important;
+}
+
+
+
+
+
+
+.sec1 {
+  background-color: #fdf4e1;
+}
+
+.card {
+  border: none;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  position: relative;
+  color: #fff;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  text-decoration: none;
+}
+.card img {
+  height: 200px;
+  object-fit: cover;
+  border-radius: 0.75rem;
+  transition: transform 0.3s ease;
+}
+.card:hover {
+  /* transform: scale(1.05); */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+.card:hover img {
+  transform: scale(1.1);
+}
+.card-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 10px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0));
+  border-radius: 0.75rem;
+}
+.card-hover {
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+.card-hover:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.faq-accordion {
+  --bs-accordion-bg: transparent;
+  --bs-accordion-border-width: 0;
+  --bs-accordion-btn-focus-box-shadow: none;
+  --bs-accordion-active-bg: transparent;
+  --bs-accordion-active-color: #212529;
+
+  --bs-accordion-btn-icon: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23212529'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+  --bs-accordion-btn-active-icon: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23212529'%3e%3cpath fill-rule='evenodd' d='M7.646 4.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 5.707l-5.646 5.647a.5.5 0 0 1-.708-.708l6-6z'/%3e%3c/svg%3e");
+}
+
+.faq-accordion .accordion-item {
+  border-bottom: 1px solid var(--bs-border-color, #dee2e6);
+}
+
+.faq-accordion .accordion-button {
+  padding: 1.5rem 0;
+  font-weight: 500;
+}
+
+.faq-accordion .accordion-body {
+  padding: 0.5rem 0 1.5rem;
+}
+.orange-newsletter-section {
+  background-color: #b45309;
+
+  padding: 6rem 0;
+}
+
+.btn-subscribe {
+  background-color: #58290cec !important;
+  color: white;
+  border: 1px solid #58290c !important;
+}
+
+.btn-subscribe:hover {
+  background-color: #4a220a !important;
+  color: white !important;
+}
+.sec1-btn{
+    background-color: rgb(217, 119, 6) !important;
+    color: white !important;
+}
+.sec1-btn:hover{
+    background-color: rgb(180 83 9) !important;
+}
+.btnGovernorates{
+  border: 1px solid rgb(217, 119, 6) !important;
+  background-color: white !important;
+  color: rgb(217, 119, 6) !important;
+}
+.btnGovernorates:hover{
+  background-color: rgb(217, 119, 6) !important;
+  color: white !important;
+}
+.btn-subscribe{
+  background-color:#753710 !important;
+  color: white !important;
+  border: none !important;
+}
+.btn-subscribe:hover{
+  background-color: #753710a1 !important;
+  border: none !important;
+}
+.accordion-button:focus{
+  box-shadow: none !important;
+}
+.accordion-button::after {
+  filter: invert(54%) sepia(72%) saturate(1542%) hue-rotate(11deg) brightness(95%) contrast(96%) !important;
+}
+.inputEmail:focus{
+  box-shadow: 0px 0px 10px 5px rgb(122, 67, 3) !important;
+}
+
+/* Slider Button Styles - Add to your existing CSS */
+.slider-btn {
+  position: absolute;
+  top: calc(100% + 30px);
+  background: rgb(217, 119, 6) !important;
+  border: none !important;
+  width: 50px !important;
+  height: 50px !important;
+  min-width: 50px !important;
+  max-width: 50px !important;
+  min-height: 50px !important;
+  max-height: 50px !important;
+  border-radius: 50% !important;
+  font-size: 24px;
+  line-height: 1;
+  color: rgb(180 83 9) !important;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.3s ease;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
+  padding: 0 !important;
+  margin: 0;
+  box-sizing: border-box !important;
+}
+
+.slider-btn i {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+.slider-btn:hover {
+  background: rgb(180, 83, 9) !important;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2) !important;
+  transform: scale(1.1) !important;
+}
+
+.slider-btn:focus {
+  outline: none !important;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2) !important;
+}
+
+.slider-btn-prev {
+  left: calc(50% - 60px);
+}
+
+.slider-btn-next {
+  left: calc(50% + 10px);
+}
+
+@media (max-width: 768px) {
+  .slider-btn {
+    width: 45px !important;
+    height: 45px !important;
+    min-width: 45px !important;
+    max-width: 45px !important;
+    min-height: 45px !important;
+    max-height: 45px !important;
+    font-size: 20px;
+    top: calc(100% + 20px);
+  }
+  
+  .slider-btn-prev {
+    left: calc(50% - 55px);
+  }
+  
+  .slider-btn-next {
+    left: calc(50% + 10px);
+  }
 }
