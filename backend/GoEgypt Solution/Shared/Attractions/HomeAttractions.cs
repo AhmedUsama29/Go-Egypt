@@ -10,8 +10,10 @@ namespace Shared.Attractions
     {
         public int id { get; set; }
         public string Name { get; set; }
-        public string Overview { get; set; }
         public string MainPhotoPath { get; set; }
+        public string Location { get; set; }
+        public TimeOnly OpeningTime { get; set; }
+        public TimeOnly ClosingTime { get; set; }
 
     }
 }
