@@ -84,7 +84,7 @@ namespace Services
             var repo = _unitOfWork.GetRepository<Attraction, int>();
 
             var allAttractions = await repo.GetAllAppDbAsync()
-                                            .Take(8)
+                                            .Take(4)
                                             .ToListAsync();
 
             var mappedAttractions = allAttractions.Select(attraction => new HomeAttractions

@@ -45,34 +45,29 @@
 </main>
 
 <!-- Featured Destinations -->
+
 <section class="section1" style="min-height: 95vh; margin-top: 5rem;">
     <div class="container-fluid pt-3">
+        
         <div class="d-flex justify-content-between align-items-end mx-3 mx-md-5 mb-5">
             <div class="container-title">
                 <h5 class="card-title mb-2 fw-bold fs-3">Featured Destinations</h5>
                 <p class="card-text text-muted">Explore Egypt's most iconic landmarks and treasures</p>
             </div>
-            <a href="#" style="text-decoration: none;" class="fw-bold text-warning hover-dark-warning">View all</a>
+            <a routerLink="attractions" style="text-decoration: none;" class="fw-bold text-warning hover-dark-warning">View all</a>
         </div>
 
         <div class="position-relative px-5">
             
-            <button class="slider-btn slider-btn-prev" 
-                    (click)="prev()" 
-                    [disabled]="currentIndex === 0">
-                <i class="bi bi-chevron-left"></i>
-            </button>
-            
             <div class="row g-4 justify-content-center">
-                
-                <div class="col-sm-12 col-md-6 col-lg-3 card-animation" *ngFor="let card of getVisibleCardsArray()">
+
+                <div class="col-12 col-md-6 col-lg-3" *ngFor="let card of destinations">
                     
                     <div class="card h-100 shadow-lg border-0 overflow-hidden d-flex flex-column">
-                        
                         <div class="position-relative card-img-wrapper overflow-hidden">
                             <img [src]="card.mainPhotoPath" [alt]="card.name" class="card-img-top card-img-zoom">
                         </div>
-
+                        
                         <div class="card-body p-4 d-flex flex-column">
                             <h3 class="card-title h5 fw-bold mb-2">{{ card.name }}</h3>
                             
@@ -86,25 +81,18 @@
                                 <small>{{ card.openingTime }} - {{ card.closingTime }}</small>
                             </div>
 
-                            <button class="btn bg-opacity-25 text-warning-emphasis w-100 mt-auto fw-medium mt-4 py-2"
-                            style="background: #FFFBEB; color: #B45309;">
+                            <button class="btn btn-details-custom w-100 mt-auto fw-medium mt-4 py-2">
                                 View Details
                             </button>
                         </div>
                     </div>
                 </div>
-                </div>
 
-            <button class="slider-btn slider-btn-next" 
-                    (click)="next()" 
-                    [disabled]="currentIndex + cardsToShow >= destinations.length">
-                <i class="bi bi-chevron-right"></i>
-            </button>
-
-        </div>
+            </div>
+            
+            </div>
     </div>
 </section>
-
 
 <!-- Discover the Land of Pharaohs -->
 <section class="section2 text-white" style="min-height: 30rem; background-color: #b45309;">

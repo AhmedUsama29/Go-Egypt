@@ -82,97 +82,39 @@ input.custom:focus {
         width: 100%;
     }
 }
-
 /*
 |--------------------------------------------------------------------------
-| 3. SECTION 1: FEATURED DESTINATIONS (CAROUSEL)
+| 3. SECTION 1: FEATURED DESTINATIONS (Static Grid)
 |--------------------------------------------------------------------------
 */
 
-/* --- 1. الأنيميشن الخفيف للكروت (Fade-in) --- */
-.card-animation {
-  /* هذا الأنيميشن يجعل الكروت تظهر بسلاسة
-    عند الضغط على Next/Prev
-  */
-  animation: fadeIn 0.4s ease-in-out;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: scale(0.95);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-
+/* --- 1. ستايل الصور (كما هو) --- */
 .card-img-wrapper {
   overflow: hidden; 
   position: relative;
-  height: 200px; /* <-- هذا هو الحل: تحديد ارتفاع ثابت للصورة */
+  height: 200px;
 }
-
 .card-img-zoom {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* <-- وهذا: يجعل الصورة تملأ المكان وتقص الزيادة */
+  object-fit: cover;
   transition: transform 0.3s ease;
 }
-
 .card:hover .card-img-zoom {
   transform: scale(1.05);
 }
 
-/* --- 3. ستايل أزرار الكاروسيل --- */
-.slider-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 10;
-  
-  /* Style */
-  background-color: rgba(255, 255, 255, 0.9);
-  border: 1px solid #ddd;
-  border-radius: 50%;
-  width: 45px;
-  height: 45px;
-  font-size: 1.5rem;
-  color: #333;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-  transition: all 0.2s ease;
+/* --- 2. ستايل الزر الداخلي (كما هو) --- */
+.btn-details-custom {
+  background-color: #FFFBEB; 
+  color: #B45309;           
+  /* border: 1px solid #FDE68A;  */
+  transition: all 0.3s ease;
 }
-
-.slider-btn:hover:not(:disabled) {
-  background-color: #ffc107; /* لون برتقالي */
-  color: white;
-  border-color: #ffc107;
+.btn-details-custom:hover {
+  background-color: #FEF3C7; 
+  /* border-color: #B45309; */
 }
-
-/* عند تعطيل الزر (عند الوصول للنهاية أو البداية) */
-.slider-btn:disabled {
-  opacity: 0.3;
-  cursor: not-allowed;
-  transform: translateY(-50%) scale(0.9);
-}
-
-.slider-btn-prev {
-  left: 0px; 
-}
-
-.slider-btn-next {
-  right: 0px;
-}
-
-/* إخفاء الأزرار في شاشات الموبايل */
-@media (max-width: 576px) {
-  .slider-btn {
-    display: none; 
-  }
-}
-
 /*
 |--------------------------------------------------------------------------
 | 4. SECTION 2: DISCOVER PHARAOHS LAND (Image Gallery)
