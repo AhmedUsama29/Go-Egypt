@@ -47,9 +47,9 @@ namespace Presentation.Controllers
         }
 
         [HttpPost("forgotPassword")]
-        public async Task<ActionResult> ForgotPassword([FromBody]string email)
+        public async Task<ActionResult> ForgotPassword(ForgotPasswordRequest request)
         {
-            await _serviceManager.AuthenticationService.ForgotPasswordAsync(email);
+            await _serviceManager.AuthenticationService.ForgotPasswordAsync(request.Email);
             return Ok();
         }
 
