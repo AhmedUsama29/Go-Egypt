@@ -1,6 +1,5 @@
-
 <section class="d-flex align-items-center justify-content-center px-3 py-3"
-        style="min-height:100vh; background: linear-gradient(to bottom, #fbf6ef 0%, #f3eede 100%);">
+         style="min-height:100vh; background: linear-gradient(to bottom, #fbf6ef 0%, #f3eede 100%);">
     <div class="w-100 mx-auto d-flex flex-column " style="max-width:25rem;">
 
         <!-- Back to Sign In -->
@@ -13,7 +12,9 @@
         <div class="bg-white rounded-3 shadow-sm border justify-content-center forgot-card">
 
             <!-- Circle Icon -->
-            <div class="d-flex align-items-center justify-content-center rounded-circle bg-success bg-opacity-10 mx-auto mb-4 icon-circle"style="width: 4rem; height: 4rem;">
+            <div
+                class="d-flex align-items-center justify-content-center rounded-circle bg-success bg-opacity-10 mx-auto mb-4 icon-circle"
+                style="width: 4rem; height: 4rem;">
                 <i class="right bi bi-check2-circle d-flex align-items-center justify-content-center text-success fw-bold fs-3 icon-color"></i>
             </div>
 
@@ -21,24 +22,44 @@
             <div class="text-center mb-3">
                 <h2 class="fw-bold text-dark mb-2" style="font-size:30px;">Check Your Email</h2>
                 <p class="text-secondary mb-0">We've sent a password reset link to</p>
+                <!-- 💡 1. إظهار الإيميل اللي استلمناه -->
+                @if (email) {
+                    <p class="fw-bold text-dark mt-1">{{ email }}</p>
+                }
             </div>
 
             <!-- Form -->
             <form class="mt-4" novalidate>
-                <label for="email" class="form-label small text-secondary mb-2">Didn't receive the email? Check your spam folder or try again.</label>
+                <label for="email" class="form-label small text-secondary mb-2">Didn't receive the email? Check your spam
+                    folder or try again.</label>
 
-                <a routerLink="/forgetpassword" type="submit" class="btn btn-orange w-100 rounded-3 py-2 mb-3 mt-3">Resend Link</a>
+                 <!-- 💡 2. إظهار رسائل النجاح أو الفشل -->
+                 @if (successMessage) {
+                    <div class="alert alert-success p-2 small text-center mb-2">{{ successMessage }}</div>
+                 }
+                 @if (errorMessage) {
+                    <div class="alert alert-danger p-2 small text-center mb-2">{{ errorMessage }}</div>
+                 }
+
+                <!-- 💡 3. تحويل اللينك لزرار بينادي على دالة (click) -->
+                <button type="button" (click)="resendLink()" class="btn btn-orange w-100 rounded-3 py-2 mb-3 mt-3" [disabled]="isLoading">
+                    @if (isLoading) {
+                        <span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
+                        <span class="ms-1" role="status">Resending...</span>
+                    } @else {
+                        <span>Resend Link</span>
+                    }
+                </button>
+
                 <a routerLink="/login" class="btn btn-light fw-2 w-100 rounded-3 py-2 mb-2">
                     Back to Sign In
                 </a>
-
             </form>
-
         </div>
 
         <div class="text-center mt-4 small text-secondary">
-            Need help? <a routerLink="/contact-us" class="support" style="color:#D97706;text-decoration: none;">Contact Support</a>
+            Need help? <a routerLink="/contact-us" class="support"
+                style="color:#D97706;text-decoration: none;">Contact Support</a>
         </div>
-
     </div>
 </section>
