@@ -46,5 +46,6 @@ uploadProfileImage(file: File): Observable<{ newUrl: string }> {
 
     return this.http.post<{ newUrl: string }>(`${this.apiUrl}/upload-image`, formData);
   }
+  
 
 }
