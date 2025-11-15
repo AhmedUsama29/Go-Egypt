@@ -17,6 +17,9 @@ import { Forgetpassword } from './forgetpassword/forgetpassword';
 import { Resendemail } from './resendemail/resendemail';
 import { ProfileComponent } from './profile/profile';
 import { ResetPassword } from './reset-password/reset-password';
+import { ResetSuccess } from './reset-success/reset-success';
+import { PrivacyPolicy } from './privacy-policy/privacy-policy';
+import { TermsOfServices } from './terms-of-services/terms-of-services';
 
 export const routes: Routes = [
     { path: '', component: Home },
@@ -31,9 +34,12 @@ export const routes: Routes = [
     { path: 'book-now', component: BookNow  , canActivate: [AuthGuard]},
     { path: 'book/details', component: Details },
     { path: 'book/confirmation', component: Confirmation },
-    { path: 'forgetpassword', component: Forgetpassword },
+    { path: 'forgetpassword', component: Forgetpassword},
     { path: 'resendemail', component: Resendemail },
     { path: 'profile', component: ProfileComponent },
     { path: 'reset-password', component: ResetPassword },
+    { path: 'reset-success', component: ResetSuccess },
+    { path: 'privacy-policy', component: PrivacyPolicy },
+    { path: 'terms-of-services', component: TermsOfServices },
     { path: '**', component: NotFound }
 ];

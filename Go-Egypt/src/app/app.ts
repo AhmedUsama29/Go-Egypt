@@ -13,10 +13,15 @@ import { Nav } from './nav/nav';
 import { ProfileComponent } from './profile/profile';
 import { Forgetpassword } from './forgetpassword/forgetpassword';
 import { Resendemail } from './resendemail/resendemail';
+import { ResetPassword } from './reset-password/reset-password';
+import { ResetSuccess } from './reset-success/reset-success';
+import { TermsOfServices } from './terms-of-services/terms-of-services';
+import { PrivacyPolicy } from './privacy-policy/privacy-policy';
+
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet,Nav,Footer,Home,About,Attraction,ContactUs,Login,SignUp,NotFound,Symbols,ProfileComponent,Forgetpassword,Resendemail],
+  imports: [RouterOutlet,Nav,Footer,Home,About,Attraction,ContactUs,Login,SignUp,NotFound,Symbols,ProfileComponent,Forgetpassword,Resendemail,ResetPassword,ResetSuccess,TermsOfServices,PrivacyPolicy],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
