@@ -7,8 +7,8 @@ import { Observable } from 'rxjs';
 export interface PaginatedResponse<T> {
   pageIndex: number;
   pageSize: number;
-  count: number; // العدد الإجمالي
-  data: T[]; // الداتا
+  count: number;
+  data: T[];
 }
 
 export interface HomeAttractions {
@@ -16,8 +16,8 @@ export interface HomeAttractions {
   name: string;
   mainPhotoPath: string;
   location: string;
-  openingTime: string; // C# TimeOnly تتحول إلى string في JSON
-  closingTime: string; // C# TimeOnly تتحول إلى string في JSON
+  openingTime: string;
+  closingTime: string;
 }
 
 export interface CardAttractions {
@@ -56,14 +56,11 @@ export interface AttractionDetails {
 })
 export class AttractionService { 
 
-  // تأكد أن البورت (7212) صحيح
   private apiUrl = 'https://localhost:7212/api/Attraction'; 
 
   constructor(private http: HttpClient) { }
 
-  /**
-   * يجلب قائمة المعالم السياحية مع Pagination
-   */
+
   getAttractions(page: number, size: number): Observable<PaginatedResponse<CardAttractions>> {
     
     return this.http.get<PaginatedResponse<CardAttractions>>(
@@ -83,9 +80,7 @@ getHomeAttractions(): Observable<HomeAttractions[]> {
     );
   }
 
-  /**
-   * يجلب تفاصيل معلم سياحي واحد
-   */
+
   getAttractionById(id: number): Observable<AttractionDetails> {
     
     return this.http.get<AttractionDetails>(
