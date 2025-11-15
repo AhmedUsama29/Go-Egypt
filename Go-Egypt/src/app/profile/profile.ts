@@ -11,6 +11,8 @@ import { ProfileService , ProfileResponse, ProfileEditRequest} from '../services
 })
 export class ProfileComponent implements OnInit {
 
+  serverBaseUrl = 'https://localhost:7212';
+
   profileImage: string | null = null;
   isEditing = false;
   
