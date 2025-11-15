@@ -25,12 +25,16 @@ input.custom:focus {
   color: white;
   border: none;
   transition: background-color 0.3s;
+  /* Ensure the explore button content is centered on all sizes (icon + text) */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .5rem;
 }
 
 .explore-btn:hover {
   background-color: rgb(192, 120, 0);
 }
-
 
 /* Custom Class for dark text on hover for warning links */
 .text-warning.hover-dark-warning:hover {
@@ -65,22 +69,56 @@ input.custom:focus {
 |--------------------------------------------------------------------------
 */
 .image {
-    /* تم استبدال المسار بصورة افتراضية لكي يعمل الكود هنا، يرجى التأكد من مسار الصورة الفعلي */
+    
     background-image: url(../../assets/img3.wallspic.com-great_pyramid_of_giza-monument-historic_site-wonders_of_the_world-egyptian_pyramids-2880x1800.jpg);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    height: 95vh;
+    height: 100vh; 
 }
 
-@media (max-width: 768px) {
-    .cont {
-        width: 90%;
-        margin: auto;
-    }
-    .explore {
-        width: 100%;
-    }
+/* Base styles for content and explore box */
+.content {
+  max-width: 760px;
+  width: 100%;
+}
+.hero-explore {
+  width: 100%;
+  background-clip: padding-box;
+}
+
+/* Apply desktop/laptop lift universally so tablet and mobile match the laptop look */
+.hero-explore {
+  position: relative;
+  z-index: 25;
+  transition: transform 0.28s ease, box-shadow 0.28s ease;
+  /* same lift as desktop/laptop on all sizes */
+  transform: translateY(-50px);
+  box-shadow: 0 .75rem 2rem rgba(0,0,0,0.18);
+}
+
+/* Small adjustments preserved for small screens (padding/icons) */
+@media (max-width: 575.98px) {
+  .hero-explore .position-relative i.position-absolute {
+    left: 0.75rem;
+  }
+  .hero-explore input.form-control {
+    padding-top: 0.55rem;
+    padding-bottom: 0.55rem;
+  }
+}
+
+/* Ensure alignment with title on md+ (keeps margin alignment if needed) */
+@media (min-width: 768px) {
+  .hero-explore {
+    margin-left: 2.45em !important;
+  }
+}
+
+/* Make sure form controls stack nicely on xs and have consistent spacing */
+.hero-explore .row > [class*='col-'] {
+  display: flex;
+  align-items: center;
 }
 /*
 |--------------------------------------------------------------------------
@@ -178,6 +216,18 @@ input.custom:focus {
     border-radius: 0.75rem;
 }
 
+
+.btn.symbols-btn {
+  background-color: rgb(180, 83, 9); /* اللون الأساسي للزر */
+  color: white;
+  border: none;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.btn.symbols-btn:hover {
+  background-color: rgb(133, 61, 6); /* لون أغمق عند hover */
+  color: white;
+}
 /* Card Hover Effect for "Complete Your Experience" */
 .card-hover {
     transition: all 0.3s ease;
@@ -244,5 +294,52 @@ input.custom:focus {
 .btn-subscribe:hover {
     background-color: #4a220a !important;
     color: white !important;
+}
+
+
+/*Explore Egypt By Governorate*/
+.btn-outline-custom {
+  border: 2px solid rgba(224, 141, 0, 1); /* لون البوردر */
+  background-color: transparent;          /* خلفية شفافة */
+  color: rgba(224, 141, 0, 1);           /* لون النص زي البوردر */
+  transition: all 0.3s ease;             /* تأثير smooth */
+}
+
+.btn-outline-custom:hover {
+  background-color: rgba(224, 141, 0, 1); /* الخلفية تصبح برتقالية */
+  color: white;                            /* النص يصبح أبيض */
+  border-color: rgba(224, 141, 0, 1);     /* تبقى نفس لون البوردر */
+}
+
+/*Discover the Land of Pharaohs*/
+:root {
+  --main-color: #b45309;
+}
+
+/* زر Explore Attractions */
+.btn-explore {
+  color: var(--main-color);
+  border: 2px solid white;
+  transition: all 0.3s ease;
+}
+
+.btn-explore:hover {
+  background-color: var(--main-color);
+  color: white;
+  border-color: var(--main-color);
+}
+
+/* زر Plan Your Journey */
+.btn-plan {
+  background-color: var(--main-color);
+  color: white;
+  border: 2px solid var(--main-color);
+  transition: all 0.3s ease;
+}
+
+.btn-plan:hover {
+  background-color: white;
+  color: var(--main-color);
+  border-color: var(--main-color);
 }
 
