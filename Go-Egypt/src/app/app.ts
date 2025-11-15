@@ -10,13 +10,13 @@ import { SignUp } from './sign-up/sign-up';
 import { NotFound } from './not-found/not-found';
 import { Symbols } from './symbols/symbols';
 import { Nav } from './nav/nav';
-import { Profile } from './profile/profile';
+import { ProfileComponent } from './profile/profile';
 import { Forgetpassword } from './forgetpassword/forgetpassword';
 import { Resendemail } from './resendemail/resendemail';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet,Nav,Footer,Home,About,Attraction,ContactUs,Login,SignUp,NotFound,Symbols,Profile,Forgetpassword,Resendemail],
+  imports: [RouterOutlet,Nav,Footer,Home,About,Attraction,ContactUs,Login,SignUp,NotFound,Symbols,ProfileComponent,Forgetpassword,Resendemail],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
