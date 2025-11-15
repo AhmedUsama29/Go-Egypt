@@ -1,49 +1,42 @@
-
 <main style="margin-top: -47.5px;">
     <div class="container-fluid image mt-5 p-0" style="position: relative; height: 90vh;">
         <div class="w-100 h-100 bg-cover bg-center" style="background-image: url('assets/hero-background.jpg'); background-size: cover; background-position: center;">
-            <div class="w-100 d-flex flex-column justify-content-between align-items-start p-4 p-md-5"
+            <div class="w-100 d-flex flex-column justify-content-start align-items-start p-4 p-md-5"
                 style="position: absolute; top:0; left:0; background: rgba(0, 0, 0, 0.5); height: 100%;">
 
-                <!--title-->
-                <div class="content mt-5 ms-md-5 pt-5">
+                <div class="content mt-5 ms-4 ms-md-5 pt-5">
                     <h1 class="display-3 fw-bolder text-white">Discover the Magic of <br>
                         <span style="color: rgba(224, 141, 0);">Egypt</span>
                     </h1>
                     <p class="text-white fs-4 mb-5">Explore ancient wonders, breathtaking landscapes, and unforgettable experiences</p>
                 </div>
 
-                <!-- Explore form -->
-                <div class="bg-white rounded-3 shadow-lg p-4 mt-4 mt-md-5">
-                  <div class="container row g-3 align-items-end d-none d-md-flex">
+                <div class="bg-white rounded-3 shadow-lg p-4 mt-4 mt-md-4 ms-4 ms-md-5 hero-explore" style="max-width:760px;">
+                    <div class="row g-3 align-items-end">
 
-                <!-- Where to go? -->
-                <div class="col-12 col-md-4 position-relative">
-                  <i class="bi bi-geo-alt fs-5 position-absolute" style="top: 50%; left: 0.75rem; transform: translateY(-50%);"></i>
-                  <input type="text" class="form-control w-100 border rounded-3 py-2 ps-4 pe-3"
-                        style="border-color: rgba(224, 141, 0, 1);" placeholder="Where to go?" aria-label="Location">
-                </div>
+                        <div class="col-12 col-md-4 position-relative">
+                            <i class="bi bi-geo-alt fs-5 position-absolute" style="top: 50%; left: 0.75rem; transform: translateY(-50%);"></i>
+                            <input type="text" class="form-control w-100 border rounded-3 py-2 ps-4 pe-3"
+                                style="border-color: rgba(224, 141, 0, 1);" placeholder="Where to go?" aria-label="Location">
+                        </div>
 
-                <!-- When? -->
-                <div class="col-12 col-md-4 position-relative">
-                    <i class="bi bi-calendar4 fs-5 position-absolute" style="top: 50%; left: 0.75rem; transform: translateY(-50%);"></i>
-                    <input type="text" class="form-control w-100 border rounded-3 py-2 ps-4 pe-2"
-                    style="border-color: #D1D5DB;" placeholder="When?" aria-label="Date">
-                </div>
+                        <div class="col-12 col-md-4 position-relative">
+                            <i class="bi bi-calendar4 fs-5 position-absolute" style="top: 50%; left: 0.75rem; transform: translateY(-50%);"></i>
+                            <input type="text" class="form-control w-100 border rounded-3 py-2 ps-4 pe-2"
+                                style="border-color: #D1D5DB;" placeholder="When?" aria-label="Date">
+                        </div>
 
-                <!-- Explore button -->
-                <div class="col-12 col-md-4 d-flex justify-content-md-end">
-                  <button class="btn explore-btn w-100 w-md-auto py-2 rounded-3">
-                    <i class="bi bi-search me-2"></i> Explore
-                    </button>
+                        <div class="col-12 col-md-4 d-flex justify-content-md-end">
+                            <button class="btn explore-btn w-100 w-md-auto py-2 rounded-3">
+                                <i class="bi bi-search me-2"></i> Explore
+                            </button>
+                        </div>
+                    </div>
                 </div>
-                </div>
-              </div>
             </div>
         </div>
     </div>
 </main>
-
 <!-- Featured Destinations -->
 
 <section class="section1" style="min-height: 95vh; margin-top: 5rem;">
@@ -81,8 +74,7 @@
                                 <small>{{ card.openingTime }} - {{ card.closingTime }}</small>
                             </div>
 
-                            <button class="btn btn-details-custom w-100 mt-auto fw-medium mt-4 py-2"
-                            routerLink="attractions/{{ card.id }}" type="button">
+                            <button class="btn btn-details-custom w-100 mt-auto fw-medium mt-4 py-2">
                                 View Details
                             </button>
                         </div>
@@ -140,6 +132,7 @@
     </div>
 </section>
 
+<!--symbols-->
 <div class="container-fluid p-0 m-0">
     <section class="sec1 mb-0 py-5">
         <div class="container px-md-5">
@@ -147,7 +140,7 @@
                 <p class="fw-bolder fs-2 mb-3 text-dark">
                     Symbols of Ancient Egypt
                 </p>
-                <p class="text-secondary mb-0 w-75 text-center mx-auto fs-5">
+                <p class="text-secondary mb-4">
                     Discover the rich symbolic language of the ancient Egyptians. These
                     hieroglyphics and symbols were more than just writing—they were sacred art that connected the
                     physical world with the divine.
@@ -207,14 +200,16 @@
             </div>
 
             <div class="text-center mt-5 px-3">
-                <button class="btn btn-warning btn-lg px-4 fs-6 fw-bold rounded-pill shadow" routerLink="symbols" type="button">
-                    Explore More Egyptian Symbols
-                    <i class="bi bi-arrow-right ms-2"></i>
-                </button>
+              <button class="btn symbols-btn btn-lg px-4 fs-6 fw-bold shadow" routerLink="symbols" type="button">
+                  Explore More Egyptian Symbols
+                  <i class="bi bi-arrow-right ms-2"></i>
+              </button>
+
             </div>
         </div>
     </section>
 
+<!--Explore Egypt By Governorate-->
     <section class="bg-light mt-0 py-5">
         <div class="text-center mb-5">
             <h2 class="fw-bolder fs-2 text-dark">Explore Egypt By Governorate</h2>
@@ -286,12 +281,14 @@
             </div>
 
             <div class="mt-5">
-                <button class="btn btn-outline-warning px-5 py-3 fw-bold rounded-pill shadow-sm">
-                    View All Governorates
-                </button>
+            <button class="btn btn-outline-custom px-3 py-2 fw-bold shadow-sm">
+            View All Governorates
+            </button>
+
             </div>
         </div>
     </section>
+    <!-- Complete Your Experience -->
 
     <section class="py-5 px-md-5">
         <div class="text-center mb-5">
