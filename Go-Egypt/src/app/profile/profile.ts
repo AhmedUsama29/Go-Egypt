@@ -1,11 +1,10 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { FormsModule } from '@angular/forms'; // <-- 1. إضافة FormsModule
+import { FormsModule } from '@angular/forms'; 
 import { ProfileService , ProfileResponse, ProfileEditRequest} from '../services/profile';
 
 @Component({
   selector: 'app-profile',
-  // 2. إضافة FormsModule للـ imports
   imports: [CommonModule, FormsModule], 
   templateUrl: './profile.html',
   styleUrl: './profile.css'
@@ -15,9 +14,8 @@ export class ProfileComponent implements OnInit {
   profileImage: string | null = null;
   isEditing = false;
   
-  userData: ProfileResponse | null = null; // <-- 3. استخدام الـ Interface
+  userData: ProfileResponse | null = null; 
   
-  // 4. متغير مؤقت لحفظ بيانات الفورم وقت التعديل
   editData: ProfileEditRequest = {
     displayName: '',
     about: '',
@@ -34,7 +32,7 @@ export class ProfileComponent implements OnInit {
     this.profileService.getProfileDetails().subscribe({
       next: (data: ProfileResponse) => {
         this.userData = data;
-        this.profileImage = data.profilePicture; // بنعرض الصورة اللي جاية من الباك اند
+        this.profileImage = data.profilePicture; 
       },
       error: (err) => console.error('Error loading profile data:', err)
     });
@@ -44,18 +42,16 @@ export class ProfileComponent implements OnInit {
     const file = event.target.files?.[0];
     if (!file || !this.userData) return;
 
-    // 1. (الخطوة 1) رفع الصورة للـ Server
     this.profileService.uploadProfileImage(file).subscribe({
       next: (response) => {
-        const newImageUrl = response.newUrl; // (الخطوة 3) استقبلنا المسار
+        const newImageUrl = response.newUrl;
         this.profileImage = newImageUrl; 
-        this.userData!.profilePicture = newImageUrl; // تحديث الصورة في الداتا
+        this.userData!.profilePicture = newImageUrl; 
 
-        // 2. (الخطوة 3) حفظ الـ URL الجديد في البروفايل
         const editRequest: ProfileEditRequest = {
           displayName: this.userData!.displayName,
           about: this.userData!.about,
-          photoLocation: newImageUrl // بنبعت اللينك الجديد
+          photoLocation: newImageUrl
         };
 
         this.profileService.editProfile(editRequest).subscribe({
@@ -67,12 +63,10 @@ export class ProfileComponent implements OnInit {
     });
   }
 
-  // --- 5. تنفيذ الـ Logic المطلوب ---
 
   toggleEdit(): void {
     this.isEditing = true;
     if (this.userData) {
-      // بنحط الداتا الحالية في الفورم المؤقت
       this.editData = {
         displayName: this.userData.displayName,
         about: this.userData.about,
@@ -83,7 +77,6 @@ export class ProfileComponent implements OnInit {
 
   cancelEdit(): void {
     this.isEditing = false;
-    // مفيش حفظ، رجع كل حاجة زي ما كانت (لو عدلنا الصورة مؤقتاً)
     if (this.userData) {
       this.profileImage = this.userData.profilePicture;
     }
@@ -92,22 +85,17 @@ export class ProfileComponent implements OnInit {
   saveProfile(): void {
     if (!this.editData || !this.userData) return;
 
-    // بنجهز الـ Request بالبيانات الجديدة من الفورم
     const request: ProfileEditRequest = {
       displayName: this.editData.displayName,
       about: this.editData.about,
-      // photoLocation بيتم تحديثه من handleImageUpload لوحده
-      // فاحنا هنبعت اللي موجود في الداتا الرئيسية
       photoLocation: this.userData.profilePicture 
     };
 
     this.profileService.editProfile(request).subscribe({
       next: (success) => {
         if (success) {
-          // لو نجح، حدث الداتا الرئيسية
           this.userData!.displayName = this.editData.displayName;
           this.userData!.about = this.editData.about;
-          // الخروج من وضع التعديل
           this.isEditing = false;
         } else {
           console.error('Failed to save profile (backend returned false)');
