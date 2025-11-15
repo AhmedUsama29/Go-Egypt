@@ -39,8 +39,7 @@ namespace Persistence.Identity
 
             builder.Entity<ApplicationUser>()
                 .Property(u => u.About)
-                .HasMaxLength(60)
-                .IsRequired(false);
+                .HasMaxLength(60).IsRequired(false);
         }
     }
 }
