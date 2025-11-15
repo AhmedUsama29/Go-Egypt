@@ -20,6 +20,8 @@ namespace Domain.Models.Identity
         public Gender Gender { get; set; }
         public int NationalityId { get; set; }
         public Nationality? Nationality { get; set; }
+        public string ProfilePicture { get; set; }
+        public string About { get; set; }
 
     }
 }

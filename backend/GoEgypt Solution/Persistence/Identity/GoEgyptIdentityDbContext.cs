@@ -32,6 +32,14 @@ namespace Persistence.Identity
             .HasOne(u => u.Nationality)
             .WithMany(n => n.Users)
             .HasForeignKey(u => u.NationalityId);
+
+            builder.Entity<ApplicationUser>()
+                .Property(u => u.ProfilePicture)
+                .HasDefaultValue("assets/user.png");
+
+            builder.Entity<ApplicationUser>()
+                .Property(u => u.About)
+                .HasMaxLength(60);
         }
     }
 }
