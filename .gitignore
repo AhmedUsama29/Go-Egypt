@@ -4,3 +4,5 @@
 # Build results
 bin/
 obj/
+
+appsettings.Development.json
