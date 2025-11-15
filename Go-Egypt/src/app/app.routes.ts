@@ -15,7 +15,7 @@ import { AuthGuard } from './guards/auth-guard';
 import { LoginGuard } from './guards/login-guard';
 import { Forgetpassword } from './forgetpassword/forgetpassword';
 import { Resendemail } from './resendemail/resendemail';
-import { Profile } from './profile/profile';
+import { ProfileComponent } from './profile/profile';
 
 export const routes: Routes = [
     { path: '', component: Home },
@@ -32,6 +32,6 @@ export const routes: Routes = [
     { path: 'book/confirmation', component: Confirmation },
     { path: 'forgetpassword', component: Forgetpassword },
     { path: 'resendemail', component: Resendemail },
-    { path: 'profile', component: Profile },
+    { path: 'profile', component: ProfileComponent },
     { path: '**', component: NotFound }
 ];

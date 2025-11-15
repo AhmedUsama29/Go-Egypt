@@ -26,6 +26,7 @@ namespace GoEgypt
                 app.UseSwaggerUI();
             }
 
+            app.UseStaticFiles();
             app.UseHttpsRedirection();
             app.UseCors("AllowAngularDev");
             app.UseAuthentication();
