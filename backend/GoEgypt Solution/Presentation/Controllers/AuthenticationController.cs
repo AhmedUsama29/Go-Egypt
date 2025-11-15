@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Options;
 using ServicesAbstraction;
 using Shared.Authentication;
 using System;
@@ -13,7 +14,8 @@ namespace Presentation.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class AuthenticationController(IServiceManager _serviceManager) : ControllerBase
+    public class AuthenticationController(IServiceManager _serviceManager,
+                                           IOptions<EmailSenderOptions> _emailSettings) : ControllerBase
     {
 
         [HttpPost("register")]
@@ -42,6 +44,21 @@ namespace Presentation.Controllers
             var email = User.FindFirstValue(ClaimTypes.Email);
 
             return Ok(await _serviceManager.AuthenticationService.GetUserByEmail(email));
+        }
+
+        [HttpPost("forgotPassword")]
+        public async Task<ActionResult> ForgotPassword([FromBody]string email)
+        {
+            await _serviceManager.AuthenticationService.ForgotPasswordAsync(email);
+            return Ok();
+        }
+
+        [HttpPost("resetPassword")]
+        public async Task<ActionResult> ResetPassword(ResetPasswordRequest request)
+        {
+
+            await _serviceManager.AuthenticationService.ResetPasswordAsync(request);
+            return Ok();
         }
 
     }

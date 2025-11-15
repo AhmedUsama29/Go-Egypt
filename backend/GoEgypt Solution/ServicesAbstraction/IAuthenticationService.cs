@@ -14,5 +14,9 @@ namespace ServicesAbstraction
         Task<bool> CheckEmailAsync(string email);
         Task<UserResponse> GetUserByEmail(string email);
 
+        Task ForgotPasswordAsync(string email);
+
+        Task ResetPasswordAsync(ResetPasswordRequest request);
+
     }
 }

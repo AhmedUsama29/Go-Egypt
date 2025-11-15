@@ -1,8 +1,12 @@
 ﻿using Domain.Contracts;
 using GoEgypt.Factories;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
+using Services;
 using Shared.Authentication;
 using System.Text;
 
@@ -19,6 +23,10 @@ namespace GoEgypt
             {
                 options.InvalidModelStateResponseFactory = ApiResponseFactory.GenerateApiValidationResponse;
             });
+
+            services.Configure<EmailSenderOptions>(configuration.GetSection("SmtpSettings"));
+
+            services.AddTransient<IEmailSender, EmailSender>();
 
             services.ConfigureJWT(configuration);
 			// CORS to allow Angular dev server
