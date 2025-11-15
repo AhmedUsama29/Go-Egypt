@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core'; // 1. حذف CUSTOM_ELEMENTS_SCHEMA
+import { Component, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { AttractionService, HomeAttractions } from '../services/attraction';
