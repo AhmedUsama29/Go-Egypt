@@ -1,0 +1,56 @@
+/* General font */
+body {
+    font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+/* Hover underline */
+.hover-underline:hover {
+    text-decoration: underline;
+}
+
+/* Card styles */
+.forgot-card {
+    border-color: #F0E7D9;
+    box-shadow: 0 6px 18px rgba(22, 18, 12, 0.06);
+    padding: 2rem;
+    max-width: 30rem;
+}
+
+/* Button */
+.btn-orange {
+    background:#E08D00;
+    color: #fff;
+    font-weight: 600;
+    border: none;
+}
+.btn-orange:hover, .btn-orange:focus {
+    background:#C06200;
+    color:#fff;
+}
+.btn-light {
+    background:white;
+    color:black;
+    border:1px solid rgb(174, 173, 173);
+}
+
+.btn-light:hover {
+    background:#f4f6f8;
+    color:#000;
+}
+
+
+/* Responsive adjustments */
+@media (max-width:420px){
+    .icon-circle{ width:56px; height:56px; }
+    .forgot-card{ padding:1.5rem; }
+}
+
+/*hover*/
+ .back:hover{
+    text-decoration: underline;
+ }
+
+
+a.support:hover{
+    text-decoration: underline !important;
+}
