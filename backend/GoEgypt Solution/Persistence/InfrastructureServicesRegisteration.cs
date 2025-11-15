@@ -45,7 +45,8 @@ namespace Persistence
                 config.User.RequireUniqueEmail = true;
             })
                     .AddRoles<IdentityRole>()
-                    .AddEntityFrameworkStores<GoEgyptIdentityDbContext>();
+                    .AddEntityFrameworkStores<GoEgyptIdentityDbContext>()
+                    .AddDefaultTokenProviders();
 
             return services;
         }
