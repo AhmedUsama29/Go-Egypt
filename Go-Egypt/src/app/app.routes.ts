@@ -16,6 +16,7 @@ import { LoginGuard } from './guards/login-guard';
 import { Forgetpassword } from './forgetpassword/forgetpassword';
 import { Resendemail } from './resendemail/resendemail';
 import { ProfileComponent } from './profile/profile';
+import { ResetPassword } from './reset-password/reset-password';
 
 export const routes: Routes = [
     { path: '', component: Home },
@@ -33,5 +34,6 @@ export const routes: Routes = [
     { path: 'forgetpassword', component: Forgetpassword },
     { path: 'resendemail', component: Resendemail },
     { path: 'profile', component: ProfileComponent },
+    { path: 'reset-password', component: ResetPassword },
     { path: '**', component: NotFound }
 ];
