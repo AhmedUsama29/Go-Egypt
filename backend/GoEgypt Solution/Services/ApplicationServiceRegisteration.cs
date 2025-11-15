@@ -24,6 +24,10 @@ namespace Services
 
             services.AddScoped<IAttractionService, AttractionService>();
 
+            services.AddScoped<IProfileService, ProfileService>();
+
+            services.AddScoped<Func<IProfileService>>(provider => ()
+            => provider.GetRequiredService<IProfileService>());
 
             services.AddScoped<Func<IAuthenticationService>>(provider => ()
             => provider.GetRequiredService<IAuthenticationService>());
