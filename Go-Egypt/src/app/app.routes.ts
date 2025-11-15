@@ -15,10 +15,11 @@ import { AuthGuard } from './guards/auth-guard';
 import { LoginGuard } from './guards/login-guard';
 import { Forgetpassword } from './forgetpassword/forgetpassword';
 import { Resendemail } from './resendemail/resendemail';
+import { Profile } from './profile/profile';
 
 export const routes: Routes = [
     { path: '', component: Home },
-    {path: '', redirectTo : 'home' , pathMatch: 'full'},
+    { path: '', redirectTo : 'home' , pathMatch: 'full'},
     { path: 'about', component: About },
     { path: 'attractions', component: Attraction },
     { path: 'contact-us', component: ContactUs },
@@ -31,5 +32,6 @@ export const routes: Routes = [
     { path: 'book/confirmation', component: Confirmation },
     { path: 'forgetpassword', component: Forgetpassword },
     { path: 'resendemail', component: Resendemail },
+    { path: 'profile', component: Profile },
     { path: '**', component: NotFound }
 ];
