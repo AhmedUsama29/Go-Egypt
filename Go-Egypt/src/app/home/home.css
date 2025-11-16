@@ -147,8 +147,12 @@ input.custom:focus {
 }
 .btn-details-custom:hover {
   background-color: #FEF3C7; 
-  /* border-color: #B45309; */
 }
+.btn-details-custom:hover{
+  color: #B45309;
+}
+
+/* [routerLink]="['/attractions', card.id]" */
 /*
 |--------------------------------------------------------------------------
 | 4. SECTION 2: DISCOVER PHARAOHS LAND (Image Gallery)
