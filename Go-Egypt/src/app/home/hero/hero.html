@@ -1,0 +1,77 @@
+<section class="relative pt-16 pb-24 overflow-hidden">
+
+  <!-- Background Image -->
+  <div class="absolute inset-0 z-0">
+    <img 
+      src="https://images.unsplash.com/photo-1568322445389-f64ac2515020?auto=format&fit=crop&w=2000&q=80"
+      alt="Pyramids of Giza"
+      class="w-full h-full object-cover" />
+    <div class="absolute inset-0 bg-gradient-to-r from-black/70 to-black/40"></div>
+  </div>
+
+  <!-- Content -->
+  <div class="container mx-auto px-4 pt-20 pb-16 relative z-10">
+    <div class="max-w-3xl text-white">
+
+      <h1 class="text-5xl md:text-6xl font-bold mb-4">
+        Discover the Magic of <span class="text-amber-400">Egypt</span>
+      </h1>
+      <p class="text-xl md:text-2xl mb-8 text-gray-100">
+        Explore ancient wonders, breathtaking landscapes, and unforgettable experiences
+      </p>
+
+      <div class="relative inline-block mb-12">
+        <div class="h-1 bg-amber-400 w-24"></div>
+        <div class="absolute right-0 bottom-0 w-8 h-8 text-amber-400">
+          <!-- Small decorative SVG (scarab-like) -->
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-full h-full">
+            <path d="M12 2a7 7 0 0 1 7 7v2h-2V9a5 5 0 0 0-10 0v2H5V9a7 7 0 0 1 7-7z"/>
+            <circle cx="12" cy="16" r="4"/>
+          </svg>
+        </div>
+      </div>
+
+      <!-- Search Box -->
+      <div class="bg-white rounded-lg p-4 shadow-lg mt-12">
+        <div class="flex flex-col md:flex-row md:items-center space-y-4 md:space-y-0 md:space-x-4">
+
+          <!-- Where to go -->
+          <div class="flex-1 relative">
+            <div class="flex items-center border-b-2 border-gray-200 py-2">
+              <!-- Map Pin SVG -->
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-amber-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 11c1.657 0 3-1.343 3-3S13.657 5 12 5s-3 1.343-3 3 1.343 3 3 3z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 2c4 0 7 4 7 9s-7 13-7 13-7-9-7-13 3-9 7-9z" />
+              </svg>
+              <input type="text" placeholder="Where to go?" class="w-full focus:outline-none text-gray-800" />
+            </div>
+          </div>
+
+          <!-- When -->
+          <div class="flex-1 relative">
+            <div class="flex items-center border-b-2 border-gray-200 py-2">
+              <!-- Calendar SVG -->
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-amber-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3M3 11h18M5 21h14a2 2 0 0 0 2-2V7H3v12a2 2 0 0 0 2 2z"/>
+              </svg>
+              <input type="text" placeholder="When?" class="w-full focus:outline-none text-gray-800" />
+            </div>
+          </div>
+
+          <!-- Button -->
+          <button class="bg-amber-600 hover:bg-amber-700 text-white py-3 px-6 rounded-lg transition duration-200 flex items-center justify-center">
+            <!-- Search SVG -->
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 1 0-14 0 7 7 0 0 0 14 0z"/>
+            </svg>
+            <span>Explore</span>
+          </button>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-white to-transparent"></div>
+</section>

@@ -44,13 +44,3 @@ body {
     .icon-circle{ width:56px; height:56px; }
     .forgot-card{ padding:1.5rem; }
 }
-
-/*hover*/
- .back:hover{
-    text-decoration: underline;
- }
-
-
-a.support:hover{
-    text-decoration: underline !important;
-}
