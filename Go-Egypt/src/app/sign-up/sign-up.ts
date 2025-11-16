@@ -1,18 +1,36 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component, inject, signal, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router, RouterLink } from '@angular/router';
-import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms'; 
-import { Auth } from '../services/auth'; 
+import { FormBuilder, FormGroup, Validators, ReactiveFormsModule, AbstractControl, ValidatorFn, ValidationErrors } from '@angular/forms';
+import { Auth } from '../services/auth';
 import { finalize } from 'rxjs/operators';
+
+function maxDateValidator(minAge: number): ValidatorFn {
+  return (control: AbstractControl): ValidationErrors | null => {
+    if (!control.value) {
+      return null;
+    }
+
+    const today = new Date();
+    const maxDate = new Date(today.getFullYear() - minAge, today.getMonth(), today.getDate());
+
+    const dateOfBirth = new Date(control.value);
+
+    if (dateOfBirth > maxDate) {
+      return { minAge: { requiredAge: minAge, actualDate: dateOfBirth } };
+    }
+    return null;
+  };
+}
 
 @Component({
   selector: 'app-sign-up',
   standalone: true,
-  imports: [CommonModule, RouterLink, ReactiveFormsModule], 
+  imports: [CommonModule, RouterLink, ReactiveFormsModule],
   templateUrl: './sign-up.html',
   styleUrl: './sign-up.css'
 })
-export class SignUp {
+export class SignUp implements OnInit {
 
   registerForm: FormGroup;
   isSubmitted = false;
@@ -20,7 +38,7 @@ export class SignUp {
 
   loading = signal(false);
   formError = signal<string | null>(null);
-  
+
   emailLoading = signal(false);
   emailError = signal<string | null>(null);
   emailSuccess = signal<boolean>(false);
@@ -30,6 +48,20 @@ export class SignUp {
   private fb = inject(FormBuilder);
   private authService = inject(Auth);
   private router = inject(Router);
+
+  constructor() {
+    this.registerForm = this.fb.group({
+      displayName: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(50)]],
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(6)]],
+      confirmPassword: ['', Validators.required],
+      dateOfBirth: ['', [Validators.required, maxDateValidator(18)]],
+      nationalityId: ['', [Validators.required, Validators.min(1)]], 
+      gender: ['', Validators.required]
+    }, {
+      validator: this.passwordMatchValidator
+    });
+  }
 
   ngOnInit() {
     this.authService.getNationalities().subscribe({
@@ -42,47 +74,41 @@ export class SignUp {
     });
   }
 
-  constructor() {
-    this.registerForm = this.fb.group({
-      displayName: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(6)]],
-      confirmPassword: ['', Validators.required],
-      dateOfBirth: ['', Validators.required],
-      nationalityId: ['', Validators.required],
-      gender: ['', Validators.required]
-    }, {
-      validator: this.passwordMatchValidator
-    });
-  }
-
   passwordMatchValidator(form: FormGroup) {
     const password = form.get('password')?.value;
     const confirmPassword = form.get('confirmPassword')?.value;
     if (password !== confirmPassword) {
       form.get('confirmPassword')?.setErrors({ mismatch: true });
       return { mismatch: true };
+    } else {
+      const errors = form.get('confirmPassword')?.errors;
+      if (errors) {
+        delete errors['mismatch'];
+        if (Object.keys(errors).length === 0) {
+          form.get('confirmPassword')?.setErrors(null);
+        } else {
+          form.get('confirmPassword')?.setErrors(errors);
+        }
+      }
     }
     return null;
   }
 
-
-checkEmail() {
+  checkEmail() {
     const emailControl = this.registerForm.get('email');
-    
+
     this.emailError.set(null);
     this.emailSuccess.set(false);
 
-if (emailControl?.hasError('emailTaken')) {
-    if (emailControl.errors) { 
+    if (emailControl?.hasError('emailTaken')) {
+      if (emailControl.errors) {
         delete emailControl.errors['emailTaken'];
-    } 
+      }
+      emailControl.updateValueAndValidity();
+    }
 
-    emailControl.updateValueAndValidity();
-}
-
-    if (emailControl?.invalid) { 
-      return; 
+    if (emailControl?.invalid) {
+      return;
     }
 
     this.emailLoading.set(true);
@@ -95,7 +121,7 @@ if (emailControl?.hasError('emailTaken')) {
           emailControl?.setErrors({ ...emailControl.errors, emailTaken: true });
           this.emailSuccess.set(false);
         } else {
-          this.emailSuccess.set(true); 
+          this.emailSuccess.set(true);
           this.emailError.set(null);
         }
       },
@@ -106,36 +132,40 @@ if (emailControl?.hasError('emailTaken')) {
     });
   }
 
-
   handleSubmit() {
     this.isSubmitted = true;
     this.formError.set(null);
     this.formErrors = {};
 
-    if (this.registerForm.invalid || this.emailLoading() || this.emailError()) {
+    if (this.registerForm.invalid || this.emailLoading() || this.emailError() || !this.emailSuccess()) {
       this.collectFormErrors();
+      
+      if (this.registerForm.get('email')?.valid && !this.emailSuccess() && !this.emailError()) {
+         this.emailError.set('Please verify your email.');
+      }
       return;
     }
 
     this.loading.set(true);
-    
+
     const email = this.registerForm.get('email')?.value;
 
     const baseUserName = email.split('@')[0];
 
-      const randomSuffix = Math.floor(1000 + Math.random() * 9000); 
-      const userName = `${baseUserName}${randomSuffix}`;
+    const randomSuffix = Math.floor(1000 + Math.random() * 9000);
+    const userName = `${baseUserName}${randomSuffix}`;
 
-      const { confirmPassword, ...formValue } = this.registerForm.value;
+    const { confirmPassword, ...formValue } = this.registerForm.value;
 
-      const registerRequest = {
-        ...formValue,
-        userName: userName 
-      };
+    const registerRequest = {
+      ...formValue,
+      userName: userName
+    };
+
     this.authService.register(registerRequest).subscribe({
       next: (response) => {
         this.loading.set(false);
-        this.router.navigate(['/']); 
+        this.router.navigate(['/']);
       },
       error: (err) => {
         this.loading.set(false);
@@ -145,18 +175,36 @@ if (emailControl?.hasError('emailTaken')) {
   }
 
   private collectFormErrors() {
+    this.formErrors = {}; 
     Object.keys(this.registerForm.controls).forEach(key => {
       const controlErrors = this.registerForm.get(key)?.errors;
       if (controlErrors) {
-        if (controlErrors['required']) this.formErrors[key] = 'This field is required.';
-        if (controlErrors['email']) this.formErrors[key] = 'Please enter a valid email.';
-        if (controlErrors['minlength']) this.formErrors[key] = 'Password must be at least 6 characters.';
-        if (controlErrors['mismatch']) this.formErrors[key] = 'Passwords do not match.';
-        if (key === 'nationalityId' && controlErrors['required']) {
-          this.formErrors['nationalityId'] = 'Please select your nationality.';
+        if (controlErrors['required']) {
+            this.formErrors[key] = 'This field is required.';
         }
-        
+        else if (key === 'displayName' && controlErrors['minlength']) {
+            this.formErrors[key] = 'Display name must be at least 3 characters.';
+        }
+        else if (key === 'email' && controlErrors['email']) {
+            this.formErrors[key] = 'Please enter a valid email.';
+        }
+        else if (key === 'password' && controlErrors['minlength']) {
+            this.formErrors[key] = 'Password must be at least 6 characters.';
+        }
+        else if (key === 'confirmPassword' && controlErrors['mismatch']) {
+            this.formErrors[key] = 'Passwords do not match.';
+        }
+        else if (key === 'dateOfBirth' && controlErrors['minAge']) {
+            this.formErrors[key] = `You must be at least ${controlErrors['minAge'].requiredAge} years old.`;
+        }
+        else if (key === 'nationalityId' && controlErrors['min']) {
+            this.formErrors[key] = 'Please select a valid nationality.';
+        }
       }
     });
+
+    if (this.registerForm.get('email')?.hasError('emailTaken')) {
+        this.formErrors['email'] = 'This email is already taken.';
+    }
   }
 }
