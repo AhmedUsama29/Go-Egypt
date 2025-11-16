@@ -2,13 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { AttractionService, HomeAttractions } from '../services/attraction';
+import { Hero } from './hero/hero';
 
 @Component({
   selector: 'app-home',
-  imports: [
-    RouterLink,
-    CommonModule
-  ],
+  imports: [RouterLink , CommonModule, Hero],
   templateUrl: './home.html',
   styleUrl: './home.css'
 

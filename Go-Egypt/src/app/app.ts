@@ -17,11 +17,12 @@ import { ResetPassword } from './reset-password/reset-password';
 import { ResetSuccess } from './reset-success/reset-success';
 import { TermsOfServices } from './terms-of-services/terms-of-services';
 import { PrivacyPolicy } from './privacy-policy/privacy-policy';
+import { Hero } from './home/hero/hero';
 
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet,Nav,Footer,Home,About,Attraction,ContactUs,Login,SignUp,NotFound,Symbols,ProfileComponent,Forgetpassword,Resendemail,ResetPassword,ResetSuccess,TermsOfServices,PrivacyPolicy],
+  imports: [RouterOutlet,Nav,Footer,Home,Hero,About,Attraction,ContactUs,Login,SignUp,NotFound,Symbols,ProfileComponent,Forgetpassword,Resendemail,ResetPassword,ResetSuccess,TermsOfServices,PrivacyPolicy],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })

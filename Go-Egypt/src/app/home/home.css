@@ -1,9 +1,5 @@
-/*
-|--------------------------------------------------------------------------
-| 1. GLOBAL RESET & BASE STYLES
-|--------------------------------------------------------------------------
-*/
-/* Ensures custom inputs don't get unwanted box-shadows */
+
+
 input.custom {
     box-shadow: none;
 }
