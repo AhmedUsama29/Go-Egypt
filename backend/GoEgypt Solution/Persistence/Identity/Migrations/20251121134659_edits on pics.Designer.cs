@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Persistence.Identity;
 
@@ -11,9 +12,11 @@ using Persistence.Identity;
 namespace Persistence.Identity.Migrations
 {
     [DbContext(typeof(GoEgyptIdentityDbContext))]
-    partial class GoEgyptIdentityDbContextModelSnapshot : ModelSnapshot
+    [Migration("20251121134659_edits on pics")]
+    partial class editsonpics
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -86,7 +89,7 @@ namespace Persistence.Identity.Migrations
                         .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(max)")
-                        .HasDefaultValue("/images/profiles/user.png");
+                        .HasDefaultValue("/images/profile/user.png");
 
                     b.Property<string>("SecurityStamp")
                         .HasColumnType("nvarchar(max)");
