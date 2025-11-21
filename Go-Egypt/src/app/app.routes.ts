@@ -20,6 +20,7 @@ import { ResetPassword } from './reset-password/reset-password';
 import { ResetSuccess } from './reset-success/reset-success';
 import { PrivacyPolicy } from './privacy-policy/privacy-policy';
 import { TermsOfServices } from './terms-of-services/terms-of-services';
+import { Instructions } from './instructions/instructions';
 
 export const routes: Routes = [
     { path: '', component: Home },
@@ -41,5 +42,6 @@ export const routes: Routes = [
     { path: 'reset-success', component: ResetSuccess , canActivate: [LoginGuard]},
     { path: 'privacy-policy', component: PrivacyPolicy },
     { path: 'terms-of-services', component: TermsOfServices },
+    { path: 'instructions', component: Instructions},
     { path: '**', component: NotFound }
 ];
