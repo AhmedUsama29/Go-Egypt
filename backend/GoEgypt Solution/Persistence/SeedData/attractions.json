@@ -3,13 +3,13 @@
     "Name": "Step Pyramid of Djoser",
     "Location": "Saqqara, Giza",
     "Overview": "The Step Pyramid of Djoser is considered the earliest colossal stone building in Egypt and the first pyramid ever built, designed by the architect Imhotep for Pharaoh Djoser.",
-    "MainPhotoPath": "assets/step pyramid of Djoser.jpg",
+    "MainPhotoPath": "assets/Djoser.jpg",
     "Category": "Historical",
     "OpeningTime": "08:00:00",
     "ClosingTime": "17:00:00",
     "Gallery": [
-      "assets/pyramid.jpg",
-      "assets/s1.jpg"
+      "assets/images/Djoser/1.jpg",
+      "assets/images/Djoser/2.jpg"
     ],
     "KeyFacts": [
       {
