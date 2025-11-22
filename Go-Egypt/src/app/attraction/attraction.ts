@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core'; 
 import { CommonModule, ViewportScroller } from '@angular/common'; 
 import { AttractionService, PaginatedResponse, CardAttractions } from '../services/attraction'; 
-import { Router, RouterModule } from '@angular/router';
+import { Router, RouterModule, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-attraction',
@@ -22,30 +22,48 @@ export class Attraction implements OnInit {
 
   categories: string[] = ['Historical', 'Cultural', 'Nature', 'Religious', 'Entertainment'];
   selectedCategory: string = '';
+  selectedLocation: string = '';
 
   constructor(private attractionService: AttractionService,
-              private viewportScroller: ViewportScroller
+              private viewportScroller: ViewportScroller,
+              private route: ActivatedRoute, 
+              private router: Router
   ) {}
 
   ngOnInit(): void {
-    this.loadAttractions(); 
+    this.route.queryParams.subscribe(params => {
+      this.selectedLocation = params['Location'] || '';
+      this.currentPage = 1;
+      this.loadAttractions();
+    });
   }
 
-  loadAttractions(): void {
-    this.attractionService.getAttractions(this.currentPage, this.pageSize, this.selectedCategory)
+loadAttractions(): void {
+    this.attractionService.getAttractions(
+        this.currentPage, 
+        this.pageSize, 
+        this.selectedCategory, 
+        this.selectedLocation
+      )
       .subscribe(response => {
         this.attractionsResponse = response;
         this.totalPages = Math.ceil(response.count / this.pageSize);
-        
         this.pages = Array(this.totalPages).fill(0).map((x, i) => i + 1);
-        
-        console.log(response); 
       });
   }
 
-  filterByCategory(category: string): void {
+filterByCategory(category: string): void {
     this.selectedCategory = category;
     this.currentPage = 1;
+    this.loadAttractions();
+  }
+
+  clearLocationFilter(): void {
+    this.selectedLocation = '';
+    this.router.navigate([], {
+      queryParams: { Location: null },
+      queryParamsHandling: 'merge'
+    });
     this.loadAttractions();
   }
 

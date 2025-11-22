@@ -57,7 +57,7 @@ export class AttractionService {
 
   constructor(private http: HttpClient) { }
 
-  getAttractions(page: number, size: number, category?: string): Observable<PaginatedResponse<CardAttractions>> {
+getAttractions(page: number, size: number, category?: string, location?: string): Observable<PaginatedResponse<CardAttractions>> {
     
     let params = new HttpParams()
       .set('PageIndex', page.toString())
@@ -65,6 +65,10 @@ export class AttractionService {
 
     if (category) {
       params = params.set('Category', category);
+    }
+
+    if (location) {
+      params = params.set('Location', location);
     }
 
     return this.http.get<PaginatedResponse<CardAttractions>>(

@@ -46,40 +46,87 @@
 }
 
 
-/*
-=========================================
-=== (جديد) ستايل أزرار الـ Pagination ===
-=========================================
-*/
+/* --- ستايل أزرار الـ Pagination (الأصلي) --- */
 .pagination-btn {
   display: inline-block;
-  padding: 0.5rem 1rem; /* حجم الزرار */
+  padding: 0.5rem 1rem;
   margin: 0 0.2rem;
   font-weight: 600;
   font-size: 0.9rem;
-  border-radius: 9999px; /* مدور */
-  border: 1px solid #d97706; /* بوردر برتقالي */
-  color: #d97706; /* لون الخط برتقالي */
-  background-color: #ffffff; /* خلفية بيضا */
+  border-radius: 9999px;
+  border: 1px solid #d97706;
+  color: #d97706;
+  background-color: #ffffff;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
 }
 
 .pagination-btn:hover {
-  background-color: #fef3c7; /* خلفية أصفر باهت عند الـ hover */
+  background-color: #fef3c7;
 }
 
-/* ستايل الزرار الـ Active (نفس لون الثيم) */
 .pagination-btn.active {
   background-color: rgb(217, 119, 6);
   color: white;
   border-color: rgb(217, 119, 6);
 }
 
-/* ستايل الزرار الـ Disabled */
 .pagination-btn:disabled {
   color: #9ca3af;
   border-color: #e5e7eb;
   background-color: #f9fafb;
   cursor: not-allowed;
+}
+
+/* ===================================================
+=== (جديد) ستايل Active Location Filter Chips === 
+===================================================
+*/
+
+/* شكل الكارت الصغير (Chip) */
+.filter-chip {
+  transition: all 0.3s ease;
+  cursor: default;
+}
+
+.filter-chip:hover {
+  border-color: #f59e0b !important; /* لون برتقالي عند الهوفر */
+  transform: translateY(-1px);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06) !important;
+}
+
+/* زرار المسح (X) داخل الشيب */
+.remove-filter-btn {
+  border-radius: 50%;
+  transition: background-color 0.2s ease;
+}
+
+.remove-filter-btn:hover {
+  background-color: #fee2e2; /* لون أحمر فاتح جداً */
+  color: #dc2626 !important; /* لون أحمر */
+}
+
+/* حركة ناعمة عند الظهور */
+.animate-fade-in {
+  animation: fadeIn 0.4s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+      transform: translateY(-5px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+/* تنسيقات إضافية صغيرة للنصوص */
+.tracking-wider {
+  letter-spacing: 0.05em;
+}
+
+.hover-underline:hover {
+  text-decoration: underline !important;
 }
