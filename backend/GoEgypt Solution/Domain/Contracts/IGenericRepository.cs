@@ -1,4 +1,5 @@
-﻿using Domain.Models;
+﻿using Domain.Contracts;
+using Domain.Models;
 using Domain.Models.Identity;
 using System;
 using System.Buffers.Text;
@@ -20,7 +21,9 @@ namespace Domain.Contracs
         void AddAppDb(TEntity entity);
         void UpdateAppDb(TEntity entity);
         void DeleteAppDb(TEntity entity);
-        Task<TEntity?> GetByIdAppDbAsync(TKey id);
-        IQueryable<TEntity> GetAllAppDbAsync();
+        Task<IEnumerable<TEntity>> GetAllAppDbAsync(ISpecifications<TEntity> specifications);
+        Task<TEntity?> GetByIdAppDbAsync(ISpecifications<TEntity> specifications);
+
+        Task<int> CountAsync(ISpecifications<TEntity> specifications);
     }
 }

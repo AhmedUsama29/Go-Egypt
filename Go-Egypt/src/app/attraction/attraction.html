@@ -10,8 +10,25 @@
   <div class="container-fluid mx-auto px-4">
     <div class="d-flex align-items-center overflow-auto pb-1 gap-2">
       <i class="bi bi-funnel fs-5 fw-bold" style="color: rgb(107 114 128);"></i>
-      <button class="filter-btn active px-3 py-2 rounded-pill fs-6 fw-semibold border-0 bg-white" style="color: rgb(55 65 81) ; font-size: 0.875rem; line-height: 1.25rem; cursor: pointer;">All Attractions</button>
-      </div>
+      
+      <button class="filter-btn px-3 py-2 rounded-pill fs-6 fw-semibold border-0" 
+              [class.active]="selectedCategory === ''"
+              [class.bg-white]="selectedCategory !== ''"
+              (click)="filterByCategory('')"
+              style="color: rgb(55 65 81); font-size: 0.875rem; line-height: 1.25rem; cursor: pointer;">
+          All Attractions
+      </button>
+
+      <button *ngFor="let cat of categories"
+              class="filter-btn px-3 py-2 rounded-pill fs-6 fw-semibold border-0"
+              [class.active]="selectedCategory === cat"
+              [class.bg-white]="selectedCategory !== cat"
+              (click)="filterByCategory(cat)"
+              style="color: rgb(55 65 81); font-size: 0.875rem; line-height: 1.25rem; cursor: pointer;">
+          {{ cat }}
+      </button>
+
+    </div>
   </div>
 </section>
 
@@ -63,6 +80,7 @@
       </div>
     </div> </div>
 </section>
+
 <section class="py-4 d-flex justify-content-center align-items-center gap-2" *ngIf="totalPages > 1">
   
   <button class="pagination-btn" 
@@ -81,4 +99,4 @@
           [disabled]="currentPage === totalPages">
     &raquo; </button>
 
-</section>  
+</section>
