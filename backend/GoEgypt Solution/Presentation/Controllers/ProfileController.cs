@@ -63,5 +63,13 @@ namespace Presentation.Controllers
 
             return Ok(new { newUrl = publicUrl });
         }
+
+        [HttpGet("profile-picture")]
+        public async Task<ActionResult<string>> GetProfilePicture()
+        {
+            string? userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var pictureUrl = await _serviceManager.ProfileService.GetProfilePicture(userId!);
+            return Ok(pictureUrl);
+        }
     }
 }
