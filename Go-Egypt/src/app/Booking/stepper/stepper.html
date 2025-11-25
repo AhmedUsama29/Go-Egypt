@@ -1,30 +1,55 @@
 <div class="d-flex justify-content-center align-items-center mb-3">
 
-  <button class="btn rounded-circle fw-bold"
-          [ngClass]="currentStep > 1 ? 'btn-success text-white' : (currentStep === 1 ? 'btn-warning text-white' : 'btn-outline-secondary')">
-    <i *ngIf="currentStep > 1" class="bi bi-check-lg"></i>
-    <span *ngIf="currentStep === 1">1</span>
+  <!-- STEP 1 -->
+  <button class="btn rounded-circle fw-bold d-flex justify-content-center align-items-center"
+          [ngClass]="currentStep > 1 ? 'btn-success text-white' :
+                      (currentStep === 1 ? 'btn-amber' : 'btn-outline-secondary')">
+    <ng-container *ngIf="currentStep > 1">
+      <i class="bi bi-check-lg"></i>
+    </ng-container>
+    <ng-container *ngIf="currentStep <= 1">
+      1
+    </ng-container>
   </button>
 
+
+  <!-- LINE -->
   <div class="border-top mx-2 w-25 d-none d-sm-block"
-       [ngClass]="currentStep > 1 ? 'border-warning' : 'border-secondary'"></div>
+       [ngClass]="currentStep > 1 ? 'border-success' : 'border-secondary'"></div>
   <div class="border-top d-block d-sm-none"
        style="width: 30px; margin: 0 10px;"
-       [ngClass]="currentStep > 1 ? 'border-warning' : 'border-secondary'"></div>
+       [ngClass]="currentStep > 1 ? 'border-success' : 'border-secondary'"></div>
 
-  <button class="btn rounded-circle fw-bold"
-          [ngClass]="currentStep === 2 ? 'btn-warning text-white' : (currentStep > 2 ? 'btn-success text-white' : 'btn-outline-secondary')">
+<!-- STEP 2 -->
+<button class="btn rounded-circle fw-bold d-flex justify-content-center align-items-center"
+        [ngClass]="currentStep > 2 ? 'btn-success text-white' :
+                    (currentStep === 2 ? 'btn-amber' : 'btn-outline-secondary')">
+  <ng-container *ngIf="currentStep > 2">
+    <i class="bi bi-check-lg"></i>
+  </ng-container>
+  <ng-container *ngIf="currentStep <= 2">
     2
-  </button>
+  </ng-container>
+</button>
 
+
+
+  <!-- LINE -->
   <div class="border-top mx-2 w-25 d-none d-sm-block"
-       [ngClass]="currentStep > 2 ? 'border-warning' : 'border-secondary'"></div>
+       [ngClass]="currentStep > 2 ? 'border-success' : 'border-secondary'"></div>
   <div class="border-top d-block d-sm-none"
        style="width: 30px; margin: 0 10px;"
-       [ngClass]="currentStep > 2 ? 'border-warning' : 'border-secondary'"></div>
+       [ngClass]="currentStep > 2 ? 'border-success' : 'border-secondary'"></div>
 
-  <button class="btn rounded-circle fw-bold"
-          [ngClass]="currentStep === 3 ? 'btn-warning text-white' : 'btn-outline-secondary'">
-    3
+<!-- STEP 3 -->
+  <button class="btn rounded-circle fw-bold d-flex justify-content-center align-items-center"
+          [ngClass]="currentStep >= 3 ? 'btn-success text-white' : 'btn-outline-secondary'">
+    <ng-container *ngIf="currentStep >= 3">
+      <i class="bi bi-check-lg"></i>
+    </ng-container>
+    <ng-container *ngIf="currentStep < 3">
+      3
+    </ng-container>
   </button>
+
 </div>

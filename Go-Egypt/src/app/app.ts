@@ -18,11 +18,22 @@ import { ResetSuccess } from './reset-success/reset-success';
 import { TermsOfServices } from './terms-of-services/terms-of-services';
 import { PrivacyPolicy } from './privacy-policy/privacy-policy';
 import { Hero } from './home/hero/hero';
+import { BookNow } from './Booking/book-now/book-now';
+import { Confirmation } from './Booking/confirmation/confirmation';
+import { Details } from './Booking/details/details';
+import { Stepper } from './Booking/stepper/stepper';
+import { AdminLayout } from './admin/admin-layout/admin-layout';
+import { StatCard } from './admin/stat-card/stat-card';
+import { AdminDashboard } from './admin/admin-dashboard/admin-dashboard';
+import { AdminBooking } from './admin/admin-booking/admin-booking';
+
 
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet,Nav,Footer,Home,Hero,About,Attraction,ContactUs,Login,SignUp,NotFound,Symbols,ProfileComponent,Forgetpassword,Resendemail,ResetPassword,ResetSuccess,TermsOfServices,PrivacyPolicy],
+  imports: [RouterOutlet, Nav, Footer, Home, Hero, About, Attraction, ContactUs, Login, SignUp, NotFound, Symbols, ProfileComponent,
+    Forgetpassword, Resendemail, ResetPassword, ResetSuccess, TermsOfServices, PrivacyPolicy, BookNow, Confirmation, Details,
+    Stepper, AdminLayout,StatCard, AdminDashboard , AdminBooking],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })

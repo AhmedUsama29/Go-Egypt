@@ -218,7 +218,7 @@ input.custom:focus {
 
 
 .btn.symbols-btn {
-  background-color: rgb(180, 83, 9); /* اللون الأساسي للزر */
+  background-color: #b45309; /* اللون الأساسي للزر */
   color: white;
   border: none;
   transition: background-color 0.3s, color 0.3s;

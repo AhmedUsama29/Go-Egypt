@@ -20,6 +20,11 @@ import { ResetPassword } from './reset-password/reset-password';
 import { ResetSuccess } from './reset-success/reset-success';
 import { PrivacyPolicy } from './privacy-policy/privacy-policy';
 import { TermsOfServices } from './terms-of-services/terms-of-services';
+import { AdminLayout } from './admin/admin-layout/admin-layout';
+import { AdminDashboard } from './admin/admin-dashboard/admin-dashboard';
+import { AdminBooking } from './admin/admin-booking/admin-booking';
+
+
 
 export const routes: Routes = [
     { path: '', component: Home },
@@ -41,5 +46,9 @@ export const routes: Routes = [
     { path: 'reset-success', component: ResetSuccess , canActivate: [LoginGuard]},
     { path: 'privacy-policy', component: PrivacyPolicy },
     { path: 'terms-of-services', component: TermsOfServices },
+    { path: 'admin-layout', component: AdminLayout },
+    { path: 'admin/dashboard', component: AdminDashboard },
+    { path: 'admin/bookings', component: AdminBooking },
     { path: '**', component: NotFound }
 ];
+

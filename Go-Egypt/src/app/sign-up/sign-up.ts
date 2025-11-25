@@ -4,6 +4,7 @@ import { Router, RouterLink } from '@angular/router';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule, AbstractControl, ValidatorFn, ValidationErrors } from '@angular/forms';
 import { Auth } from '../services/auth';
 import { finalize } from 'rxjs/operators';
+import { ChangeDetectorRef } from '@angular/core';
 
 function maxDateValidator(minAge: number): ValidatorFn {
   return (control: AbstractControl): ValidationErrors | null => {
@@ -42,12 +43,14 @@ export class SignUp implements OnInit {
   emailLoading = signal(false);
   emailError = signal<string | null>(null);
   emailSuccess = signal<boolean>(false);
+  showToast = signal(false);
 
   nationalitiesSignal = signal<any[]>([]);
 
   private fb = inject(FormBuilder);
   private authService = inject(Auth);
   private router = inject(Router);
+  private cdr = inject(ChangeDetectorRef);
 
 // داخل ملف sign-up.component.ts
 
@@ -158,6 +161,13 @@ constructor() {
     }
 
     this.loading.set(true);
+    this.showToast.set(true);
+    this.cdr.detectChanges(); 
+
+    setTimeout(() => {
+      this.showToast.set(false);
+      this.router.navigate(['/']);
+    }, 1500);
 
     const email = this.registerForm.get('email')?.value;
 
