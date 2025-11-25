@@ -1,45 +1,58 @@
-import { Component, model, OnInit } from '@angular/core';
-import { Booking, TravelPackage, TravelerInfo, TripDetails, PaymentInfo} from '../booking';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Booking, TravelPackage } from '../booking';
 import { CommonModule } from '@angular/common';
 import { Stepper } from '../stepper/stepper';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-confirmation',
-  imports: [CommonModule , Stepper],
+  standalone: true,
+  imports: [CommonModule, Stepper],
   templateUrl: './confirmation.html',
-  styleUrl: './confirmation.css'
+  styleUrls: ['./confirmation.css']
 })
 export class Confirmation implements OnInit {
 
   selectedPackage: TravelPackage | null = null;
-  travelerInfo: TravelerInfo | null = null;
-  tripDetails: TripDetails | null = null;
-  paymentInfo: PaymentInfo | null = null;
+  bookingReference: number = 0;
+  bookingForm: any;
 
-  constructor(private bookingService: Booking , private roueter : Router) {}
+  constructor(private router: Router, private bookingService: Booking) {}
 
   ngOnInit(): void {
     this.selectedPackage = this.bookingService.getSelectedPackage();
-    this.travelerInfo = this.bookingService.getTravelerInfo();
-    this.tripDetails = this.bookingService.getTripDetails();
-    this.paymentInfo = this.bookingService.getPaymentInfo();
+    if (!this.selectedPackage) {
+      this.router.navigate(['/book']);
+      return;
+    }
+    this.bookingReference = Math.floor(100000 + Math.random() * 900000);
   }
 
-  getCardStars(): string {
-    return '**** **** **** ';
+  returnHome() {
+    this.router.navigate(['/']);
   }
 
-  onConfirm(): void {
-    // FIX: Removed alert('...'). 
-    // The alert() was blocking the thread and was not needed.
-    // The modal is now closed by data-bs-dismiss="modal" in the HTML.
-    // After the modal closes, this click event fires and navigates home.
-    this.roueter.navigate(['/']);
+  printConfirmation() {
+    window.print();
   }
+  showToast = false;
 
-  onCancel(): void {
-    // FIX: Removed alert('...').
-    this.roueter.navigate(['/']);
+confirmBooking(event: Event) {
+  event.preventDefault(); // لمنع السلوك الإفتراضي للنموذج
+  if (this.bookingForm?.form.valid) {
+    // عرض الرسالة
+    this.showToast = true;
+
+    // بعد 3.5 ثانية، إخفاء الرسالة والانتقال للصفحة التالية
+    setTimeout(() => {
+      this.showToast = false;
+      this.completeBooking();
+    }, 3500);
   }
+}
+
+completeBooking() {
+  this.router.navigate(['/book/confirmation']);
+}
+
 }

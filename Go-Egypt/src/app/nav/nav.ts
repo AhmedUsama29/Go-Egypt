@@ -16,6 +16,7 @@ export class Nav {
 
   isMenuOpen = signal(false);
   isDropdownOpen = signal(false);
+  showLogoutToast = signal(false); 
 
   constructor() {
     // ⛔ قفل الدروب داون لما تضغط براها
@@ -37,7 +38,11 @@ export class Nav {
 
   logout() {
     this.authService.logout();
-    this.router.navigate(['/']);
+    this.showLogoutToast.set(true);
+    setTimeout(() => {
+      this.showLogoutToast.set(false);
+      this.router.navigate(['/']); // بعد Toast يروح للصفحة الرئيسية
+    }, 1500);
     this.isMenuOpen.set(false);
     this.isDropdownOpen.set(false);
   }

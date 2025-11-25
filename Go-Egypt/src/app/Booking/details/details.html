@@ -1,4 +1,22 @@
-
+<!-- Success Toast -->
+<div 
+  *ngIf="showToast"
+  class="position-fixed top-0 end-0 p-3"
+  style="z-index: 2000;"
+>
+  <div 
+    class="toast show text-white"
+    style="background-color: #d97706; border-radius: 8px; min-width: 260px;"
+  >
+    <div class="d-flex align-items-center p-3">
+      <i class="bi bi-check-circle-fill me-2" style="font-size: 20px;"></i>
+      <div>
+        <strong class="fw-bold">Great!</strong><br>
+        <small>Your booking was confirmed.</small>
+      </div>
+    </div>
+  </div>
+</div>
 <main class="bg-light py-5">
   <app-stepper [currentStep]="2"></app-stepper>
 
@@ -16,7 +34,7 @@
               <span class="fw-bold">{{ selectedPackage.days }}</span>
             </div>
             <p class="card-text text-secondary py-2 fs-6">{{ selectedPackage.desc }}</p>
-            <p class="card-text text-warning fw-bold fs-5">{{ selectedPackage.price }}</p>
+            <p class="card-text price-book fw-bold fs-5">{{ selectedPackage.price }}</p>
           </div>
         </div>
       </div>
@@ -46,23 +64,37 @@
           </div>
         </div>
 
-        <p class="fs-5 fw-bold mt-4">Trip Details</p>
-        <div class="row g-3">
-          <div class="col-md-4">
-            <label class="form-label">Start Date</label>
-            <input type="date" class="form-control" [(ngModel)]="traveler.startDate" name="startDate" required />
-          </div>
-          <div class="col-md-4">
-            <label class="form-label">Number of Travelers</label>
-            <select class="form-select" [(ngModel)]="traveler.travelers" name="travelers" required>
-              <option *ngFor="let n of [1,2,3,4,5]" [value]="n">{{ n }}</option>
-            </select>
-          </div>
-          <div class="col-md-4">
-            <label class="form-label">Special Requests</label>
-            <input type="text" class="form-control" [(ngModel)]="traveler.specialRequests" name="specialRequests" placeholder="Optional" />
-          </div>
-        </div>
+<p class="fs-5 fw-bold mt-4">Trip Details</p>
+<div class="row g-3">
+  <!-- Start Date -->
+  <div class="col-md-4">
+    <label class="form-label">Start Date</label>
+    <input type="date" class="form-control" [(ngModel)]="traveler.startDate" name="startDate" (change)="onDateChange()" required />
+  </div>
+
+  <!-- Available Times (هنا تضيفه) -->
+  <div class="col-md-4" *ngIf="availableTimes.length > 0">
+    <label class="form-label">Available Times</label>
+    <select class="form-select" [(ngModel)]="traveler.startTime" name="startTime" required>
+      <option *ngFor="let time of availableTimes" [value]="time">{{ time }}</option>
+    </select>
+  </div>
+
+  <!-- Number of Travelers -->
+  <div class="col-md-4">
+    <label class="form-label">Number of Travelers</label>
+    <select class="form-select" [(ngModel)]="traveler.travelers" name="travelers" required>
+      <option *ngFor="let n of [1,2,3,4,5]" [value]="n">{{ n }}</option>
+    </select>
+  </div>
+
+  <!-- Special Requests -->
+  <div class="col-md-4">
+    <label class="form-label">Special Requests</label>
+    <input type="text" class="form-control" [(ngModel)]="traveler.specialRequests" name="specialRequests" placeholder="Optional" />
+  </div>
+</div>
+
 
         <p class="fs-5 fw-bold mt-4">Payment Information</p>
         <div class="row g-3">
@@ -82,7 +114,7 @@
 
         <div class="d-flex justify-content-between mt-4">
           <button type="button" class="btn btn-secondary btn-lg w-25" (click)="back()">Back to Packages</button>
-          <button type="submit" class="btn btn-warning btn-lg w-25 text-white" [disabled]="!bookingForm.form.valid" (click)="completeBooking()">Complete Booking</button>
+          <button type="submit" class="btn button-book btn-lg w-25 text-white" [disabled]="!bookingForm.form.valid" (click)="completeBooking()">Confirm Booking</button>
         </div>
       </form>      
     </div>

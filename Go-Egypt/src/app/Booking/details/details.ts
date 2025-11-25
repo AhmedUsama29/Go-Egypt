@@ -49,6 +49,7 @@ export class Details {
     email: '',
     phone: '',
     startDate: '',
+    startTime: '',
     travelers: 1,
     specialRequests: '',
     cardNumber: '',
@@ -70,12 +71,38 @@ export class Details {
     }
   }
   back() {
-    this.router.navigate(['/book']);
+    this.router.navigate(['/book-now']);
   }
 
-  completeBooking() {
-    this.router.navigate(['/book/confirmation']);
+  availableTimes: string[] = [];
+
+onDateChange() {
+  if (!this.traveler.startDate) {
+    this.availableTimes = [];
+    return;
   }
+
+  this.availableTimes = [
+    '09:00 AM',
+    '11:00 AM',
+    '01:00 PM',
+    '03:00 PM',
+    '05:00 PM'
+  ];
+}
+
+showToast = false;
+
+completeBooking() {
+  this.showToast = true;
+
+  setTimeout(() => {
+    this.showToast = false;
+    this.router.navigate(['/book/confirmation']);
+  }, 900);
+}
+
+
 
 
 
