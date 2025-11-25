@@ -1,4 +1,5 @@
 ﻿using Domain.Contracs;
+using Domain.Contracts;
 using Domain.Models;
 using Microsoft.EntityFrameworkCore;
 using Persistence.Data; // لازم تعمل using لده
@@ -56,15 +57,34 @@ namespace Persistence.Repositories
             _egyDbContext.Set<TEntity>().Remove(entity);
         }
 
-        public IQueryable<TEntity> GetAllAppDbAsync()
+
+        public async Task<TEntity?> GetByIdAppDbAsync(ISpecifications<TEntity> specifications)
         {
-            return _egyDbContext.Set<TEntity>();
+
+            var res = await SpecificationEvaluator
+                    .CreateQuery(_egyDbContext.Set<TEntity>(), specifications)
+                    .FirstOrDefaultAsync();
+
+            return res;
         }
 
-        public async Task<TEntity?> GetByIdAppDbAsync(TKey id)
+        public async Task<IEnumerable<TEntity>> GetAllAppDbAsync(ISpecifications<TEntity> specifications)
         {
-            return await _egyDbContext.Set<TEntity>().FindAsync(id);
+            var res = await SpecificationEvaluator
+                    .CreateQuery(_egyDbContext.Set<TEntity>(), specifications)
+                    .ToListAsync();
+
+            return res;
         }
 
+        public async Task<int> CountAsync(ISpecifications<TEntity> specifications) {
+            var query = _egyDbContext.Set<TEntity>().AsQueryable();
+
+            if (specifications.Criteria is not null)
+            {
+                query = query.Where(specifications.Criteria);
+            }
+            return await query.CountAsync();
+        }
     }
 }

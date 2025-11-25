@@ -10,11 +10,60 @@
   <div class="container-fluid mx-auto px-4">
     <div class="d-flex align-items-center overflow-auto pb-1 gap-2">
       <i class="bi bi-funnel fs-5 fw-bold" style="color: rgb(107 114 128);"></i>
-      <button class="filter-btn active px-3 py-2 rounded-pill fs-6 fw-semibold border-0 bg-white" style="color: rgb(55 65 81) ; font-size: 0.875rem; line-height: 1.25rem; cursor: pointer;">All Attractions</button>
-      </div>
+      
+      <button class="filter-btn px-3 py-2 rounded-pill fs-6 fw-semibold border-0" 
+              [class.active]="selectedCategory === ''"
+              [class.bg-white]="selectedCategory !== ''"
+              (click)="filterByCategory('')"
+              style="color: rgb(55 65 81); font-size: 0.875rem; line-height: 1.25rem; cursor: pointer;">
+          All Attractions
+      </button>
+
+      <button *ngFor="let cat of categories"
+              class="filter-btn px-3 py-2 rounded-pill fs-6 fw-semibold border-0"
+              [class.active]="selectedCategory === cat"
+              [class.bg-white]="selectedCategory !== cat"
+              (click)="filterByCategory(cat)"
+              style="color: rgb(55 65 81); font-size: 0.875rem; line-height: 1.25rem; cursor: pointer;">
+          {{ cat }}
+      </button>
+
+    </div>
   </div>
 </section>
 
+<section *ngIf="selectedLocation" class="pt-4 pb-2">
+  <div class="container mx-auto px-4">
+    <div class="d-flex align-items-center animate-fade-in">
+      
+      <span class="text-muted me-3 small fw-bold text-uppercase tracking-wider">Active Filters:</span>
+      
+      <div class="filter-chip d-inline-flex align-items-center gap-2 px-3 py-2 rounded-pill shadow-sm bg-white border border-warning-subtle">
+        
+        <div class="icon-box rounded-circle d-flex align-items-center justify-content-center" 
+             style="width: 24px; height: 24px; background-color: #fff8e1;">
+          <i class="bi bi-geo-alt-fill text-warning" style="font-size: 0.8rem;"></i>
+        </div>
+
+        <div class="d-flex flex-column" style="line-height: 1;">
+          <span class="text-muted" style="font-size: 0.65rem;">Location</span>
+          <span class="fw-bold text-dark" style="font-size: 0.9rem;">{{ selectedLocation }}</span>
+        </div>
+
+        <button (click)="clearLocationFilter()" 
+                class="btn btn-link p-0 ms-2 text-decoration-none text-secondary d-flex align-items-center justify-content-center remove-filter-btn"
+                style="width: 20px; height: 20px;">
+          <i class="bi bi-x-lg" style="font-size: 0.9rem;"></i>
+        </button>
+      </div>
+
+      <a href="javascript:void(0)" (click)="clearLocationFilter()" class="ms-3 text-decoration-none small text-warning hover-underline">
+        Clear filter
+      </a>
+
+    </div>
+  </div>
+</section>
 <section class="py-5">
   <div class="container mx-auto px-4">
     
@@ -55,14 +104,16 @@
                 {{ attraction.category }}
               </span>
               <a [routerLink]="['/attractions', attraction.id]" class="view-btn fw-medium small text-decoration-none">
-  View Details
-</a>
+                View Details
+              </a>
             </div>
           </div>
         </div>
       </div>
-    </div> </div>
+    </div> 
+  </div>
 </section>
+
 <section class="py-4 d-flex justify-content-center align-items-center gap-2" *ngIf="totalPages > 1">
   
   <button class="pagination-btn" 
@@ -81,4 +132,4 @@
           [disabled]="currentPage === totalPages">
     &raquo; </button>
 
-</section>  
+</section>

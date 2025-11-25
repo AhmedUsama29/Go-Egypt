@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http'; // 1. ضيفنا HttpParams
 import { Observable } from 'rxjs';
 
 // --- Interfaces (DTOs) ---
-
 export interface PaginatedResponse<T> {
   pageIndex: number;
   pageSize: number;
@@ -49,8 +48,6 @@ export interface AttractionDetails {
   keyFacts: KeyFact[];
 }
 
-// --- Service Class ---
-
 @Injectable({
   providedIn: 'root'
 })
@@ -60,29 +57,33 @@ export class AttractionService {
 
   constructor(private http: HttpClient) { }
 
-
-  getAttractions(page: number, size: number): Observable<PaginatedResponse<CardAttractions>> {
+getAttractions(page: number, size: number, category?: string, location?: string): Observable<PaginatedResponse<CardAttractions>> {
     
+    let params = new HttpParams()
+      .set('PageIndex', page.toString())
+      .set('PageSize', size.toString());
+
+    if (category) {
+      params = params.set('Category', category);
+    }
+
+    if (location) {
+      params = params.set('Location', location);
+    }
+
     return this.http.get<PaginatedResponse<CardAttractions>>(
       `${this.apiUrl}/GetAllCardAttractions`, 
-      {
-        params: {
-          PageIndex: page.toString(),
-          PageSize: size.toString()
-        }
-      }
+      { params }
     );
   }
 
-getHomeAttractions(): Observable<HomeAttractions[]> {
+  getHomeAttractions(): Observable<HomeAttractions[]> {
     return this.http.get<HomeAttractions[]>(
       `${this.apiUrl}/GetHomeAttractions`
     );
   }
 
-
   getAttractionById(id: number): Observable<AttractionDetails> {
-    
     return this.http.get<AttractionDetails>(
       `${this.apiUrl}/GetAttractionById/${id}`
     );

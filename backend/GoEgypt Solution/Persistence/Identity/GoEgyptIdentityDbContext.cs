@@ -7,6 +7,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Net.Mime.MediaTypeNames;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Persistence.Identity
 {
@@ -32,10 +34,9 @@ namespace Persistence.Identity
             .HasOne(u => u.Nationality)
             .WithMany(n => n.Users)
             .HasForeignKey(u => u.NationalityId);
-
             builder.Entity<ApplicationUser>()
-                .Property(u => u.ProfilePicture)
-                .HasDefaultValue("assets/user.png");
+            .Property(u => u.ProfilePicture)
+                .HasDefaultValue("/images/profiles/user.png");
 
             builder.Entity<ApplicationUser>()
                 .Property(u => u.About)

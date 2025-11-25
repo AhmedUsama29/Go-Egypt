@@ -72,17 +72,17 @@
                 <div class="row g-3">
                     <div class="col-6">
                         <div class="overflow-hidden rounded-3 shadow-sm mb-3">
-                            <img src="assets/img1.wallspic.com-archaeological_site-landscape-pyramid-great_pyramid_of_giza-pharaoh-3182x2116.jpg"
+                            <img src="assets/Ex1.jpg"
                                 class="img-fluid w-100 object-fit-cover hover-scale" alt="Image 1" style="height: 170px;">
                         </div>
                         <div class="overflow-hidden rounded-3 shadow-sm">
-                            <img src="assets/Ex1.jpg"
+                            <img src="assets/Ex2.jpg"
                                 class="img-fluid w-100 object-fit-cover hover-scale" alt="Image 2" style="height: 200px;">
                         </div>
                     </div>
                     <div class="col-6 mt-5 pt-3">
                         <div class="overflow-hidden rounded-3 shadow-sm mb-3">
-                            <img src="assets/Ex2.jpg"
+                            <img src="assets/Ex3.jpg"
                                 class="img-fluid w-100 object-fit-cover hover-scale" alt="Image 3" style="height: 200px;">
                         </div>
                         <div class="overflow-hidden rounded-3 shadow-sm">
@@ -174,84 +174,45 @@
     </section>
 
 <!--Explore Egypt By Governorate-->
-    <section class="bg-light mt-0 py-5">
-        <div class="text-center mb-5">
-            <h2 class="fw-bolder fs-2 text-dark">Explore Egypt By Governorate</h2>
-            <p class="text-secondary fs-5">
-                Discover the unique treasures and experiences each region has to offer
-            </p>
-        </div>
-        <div class="container-fluid py-3 px-md-5 text-center">
-            <div class="row g-4 justify-content-center">
-                <div class="col-6 col-md-4 col-lg-2">
-                    <a href="#" class="card governorate-card rounded-3 shadow-sm hover-lift" style="position: relative; overflow: hidden; height: 250px;">
-                        <img src="assets/cairo.jpg" class="card-img w-100 h-100 object-fit-cover" alt="Cairo" />
-                        <div class="card-overlay rounded-3 p-3 text-white">
-                            <h6 class="mb-0 fw-bold fs-5">Cairo</h6>
-                            <small class="text-warning fw-medium">42 attractions</small>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="col-6 col-md-4 col-lg-2">
-                    <a href="#" class="card governorate-card rounded-3 shadow-sm hover-lift" style="position: relative; overflow: hidden; height: 250px;">
-                        <img src="../../assets/luxer.jpg" class="card-img w-100 h-100 object-fit-cover" alt="Luxor" />
-                        <div class="card-overlay rounded-3 p-3 text-white">
-                            <h6 class="mb-0 fw-bold fs-5">Luxor</h6>
-                            <small class="text-warning fw-medium">36 attractions</small>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="col-6 col-md-4 col-lg-2">
-                    <a href="#" class="card governorate-card rounded-3 shadow-sm hover-lift" style="position: relative; overflow: hidden; height: 250px;">
-                        <img src="assets/Aswan.jpg" class="card-img w-100 h-100 object-fit-cover" alt="Aswan" />
-                        <div class="card-overlay rounded-3 p-3 text-white">
-                            <h6 class="mb-0 fw-bold fs-5">Aswan</h6>
-                            <small class="text-warning fw-medium">28 attractions</small>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="col-6 col-md-4 col-lg-2">
-                    <a href="#" class="card governorate-card rounded-3 shadow-sm hover-lift" style="position: relative; overflow: hidden; height: 250px;">
-                        <img src="assets/Alxa.jpg" class="card-img w-100 h-100 object-fit-cover" alt="Alexandria" />
-                        <div class="card-overlay rounded-3 p-3 text-white">
-                            <h6 class="mb-0 fw-bold fs-5">Alexandria</h6>
-                            <small class="text-warning fw-medium">31 attractions</small>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="col-6 col-md-4 col-lg-2">
-                    <a href="#" class="card governorate-card rounded-3 shadow-sm hover-lift" style="position: relative; overflow: hidden; height: 250px;">
-                        <img src="../../assets/Sharm El sheikh.jpg" class="card-img w-100 h-100 object-fit-cover" alt="Sharm El Sheikh" />
-                        <div class="card-overlay rounded-3 p-3 text-white">
-                            <h6 class="mb-0 fw-bold fs-5">Sharm El Sheikh</h6>
-                            <small class="text-warning fw-medium">24 attractions</small>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="col-6 col-md-4 col-lg-2">
-                    <a href="#" class="card governorate-card rounded-3 shadow-sm hover-lift" style="position: relative; overflow: hidden; height: 250px;">
-                        <img src="assets/hurgada.jpg" class="card-img w-100 h-100 object-fit-cover" alt="Hurghada" />
-                        <div class="card-overlay rounded-3 p-3 text-white">
-                            <h6 class="mb-0 fw-bold fs-5">Hurghada</h6>
-                            <small class="text-warning fw-medium">22 attractions</small>
-                        </div>
-                    </a>
-                </div>
+<section class="bg-light mt-0 py-5">
+    <div class="text-center mb-5">
+        <h2 class="fw-bolder fs-2 text-dark">Explore Egypt By Governorate</h2>
+        <p class="text-secondary fs-5">
+            Discover the unique treasures and experiences each region has to offer
+        </p>
+    </div>
+    
+    <div class="container-fluid py-3 px-md-5 text-center">
+        
+        <div class="row g-4 justify-content-center">
+            
+            <div class="col-6 col-md-4 col-lg-2" *ngFor="let gov of governorates">
+                
+                <a [routerLink]="['/attractions']" 
+                   [queryParams]="{ Location: gov.name }"
+                   class="card governorate-card rounded-3 shadow-sm hover-lift text-decoration-none" 
+                   style="position: relative; overflow: hidden; height: 250px; cursor: pointer;">
+                    
+                    <img [src]="gov.image" 
+                         class="card-img w-100 h-100 object-fit-cover" 
+                         [alt]="gov.name"
+                         onerror="this.src='assets/placeholder.jpg'" /> <div class="card-overlay rounded-3 p-3 text-white d-flex flex-column justify-content-end align-items-start w-100 h-100" 
+                         style="background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);">
+                        <h6 class="mb-0 fw-bold fs-5">{{ gov.name }}</h6>
+                        <small class="text-warning fw-medium">{{ gov.attractionCount }} attractions</small>
+                    </div>
+                </a>
             </div>
 
-            <div class="mt-5">
-            <button class="btn btn-outline-custom px-3 py-2 fw-bold shadow-sm">
-            View All Governorates
+        </div>
+
+        <div class="mt-5">
+            <button class="btn btn-outline-custom px-3 py-2 fw-bold shadow-sm" routerLink="/attractions">
+                View All Governorates
             </button>
-
-            </div>
         </div>
-    </section>
+    </div>
+</section>
     <!-- Complete Your Experience -->
 
     <section class="py-5 px-md-5">
@@ -418,7 +379,7 @@
                         <div class="row justify-content-center">
                             <div class="col-lg-10">
                                 <div class="accordion" id="faqExample">
-                                    <div class="accordion-item border border-0 border-bottom">
+                                    <div class="accordion-item border-0 border-bottom">
                                         <h2 class="accordion-header" id="headingOne">
                                             <button class="accordion-button fw-bold bg-transparent text-dark" type="button"
                                                 data-bs-toggle="collapse" data-bs-target="#collapseOne"
@@ -433,7 +394,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="accordion-item border border-0 border-bottom">
+                                    <div class="accordion-item border-0 border-bottom">
                                         <h2 class="accordion-header" id="headingTwo">
                                             <button class="accordion-button collapsed fw-bold bg-transparent text-dark" type="button"
                                                 data-bs-toggle="collapse" data-bs-target="#collapseTwo"
@@ -448,7 +409,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="accordion-item border border-0 border-bottom">
+                                    <div class="accordion-item border border-bottom">
                                         <h2 class="accordion-header" id="headingThree">
                                             <button class="accordion-button collapsed fw-bold bg-transparent text-dark" type="button"
                                                 data-bs-toggle="collapse" data-bs-target="#collapseThree"

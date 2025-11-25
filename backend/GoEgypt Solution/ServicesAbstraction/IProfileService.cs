@@ -12,5 +12,7 @@ namespace ServicesAbstraction
         public Task<ProfileResponse> GetUserProfileAsync(string userId);
 
         public Task<Boolean> EditProfileAsync(string userId, ProfileEditRequest profileEditRequest);
+
+        public Task<string> GetProfilePicture(string userId);
     }
 }

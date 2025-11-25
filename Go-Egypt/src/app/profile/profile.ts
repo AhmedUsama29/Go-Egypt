@@ -11,11 +11,11 @@ import { ProfileService, ProfileResponse, ProfileEditRequest } from '../services
 })
 export class ProfileComponent implements OnInit {
 
+  // هنستخدم ده عشان نعرض الصورة كاملة
   serverBaseUrl = 'https://localhost:7212';
 
-  profileImage: string | null = null;
+  profileImage: string | null = null; // ده المتغير المسئول عن عرض الصورة في الصفحة دي
   isEditing = false;
-
   userData: ProfileResponse | null = null;
 
   editData: ProfileEditRequest = {
@@ -24,7 +24,7 @@ export class ProfileComponent implements OnInit {
     photoLocation: ''
   };
 
-  constructor(private profileService: ProfileService) { }
+  constructor(public profileService: ProfileService) { }
 
   ngOnInit(): void {
     this.loadProfileData();
@@ -34,6 +34,7 @@ export class ProfileComponent implements OnInit {
     this.profileService.getProfileDetails().subscribe({
       next: (data: ProfileResponse) => {
         this.userData = data;
+        // بنحفظ الصورة في متغير محلي عشان نتحكم في الـ Preview
         this.profileImage = data.profilePicture;
       },
       error: (err) => console.error('Error loading profile data:', err)
@@ -46,17 +47,14 @@ export class ProfileComponent implements OnInit {
 
     this.profileService.uploadProfileImage(file).subscribe({
       next: (response) => {
-        const newImageUrl = response.newUrl;
-
-        this.profileImage = newImageUrl;
-
-        this.editData.photoLocation = newImageUrl;
-
+        // هنا بنحدث المتغير المحلي بس (Preview)
+        // الناف بار مش هيحس بحاجة لسه
+        this.profileImage = response.newUrl; 
+        this.editData.photoLocation = response.newUrl;
       },
       error: (err) => console.error('Error uploading image:', err)
     });
   }
-
 
   toggleEdit(): void {
     this.isEditing = true;
@@ -71,7 +69,7 @@ export class ProfileComponent implements OnInit {
 
   cancelEdit(): void {
     this.isEditing = false;
-
+    // هنا بنرجع الصورة للأصل اللي جاي من الداتا بيز
     if (this.userData) {
       this.profileImage = this.userData.profilePicture;
     }
@@ -89,13 +87,17 @@ export class ProfileComponent implements OnInit {
     this.profileService.editProfile(request).subscribe({
       next: (success) => {
         if (success) {
+          // تحديث الداتا المحلية
           this.userData!.displayName = this.editData.displayName;
           this.userData!.about = this.editData.about;
           this.userData!.profilePicture = this.editData.photoLocation;
+          
+          // هام جداً: دلوقتي بس نحدث الناف بار (Global Signal)
+          this.profileService.updateImageSignal(this.editData.photoLocation);
 
           this.isEditing = false;
         } else {
-          console.error('Failed to save profile (backend returned false)');
+          console.error('Failed to save profile');
         }
       },
       error: (err) => console.error('Error saving profile:', err)
