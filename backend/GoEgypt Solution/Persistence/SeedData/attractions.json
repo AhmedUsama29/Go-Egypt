@@ -13,6 +13,7 @@
       "assets/images/Djoser/3.jpg",
       "assets/images/Djoser/4.jpg",
       "assets/images/Djoser/5.jpg"
+    
     ],
     "KeyFacts": [
       {
@@ -35,10 +36,11 @@
     "ClosingTime": "17:00:00",
     "Gallery": [
       "assets/images/Temple of Karnak/1.jpg",
-      "assets/images/Temple of Karnak/2.jpg",
-      "assets/images/Temple of Karnak/3.jpg",
       "assets/images/Temple of Karnak/4.jpg",
-      "assets/images/Temple of Karnak/5.jpg" 
+      "assets/images/Temple of Karnak/5.jpg",
+      "assets/images/Temple of Karnak/6.jpg",
+      "assets/images/Temple of Karnak/7.jpg"
+
     ],
     "KeyFacts": [
       {
