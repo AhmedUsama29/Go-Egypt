@@ -62,7 +62,10 @@
     "OpeningTime": "06:00:00",
     "ClosingTime": "17:00:00",
     "Gallery": [
-      "assets/images/Temple of Hatshepsut/1.jpg","assets/images/Temple of Hatshepsut/2.jpg","assets/images/Temple of Hatshepsut/6.jpg","assets/images/Temple of Hatshepsut/7.jpg"
+      "assets/images/Temple of Hatshepsut/1.jpg",
+      "assets/images/Temple of Hatshepsut/2.jpg",
+      "assets/images/Temple of Hatshepsut/6.jpg",
+      "assets/images/Temple of Hatshepsut/7.jpg"
     ],
     "KeyFacts": [
       {
@@ -84,11 +87,7 @@
     "OpeningTime": "08:00:00",
     "ClosingTime": "17:00:00",
     "Gallery": [
-      "assets/images/Dendara Temple/1.jpg",
-      "assets/images/Dendara Temple/2.jpg", 
-      "assets/images/Dendara Temple/3.jpg",
-      "assets/images/Dendara Temple/4.jpg",
-      "assets/images/Dendara Temple/5.jpg"
+      "assets/images/Dendara Temple/1.jpg","assets/images/Dendara Temple/2.jpg","assets/images/Dendara Temple/3.jpg","assets/images/Dendara Temple/4.jpg","assets/images/Dendara Temple/6.jpg"
     ],
     "KeyFacts": [
       {
