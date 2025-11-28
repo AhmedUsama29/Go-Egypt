@@ -22,6 +22,7 @@ import { BookNow } from './Booking/book-now/book-now';
 import { Confirmation } from './Booking/confirmation/confirmation';
 import { Details } from './Booking/details/details';
 import { Stepper } from './Booking/stepper/stepper';
+import { Instructions } from './instructions/instructions';
 // import { AdminLayout } from './admin/admin-layout/admin-layout';
 // import { StatCard } from './admin/stat-card/stat-card';
 // import { AdminDashboard } from './admin/admin-dashboard/admin-dashboard';
@@ -33,7 +34,7 @@ import { Stepper } from './Booking/stepper/stepper';
   selector: 'app-root',
   imports: [RouterOutlet, Nav, Footer, Home, Hero, About, Attraction, ContactUs, Login, SignUp, NotFound, Symbols, ProfileComponent,
     Forgetpassword, Resendemail, ResetPassword, ResetSuccess, TermsOfServices, PrivacyPolicy, BookNow, Confirmation, Details,
-    Stepper/*, AdminLayout,StatCard, AdminDashboard , AdminBooking*/],
+    Stepper , Instructions/*, AdminLayout,StatCard, AdminDashboard , AdminBooking*/],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })

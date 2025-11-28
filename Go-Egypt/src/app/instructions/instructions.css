@@ -1,0 +1,21 @@
+.custom-card {
+    background: linear-gradient(to bottom right, #fff, #f9fafb) !important;
+    border: 2px solid #e5e7eb !important;
+    transition: border-color 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .custom-card:hover {
+    border-color: #E08D00 !important;
+  }
+
+    .custom-card-1 {
+    background: linear-gradient(to bottom right, #fcfcfc, #edf6fff0) !important;
+    border: 2px solid #e5e7eb !important;
+    transition: border-color 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .custom-card-1:hover {
+    border-color: #E08D00 !important;
+  }

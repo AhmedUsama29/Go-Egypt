@@ -3,13 +3,17 @@
     "Name": "Step Pyramid of Djoser",
     "Location": "Saqqara, Giza",
     "Overview": "The Step Pyramid of Djoser is considered the earliest colossal stone building in Egypt and the first pyramid ever built, designed by the architect Imhotep for Pharaoh Djoser.",
-    "MainPhotoPath": "assets/step pyramid of Djoser.jpg",
+    "MainPhotoPath": "assets/Djoser.jpg",
     "Category": "Historical",
     "OpeningTime": "08:00:00",
     "ClosingTime": "17:00:00",
     "Gallery": [
-      "assets/pyramid.jpg",
-      "assets/s1.jpg"
+      "assets/images/Djoser/1.jpg",
+      "assets/images/Djoser/2.jpg",
+      "assets/images/Djoser/3.jpg",
+      "assets/images/Djoser/4.jpg",
+      "assets/images/Djoser/5.jpg"
+    
     ],
     "KeyFacts": [
       {
@@ -31,8 +35,12 @@
     "OpeningTime": "06:00:00",
     "ClosingTime": "17:00:00",
     "Gallery": [
-      "assets/s3.jpg",
-      "assets/s11.jpg"
+      "assets/images/Temple of Karnak/1.jpg",
+      "assets/images/Temple of Karnak/4.jpg",
+      "assets/images/Temple of Karnak/5.jpg",
+      "assets/images/Temple of Karnak/6.jpg",
+      "assets/images/Temple of Karnak/7.jpg"
+
     ],
     "KeyFacts": [
       {
@@ -54,8 +62,10 @@
     "OpeningTime": "06:00:00",
     "ClosingTime": "17:00:00",
     "Gallery": [
-      "assets/Ra.jpg",
-      "assets/Sa Symbol.jpg"
+      "assets/images/Temple of Hatshepsut/1.jpg",
+      "assets/images/Temple of Hatshepsut/2.jpg",
+      "assets/images/Temple of Hatshepsut/6.jpg",
+      "assets/images/Temple of Hatshepsut/7.jpg"
     ],
     "KeyFacts": [
       {
@@ -77,8 +87,11 @@
     "OpeningTime": "08:00:00",
     "ClosingTime": "17:00:00",
     "Gallery": [
-      "assets/Scorpion.jpg",
-      "assets/Sekhem Scepter.jpg"
+      "assets/images/Dendara Temple/1.jpg",
+      "assets/images/Dendara Temple/2.jpg",
+      "assets/images/Dendara Temple/3.jpg",
+      "assets/images/Dendara Temple/4.jpg",
+      "assets/images/Dendara Temple/6.jpg"
     ],
     "KeyFacts": [
       {
@@ -100,8 +113,11 @@
     "OpeningTime": "06:00:00",
     "ClosingTime": "18:00:00",
     "Gallery": [
-      "assets/Set.jpg",
-      "assets/snake.jpg"
+      "assets/images/Siwa Oasis/1.jpg",
+      "assets/images/Siwa Oasis/2.jpg",
+      "assets/images/Siwa Oasis/3.jpg",
+      "assets/images/Siwa Oasis/6.jpg",
+      "assets/images/Siwa Oasis/7.jpg"
     ],
     "KeyFacts": [
       {
@@ -123,8 +139,11 @@
     "OpeningTime": "08:00:00",
     "ClosingTime": "17:00:00",
     "Gallery": [
-      "assets/spider.jpg",
-      "assets/Swallow.jpg"
+        "assets/images/Mosque of Mohamed Ali/1.jpg",
+        "assets/images/Mosque of Mohamed Ali/2.jpg",
+        "assets/images/Mosque of Mohamed Ali/3.jpg",
+        "assets/images/Mosque of Mohamed Ali/4.jpg",
+        "assets/images/Mosque of Mohamed Ali/5.jpg"
     ],
     "KeyFacts": [
       {
@@ -146,8 +165,11 @@
     "OpeningTime": "06:00:00",
     "ClosingTime": "22:00:00",
     "Gallery": [
-      "assets/Reed bundle.jpg",
-      "assets/Reed Leaf.jpg"
+      "assets/images/Luxor Temple/1.jpg",
+      "assets/images/Luxor Temple/2.jpg",
+      "assets/images/Luxor Temple/3.jpg",
+      "assets/images/Luxor Temple/4.jpg",
+      "assets/images/Luxor Temple/5.jpg"
     ],
     "KeyFacts": [
       {
@@ -169,8 +191,12 @@
     "OpeningTime": "09:00:00",
     "ClosingTime": "17:00:00",
     "Gallery": [
-      "assets/Sharm El sheikh.jpg",
-      "assets/Shen-removebg-preview.jpg"
+      "assets/images/Catacombs of Kom El Shoqafa/1.jpg",
+      "assets/images/Catacombs of Kom El Shoqafa/2.jpg",
+      "assets/images/Catacombs of Kom El Shoqafa/3.jpg",
+      "assets/images/Catacombs of Kom El Shoqafa/4.jpg",
+      "assets/images/Catacombs of Kom El Shoqafa/5.jpg",
+      "assets/images/Catacombs of Kom El Shoqafa/6.jpg"
     ],
     "KeyFacts": [
       {
@@ -192,8 +218,10 @@
     "OpeningTime": "04:30:00",
     "ClosingTime": "19:00:00",
     "Gallery": [
-      "assets/profile g1.jpg",
-      "assets/profile g2.jpg"
+      "assets/images/Mount Sinai (Jebel Musa)/1.jpg",
+      "assets/images/Mount Sinai (Jebel Musa)/2.jpg",
+      "assets/images/Mount Sinai (Jebel Musa)/4.jpg",
+      "assets/images/Mount Sinai (Jebel Musa)/5.jpg"
     ],
     "KeyFacts": [
       {
@@ -215,8 +243,11 @@
     "OpeningTime": "06:00:00",
     "ClosingTime": "18:00:00",
     "Gallery": [
-      "assets/pyramid.jpg",
-      "assets/s1.jpg"
+      "assets/images/White Desert/1.jpg",
+      "assets/images/White Desert/2.jpg",
+      "assets/images/White Desert/3.jpg",
+      "assets/images/White Desert/4.jpg",
+      "assets/images/White Desert/5.jpg"
     ],
     "KeyFacts": [
       {
