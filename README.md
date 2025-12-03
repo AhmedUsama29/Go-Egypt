@@ -31,12 +31,12 @@ The project aims to provide an interactive, user-friendly platform to promote Eg
 * Final Presentation
 
 ## Roles & Responsibilities
-* **Ahmed Osama:** Auth [backend] + Places Page [frontend] + management
+* **Ahmed Osama:** Authentication apis + Attraction apis + Profile apis + Lookup apis + Pagenation + Specifications + Database design + Unit of work & Repositories + implementation + Data seeding + Interceptors + Gaurds + Attraction details page + Forget password with real email sender service + All frontend services
 * **Ahmed Yasser:** Home Page
-* **Fares Mohamed:** About Us Page + external APIs + Reviews
-* **Tarek Magdy:** Auth Pages (Login + Forget Password + Sign Up) + form validation + Contact Us Page
-* **Salma Mohamed:** Symbol Page & Explore More Egyptian Symbols + Attreaction Page
-* **Yasmin Mohamed:** Booking (Book Now + Complete Booking) + part of home
+* **Fares Mohamed:** About Us Page + Footer + Backend
+* **Salma Mohamed:** Idea + Uiux + Symbol Page + Attraction Page + Instruction Page+ Reset & Forget Password + Not found page + Terms of services & Privacy and policy page 
+* **Tarek Magdy:** Auth Pages (Login + Forget Password + Sign Up) + form validation + Contact Us Page + Profile page + Toaster + Dashboard + Navbar
+* **Yasmin Mohamed:** Booking (Book Now + Complete Booking) + part of home + Contact Us (Email Js)
 
 ## KPIs (Key Performance Indicators)
 Metrics for project success include:
