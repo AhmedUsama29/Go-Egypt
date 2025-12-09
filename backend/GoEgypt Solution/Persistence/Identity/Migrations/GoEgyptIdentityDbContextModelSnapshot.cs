@@ -86,7 +86,7 @@ namespace Persistence.Identity.Migrations
                         .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(max)")
-                        .HasDefaultValue("assets/user.png");
+                        .HasDefaultValue("/images/profiles/user.png");
 
                     b.Property<string>("SecurityStamp")
                         .HasColumnType("nvarchar(max)");

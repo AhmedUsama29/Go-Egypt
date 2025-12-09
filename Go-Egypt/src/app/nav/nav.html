@@ -1,14 +1,12 @@
 <header class="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md shadow-sm">
   <div class="container mx-auto px-4 py-3 flex items-center justify-between">
     
-    <!-- LOGO -->
     <div class="flex items-center">
       <a routerLink="/" class="text-2xl font-bold bg-gradient-to-r from-amber-700 to-yellow-500 bg-clip-text text-transparent cursor-pointer">
         Go Egypt
       </a>
     </div>
 
-    <!-- DESKTOP NAV -->
     <nav class="hidden md:flex items-center space-x-8">
       <a routerLink="/" class="text-gray-800 hover:text-amber-700 font-medium cursor-pointer">Home</a>
       <a routerLink="/about" class="text-gray-800 hover:text-amber-700 font-medium cursor-pointer">About</a>
@@ -16,10 +14,8 @@
       <a routerLink="/contact-us" class="text-gray-800 hover:text-amber-700 font-medium cursor-pointer">Contact Us</a>
     </nav>
 
-    <!-- DESKTOP RIGHT SECTION -->
     <div class="hidden md:flex items-center space-x-4">
 
-      <!-- SEARCH -->
       <div class="relative">
         <input type="text" placeholder="Search destinations..."
           class="pl-9 pr-4 py-2 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent" />
@@ -28,36 +24,41 @@
         </span>
       </div>
 
-      <!-- USER LOGGED IN -->
       @if (authService.isLoggedInSignal()) {
 
-        <!-- USER DROPDOWN -->
         <div class="relative" (click)="toggleDropdown($event)">
 
-          <!-- AVATAR BUTTON -->
           <button
-            class="w-10 h-10 rounded-full bg-amber-600 flex items-center justify-center text-white text-xl hover:bg-amber-700 transition cursor-pointer">
-            <i class="bi bi-person"></i>
+            class="w-10 h-10 rounded-full bg-amber-100 border border-amber-200 flex items-center justify-center text-amber-700 text-xl hover:shadow-md transition cursor-pointer overflow-hidden box-border p-0">
+            
+            <img *ngIf="profileService.currentUserImage()" 
+                 [src]="profileService.currentUserImage()" 
+                 alt="Profile" 
+                 class="w-full h-full object-cover block">
+
+            <i *ngIf="!profileService.currentUserImage()" class="bi bi-person-fill"></i>
+          
           </button>
 
-          <!-- DROPDOWN MENU -->
           <div *ngIf="isDropdownOpen()"
-               class="absolute right-0 mt-3 w-48 bg-white rounded-lg shadow-lg border border-amber-200 z-50">
+               class="absolute right-0 mt-3 w-48 bg-white rounded-lg shadow-lg border border-amber-200 z-50 overflow-hidden">
 
             <a routerLink="/profile"
-              class="flex items-center gap-2 px-4 py-2 hover:bg-amber-50 cursor-pointer">
-              <i class="bi bi-person-badge text-amber-700"></i> Profile
+              class="flex items-center gap-2 px-4 py-2 hover:bg-amber-50 cursor-pointer text-gray-700">
+              <i class="bi bi-person-badge text-amber-600"></i> Profile
             </a>
 
             <a routerLink="/bookings"
-              class="flex items-center gap-2 px-4 py-2 hover:bg-amber-50 cursor-pointer">
-              <i class="bi bi-ticket-detailed text-amber-700"></i> Bookings
+              class="flex items-center gap-2 px-4 py-2 hover:bg-amber-50 cursor-pointer text-gray-700">
+              <i class="bi bi-ticket-detailed text-amber-600"></i> Bookings
             </a>
 
             <a routerLink="/book-now"
-              class="flex items-center gap-2 px-4 py-2 hover:bg-amber-50 cursor-pointer">
-              <i class="bi bi-calendar2-check text-amber-700"></i> Book Now
+              class="flex items-center gap-2 px-4 py-2 hover:bg-amber-50 cursor-pointer text-gray-700">
+              <i class="bi bi-calendar2-check text-amber-600"></i> Book Now
             </a>
+
+            <div class="border-t border-gray-100 my-1"></div>
 
             <span (click)="logout()"
               class="flex items-center gap-2 px-4 py-2 text-red-600 hover:bg-red-50 cursor-pointer">
@@ -69,10 +70,9 @@
 
       } @else {
 
-        <!-- USER NOT LOGGED -->
         <a routerLink="/login" class="text-amber-700 hover:text-amber-800 font-medium cursor-pointer">Sign In</a>
         <a routerLink="/book-now"
-          class="flex items-center space-x-1 bg-amber-600 hover:bg-amber-700 text-white px-4 py-2 rounded-full transition duration-200 cursor-pointer">
+          class="flex items-center space-x-1 bg-amber-600 hover:bg-amber-700 text-white px-4 py-2 rounded-full transition duration-200 cursor-pointer hover:shadow-lg">
           <span>Book Now</span>
         </a>
 
@@ -80,17 +80,15 @@
 
     </div>
 
-    <!-- MOBILE MENU BUTTON -->
-    <button class="md:hidden text-gray-800" (click)="toggleMenu($event)">
-      <span *ngIf="!isMenuOpen()" class="text-2xl">☰</span>
-      <span *ngIf="isMenuOpen()" class="text-2xl">✖</span>
+    <button class="md:hidden text-gray-800 p-2" (click)="toggleMenu($event)">
+      <span *ngIf="!isMenuOpen()" class="text-2xl"><i class="bi bi-list"></i></span>
+      <span *ngIf="isMenuOpen()" class="text-2xl"><i class="bi bi-x-lg"></i></span>
     </button>
 
   </div>
 
-  <!-- MOBILE MENU -->
   @if (isMenuOpen()) {
-    <div class="md:hidden bg-white border-t border-gray-100 py-4 px-6 shadow-lg">
+    <div class="md:hidden bg-white border-t border-gray-100 py-4 px-6 shadow-lg animate-fade-in-down">
       <nav class="flex flex-col space-y-4">
         
         <a routerLink="/" class="text-gray-800 hover:text-amber-700 font-medium">Home</a>
@@ -98,43 +96,54 @@
         <a routerLink="/attractions" class="text-gray-800 hover:text-amber-700 font-medium">Attractions</a>
         <a routerLink="/contact-us" class="text-gray-800 hover:text-amber-700 font-medium">Contact Us</a>
 
-        <!-- SEARCH -->
         <div class="relative mt-2">
           <input type="text" placeholder="Search destinations..."
             class="w-full pl-9 pr-4 py-2 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent" />
           <span class="absolute left-3 top-2.5 text-gray-400"><i class="bi bi-search"></i></span>
         </div>
 
-        <!-- MOBILE LOGGED -->
         @if (authService.isLoggedInSignal()) {
 
-          <a routerLink="/profile"
-            class="flex items-center gap-2 px-4 py-2 hover:bg-amber-50 cursor-pointer">
-            <i class="bi bi-person-badge text-amber-700"></i> Profile
-          </a>
+          <div class="border-t border-gray-100 pt-2 mt-2">
+            <div class="flex items-center gap-3 mb-3 px-2">
+               <div class="w-8 h-8 rounded-full bg-amber-100 overflow-hidden flex items-center justify-center">
+                 <img *ngIf="profileService.currentUserImage()" [src]="profileService.currentUserImage()" class="w-full h-full object-cover">
+                 <i *ngIf="!profileService.currentUserImage()" class="bi bi-person-fill text-amber-600"></i>
+               </div>
+               <span class="font-semibold text-gray-700">My Account</span>
+            </div>
 
-          <a routerLink="/bookings"
-            class="flex items-center gap-2 px-4 py-2 hover:bg-amber-50 cursor-pointer">
-            <i class="bi bi-ticket-detailed text-amber-700"></i> Bookings
-          </a>
+            <a routerLink="/profile"
+              class="flex items-center gap-2 px-4 py-2 hover:bg-amber-50 cursor-pointer text-gray-700 rounded-lg">
+              <i class="bi bi-person-badge text-amber-600"></i> Profile
+            </a>
 
-          <a routerLink="/book-now"
-            class="flex items-center gap-2 px-4 py-2 hover:bg-amber-50 cursor-pointer">
-            <i class="bi bi-calendar2-check text-amber-700"></i> Book Now
-          </a>
+            <a routerLink="/bookings"
+              class="flex items-center gap-2 px-4 py-2 hover:bg-amber-50 cursor-pointer text-gray-700 rounded-lg">
+              <i class="bi bi-ticket-detailed text-amber-600"></i> Bookings
+            </a>
 
-          <button (click)="logout()"
-            class="flex items-center justify-center space-x-1 bg-amber-600 hover:bg-amber-700 text-white px-4 py-2 rounded-full transition duration-200 mt-2">
-            Logout
-          </button>
+            <a routerLink="/book-now"
+              class="flex items-center gap-2 px-4 py-2 hover:bg-amber-50 cursor-pointer text-gray-700 rounded-lg">
+              <i class="bi bi-calendar2-check text-amber-600"></i> Book Now
+            </a>
+
+            <button (click)="logout()"
+              class="w-full flex items-center justify-center space-x-1 bg-red-50 hover:bg-red-100 text-red-600 px-4 py-2 rounded-lg transition duration-200 mt-2">
+              <i class="bi bi-box-arrow-right"></i>
+              <span>Logout</span>
+            </button>
+          </div>
 
         } @else {
 
-          <a routerLink="/login" class="text-amber-700 hover:text-amber-800 font-medium">Sign In</a>
-          <a routerLink="/book-now"
-            class="flex items-center justify-center space-x-1 bg-amber-600 hover:bg-amber-700 text-white px-4 py-2 rounded-full transition duration-200 mt-2">
-            <span>Book Now</span>
-          </a>
+          <div class="flex flex-col gap-3 mt-2">
+            <a routerLink="/login" class="text-center text-amber-700 hover:text-amber-800 font-medium py-2">Sign In</a>
+            <a routerLink="/book-now"
+              class="flex items-center justify-center space-x-1 bg-amber-600 hover:bg-amber-700 text-white px-4 py-2 rounded-full transition duration-200 shadow-md">
+              <span>Book Now</span>
+            </a>
+          </div>
 
         }
 

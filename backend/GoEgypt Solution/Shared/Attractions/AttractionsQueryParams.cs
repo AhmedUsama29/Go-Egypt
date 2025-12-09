@@ -9,6 +9,10 @@ namespace Shared.Attractions
     public class AttractionsQueryParams
     {
 
+        public string? Category { get; set; }
+        public string? Location { get; set; }
+
+
         private const int _dafaultPageSize = 5;
         private const int _maxPageSize = 10;
 

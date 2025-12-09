@@ -17,3 +17,30 @@ body {
   outline: none;
   box-shadow: none;
 }
+.price-book{
+  color: #b45309;
+}
+
+.button-book{
+  background-color: #d97706;
+  color: white;
+}
+.button-book:hover{
+  background-color: #b45309;
+  color: white;
+}
+
+.toast {
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}

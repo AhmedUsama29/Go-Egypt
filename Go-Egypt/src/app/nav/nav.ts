@@ -1,7 +1,8 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject, signal } from '@angular/core';
+import { Component, inject, signal, effect } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { Auth } from '../services/auth';
+import { ProfileService } from '../services/profile';
 
 @Component({
   selector: 'app-nav',
@@ -12,15 +13,23 @@ import { Auth } from '../services/auth';
 export class Nav {
 
   authService = inject(Auth);
+  public profileService = inject(ProfileService); 
   private router = inject(Router);
 
   isMenuOpen = signal(false);
   isDropdownOpen = signal(false);
-
+  
   constructor() {
-    // ⛔ قفل الدروب داون لما تضغط براها
     window.addEventListener('click', () => {
       this.isDropdownOpen.set(false);
+    });
+
+    effect(() => {
+      if (this.authService.isLoggedInSignal()) {
+        this.profileService.getProfilePicture().subscribe();
+      } else {
+        this.profileService.clearUserData();
+      }
     });
   }
 
@@ -31,12 +40,13 @@ export class Nav {
   }
 
   toggleDropdown(event: Event) {
-    event.stopPropagation(); // أهم سطر يمنع الفتح لوحده
+    event.stopPropagation();
     this.isDropdownOpen.update(prev => !prev);
   }
 
   logout() {
     this.authService.logout();
+    this.profileService.clearUserData();
     this.router.navigate(['/']);
     this.isMenuOpen.set(false);
     this.isDropdownOpen.set(false);

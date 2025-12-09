@@ -4,6 +4,7 @@ import { Router, RouterLink } from '@angular/router';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule, AbstractControl, ValidatorFn, ValidationErrors } from '@angular/forms';
 import { Auth } from '../services/auth';
 import { finalize } from 'rxjs/operators';
+import { ChangeDetectorRef } from '@angular/core';
 
 function maxDateValidator(minAge: number): ValidatorFn {
   return (control: AbstractControl): ValidationErrors | null => {
@@ -42,26 +43,35 @@ export class SignUp implements OnInit {
   emailLoading = signal(false);
   emailError = signal<string | null>(null);
   emailSuccess = signal<boolean>(false);
+  showToast = signal(false);
 
   nationalitiesSignal = signal<any[]>([]);
 
   private fb = inject(FormBuilder);
   private authService = inject(Auth);
   private router = inject(Router);
+  private cdr = inject(ChangeDetectorRef);
 
-  constructor() {
-    this.registerForm = this.fb.group({
-      displayName: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(50)]],
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(6)]],
-      confirmPassword: ['', Validators.required],
-      dateOfBirth: ['', [Validators.required, maxDateValidator(18)]],
-      nationalityId: ['', [Validators.required, Validators.min(1)]], 
-      gender: ['', Validators.required]
-    }, {
-      validator: this.passwordMatchValidator
-    });
-  }
+
+constructor() {
+  this.registerForm = this.fb.group({
+    displayName: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(50)]],
+    email: ['', [Validators.required, Validators.email]],
+    
+    password: ['', [
+      Validators.required, 
+      Validators.minLength(6),
+      Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{6,}$/)
+    ]],
+
+    confirmPassword: ['', Validators.required],
+    dateOfBirth: ['', [Validators.required, maxDateValidator(18)]],
+    nationalityId: ['', [Validators.required, Validators.min(1)]], 
+    gender: ['', Validators.required]
+  }, {
+    validator: this.passwordMatchValidator
+  });
+}
 
   ngOnInit() {
     this.authService.getNationalities().subscribe({
@@ -147,6 +157,13 @@ export class SignUp implements OnInit {
     }
 
     this.loading.set(true);
+    this.showToast.set(true);
+    this.cdr.detectChanges(); 
+
+    setTimeout(() => {
+      this.showToast.set(false);
+      this.router.navigate(['/']);
+    }, 1500);
 
     const email = this.registerForm.get('email')?.value;
 
@@ -173,38 +190,44 @@ export class SignUp implements OnInit {
       }
     });
   }
-
-  private collectFormErrors() {
-    this.formErrors = {}; 
-    Object.keys(this.registerForm.controls).forEach(key => {
-      const controlErrors = this.registerForm.get(key)?.errors;
-      if (controlErrors) {
-        if (controlErrors['required']) {
-            this.formErrors[key] = 'This field is required.';
-        }
-        else if (key === 'displayName' && controlErrors['minlength']) {
-            this.formErrors[key] = 'Display name must be at least 3 characters.';
-        }
-        else if (key === 'email' && controlErrors['email']) {
-            this.formErrors[key] = 'Please enter a valid email.';
-        }
-        else if (key === 'password' && controlErrors['minlength']) {
-            this.formErrors[key] = 'Password must be at least 6 characters.';
-        }
-        else if (key === 'confirmPassword' && controlErrors['mismatch']) {
-            this.formErrors[key] = 'Passwords do not match.';
-        }
-        else if (key === 'dateOfBirth' && controlErrors['minAge']) {
-            this.formErrors[key] = `You must be at least ${controlErrors['minAge'].requiredAge} years old.`;
-        }
-        else if (key === 'nationalityId' && controlErrors['min']) {
-            this.formErrors[key] = 'Please select a valid nationality.';
+private collectFormErrors() {
+  this.formErrors = {}; 
+  Object.keys(this.registerForm.controls).forEach(key => {
+    const controlErrors = this.registerForm.get(key)?.errors;
+    if (controlErrors) {
+      if (controlErrors['required']) {
+          this.formErrors[key] = 'This field is required.';
+      }
+      else if (key === 'displayName' && controlErrors['minlength']) {
+          this.formErrors[key] = 'Display name must be at least 3 characters.';
+      }
+      else if (key === 'email' && controlErrors['email']) {
+          this.formErrors[key] = 'Please enter a valid email.';
+      }
+      
+      else if (key === 'password') {
+        if (controlErrors['minlength']) {
+           this.formErrors[key] = 'Password must be at least 6 characters.';
+        } 
+        else if (controlErrors['pattern']) {
+           this.formErrors[key] = 'Password must contain uppercase, lowercase, number, and a special character (e.g. @#$%).';
         }
       }
-    });
 
-    if (this.registerForm.get('email')?.hasError('emailTaken')) {
-        this.formErrors['email'] = 'This email is already taken.';
+      else if (key === 'confirmPassword' && controlErrors['mismatch']) {
+          this.formErrors[key] = 'Passwords do not match.';
+      }
+      else if (key === 'dateOfBirth' && controlErrors['minAge']) {
+          this.formErrors[key] = `You must be at least ${controlErrors['minAge'].requiredAge} years old.`;
+      }
+      else if (key === 'nationalityId' && controlErrors['min']) {
+          this.formErrors[key] = 'Please select a valid nationality.';
+      }
     }
+  });
+
+  if (this.registerForm.get('email')?.hasError('emailTaken')) {
+      this.formErrors['email'] = 'This email is already taken.';
   }
+}
 }

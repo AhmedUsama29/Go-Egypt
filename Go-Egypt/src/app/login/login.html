@@ -1,3 +1,19 @@
+<!-- Toast -->
+<div *ngIf="showToast()"
+     class="position-fixed top-0 end-0 p-3"
+     style="z-index: 2000;">
+  <div class="toast show text-white"
+       style="background-color: #d97706; border-radius: 8px; min-width: 260px;">
+    <div class="d-flex align-items-center p-3">
+      <i class="bi bi-check-circle-fill me-2" style="font-size: 20px;"></i>
+      <div>
+        <strong class="fw-bold">Great!</strong><br>
+        <small>Signed in successfully.</small>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div class="w-full min-h-screen bg-gray-50">
   <main class="pt-24 pb-16">
     <div class="container mx-auto px-4">

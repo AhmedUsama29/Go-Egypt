@@ -3,6 +3,7 @@ using Domain.Exceptions;
 using Domain.Models;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.EntityFrameworkCore;
+using Services.Specifications;
 using ServicesAbstraction;
 using Shared;
 using Shared.Attractions;
@@ -20,11 +21,13 @@ namespace Services
         {
             var repo = _unitOfWork.GetRepository<Attraction, int>();
 
-            var query = repo.GetAllAppDbAsync();
+            var specs = new AttractionsByCategoryAndLocationSpecification(queryParams);
 
-            var totalCount = await query.CountAsync();
+            var totalCount = await repo.CountAsync(specs);
 
-            var mappedQuery = query.Select(attraction => new CardAttractions
+            var attractions = await repo.GetAllAppDbAsync(specs);
+
+            var mappedItems = attractions.Select(attraction => new CardAttractions
             {
                 Id = attraction.Id,
                 Name = attraction.Name,
@@ -34,19 +37,14 @@ namespace Services
                 Overview = attraction.Overview,
                 MainPhotoPath = attraction.MainPhotoPath,
                 Category = attraction.Category
-            });
-
-            var items = await mappedQuery
-            .Skip((queryParams.PageIndex - 1) * queryParams.PageSize)
-                .Take(queryParams.PageSize)
-            .ToListAsync();
+            }).ToList();
 
             return new PaginatedResponse<CardAttractions>()
             {
                 PageIndex = queryParams.PageIndex,
                 PageSize = queryParams.PageSize,
                 Count = totalCount,
-                Data = items
+                Data = mappedItems
             };
         }
 
@@ -54,7 +52,9 @@ namespace Services
         {
             var repo = _unitOfWork.GetRepository<Attraction, int>();
 
-            var attraction = await repo.GetByIdAppDbAsync(id) ??
+            var specs = new AttractionsByCategoryAndLocationSpecification(id);
+
+            var attraction = await repo.GetByIdAppDbAsync(specs) ??
                 throw new AttractionNotFoundException(id);
 
             var mappedAttraction = new AttractionDetails()
@@ -83,9 +83,15 @@ namespace Services
         {
             var repo = _unitOfWork.GetRepository<Attraction, int>();
 
-            var allAttractions = await repo.GetAllAppDbAsync()
-                                            .Take(4)
-                                            .ToListAsync();
+            var queryparams = new AttractionsQueryParams()
+            {
+                PageIndex = 1,
+                PageSize = 4
+            };
+
+            var specs = new AttractionsByCategoryAndLocationSpecification(queryparams);
+
+            var allAttractions = await repo.GetAllAppDbAsync(specs);
 
             var mappedAttractions = allAttractions.Select(attraction => new HomeAttractions
             {

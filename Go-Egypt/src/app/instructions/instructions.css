@@ -1,4 +1,4 @@
-  .custom-card {
+.custom-card {
     background: linear-gradient(to bottom right, #fff, #f9fafb) !important;
     border: 2px solid #e5e7eb !important;
     transition: border-color 0.3s ease;

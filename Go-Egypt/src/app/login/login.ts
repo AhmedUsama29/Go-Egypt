@@ -17,6 +17,7 @@ export class Login {
   password = signal('');
   loading = signal(false);
   error = signal<string | null>(null);
+  showToast = signal(false);
 
   private authService = inject(Auth);
   private router = inject(Router);
@@ -39,7 +40,12 @@ export class Login {
       
       next: (response) => {
         this.loading.set(false);
-        this.router.navigate(['/']);
+        this.showToast.set(true);
+
+        setTimeout(() => {
+          this.showToast.set(false);
+          this.router.navigate(['/']);
+        }, 1000);
       },
 
       error: (err) => {

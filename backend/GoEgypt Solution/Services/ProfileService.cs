@@ -56,5 +56,14 @@ namespace Services
             return profileResponse;
 
         }
+
+        public async Task<string> GetProfilePicture(string userId)
+        {
+            var user = await _userManager.FindByIdAsync(userId)
+                ?? throw new UserNotFoundException(userId);
+
+            return user.ProfilePicture;
+        }
+
     }
 }

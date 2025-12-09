@@ -13,9 +13,8 @@ export class ProfileComponent implements OnInit {
 
   serverBaseUrl = 'https://localhost:7212';
 
-  profileImage: string | null = null;
+  profileImage: string | null = null; 
   isEditing = false;
-
   userData: ProfileResponse | null = null;
 
   editData: ProfileEditRequest = {
@@ -24,7 +23,7 @@ export class ProfileComponent implements OnInit {
     photoLocation: ''
   };
 
-  constructor(private profileService: ProfileService) { }
+  constructor(public profileService: ProfileService) { }
 
   ngOnInit(): void {
     this.loadProfileData();
@@ -46,17 +45,12 @@ export class ProfileComponent implements OnInit {
 
     this.profileService.uploadProfileImage(file).subscribe({
       next: (response) => {
-        const newImageUrl = response.newUrl;
-
-        this.profileImage = newImageUrl;
-
-        this.editData.photoLocation = newImageUrl;
-
+        this.profileImage = response.newUrl; 
+        this.editData.photoLocation = response.newUrl;
       },
       error: (err) => console.error('Error uploading image:', err)
     });
   }
-
 
   toggleEdit(): void {
     this.isEditing = true;
@@ -71,7 +65,6 @@ export class ProfileComponent implements OnInit {
 
   cancelEdit(): void {
     this.isEditing = false;
-
     if (this.userData) {
       this.profileImage = this.userData.profilePicture;
     }
@@ -92,10 +85,12 @@ export class ProfileComponent implements OnInit {
           this.userData!.displayName = this.editData.displayName;
           this.userData!.about = this.editData.about;
           this.userData!.profilePicture = this.editData.photoLocation;
+          
+          this.profileService.updateImageSignal(this.editData.photoLocation);
 
           this.isEditing = false;
         } else {
-          console.error('Failed to save profile (backend returned false)');
+          console.error('Failed to save profile');
         }
       },
       error: (err) => console.error('Error saving profile:', err)
