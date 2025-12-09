@@ -22,7 +22,6 @@
             <div class="text-center mb-3">
                 <h2 class="fw-bold text-dark mb-2" style="font-size:30px;">Check Your Email</h2>
                 <p class="text-secondary mb-0">We've sent a password reset link to</p>
-                <!-- 💡 1. إظهار الإيميل اللي استلمناه -->
                 @if (email) {
                     <p class="fw-bold text-dark mt-1">{{ email }}</p>
                 }
@@ -33,7 +32,6 @@
                 <label for="email" class="form-label small text-secondary mb-2">Didn't receive the email? Check your spam
                     folder or try again.</label>
 
-                 <!-- 💡 2. إظهار رسائل النجاح أو الفشل -->
                  @if (successMessage) {
                     <div class="alert alert-success p-2 small text-center mb-2">{{ successMessage }}</div>
                  }
@@ -41,7 +39,6 @@
                     <div class="alert alert-danger p-2 small text-center mb-2">{{ errorMessage }}</div>
                  }
 
-                <!-- 💡 3. تحويل اللينك لزرار بينادي على دالة (click) -->
                 <button type="button" (click)="resendLink()" class="btn btn-orange w-100 rounded-3 py-2 mb-3 mt-3" [disabled]="isLoading">
                     @if (isLoading) {
                         <span class="spinner-border spinner-border-sm" aria-hidden="true"></span>

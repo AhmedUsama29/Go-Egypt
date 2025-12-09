@@ -1,14 +1,11 @@
 <main class="bg-light py-5">
-  <!-- Stepper مع padding -->
   <div class="px-4">
     <app-stepper [currentStep]="3"></app-stepper>
   </div>
 
   <div class="max-w-2xl mx-auto text-center mt-8">
-    <!-- دائرة كبيرة مع علامة صح في المنتصف -->
     <div class="mb-8 flex justify-center">
       <div class="w-24 h-24 rounded-full bg-green-100 flex items-center justify-center">
-        <!-- SVG علامة صح -->
         <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
           <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
         </svg>
@@ -22,7 +19,6 @@
       Thank you for booking with Go Egypt. Your adventure awaits!
     </p>
 
-    <!-- تفاصيل الحجز -->
     <div class="bg-white rounded-xl shadow-md p-8 mb-8">
       <h3 class="text-xl font-bold text-gray-900 mb-6">Booking Details</h3>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-left">
@@ -50,7 +46,6 @@
       If you have any questions, please don't hesitate to contact us.
     </p>
 
-    <!-- أزرار العودة والطباعة -->
     <div class="flex flex-col md:flex-row justify-center gap-4">
       <button  (click)="printConfirmation()" class="px-6 py-3 bg-amber-600 hover:bg-amber-700 text-white font-medium rounded-lg transition duration-200">
         Print Confirmation

@@ -1,6 +1,5 @@
 .btn-amber {
   background-color: #d97706; 
-  /* background-color: #B45309; */
-  color: white; /* نص أبيض زي btn-warning */
+  color: white; 
   border: none;
 }

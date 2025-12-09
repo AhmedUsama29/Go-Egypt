@@ -11,10 +11,9 @@ import { ProfileService, ProfileResponse, ProfileEditRequest } from '../services
 })
 export class ProfileComponent implements OnInit {
 
-  // هنستخدم ده عشان نعرض الصورة كاملة
   serverBaseUrl = 'https://localhost:7212';
 
-  profileImage: string | null = null; // ده المتغير المسئول عن عرض الصورة في الصفحة دي
+  profileImage: string | null = null; 
   isEditing = false;
   userData: ProfileResponse | null = null;
 
@@ -34,7 +33,6 @@ export class ProfileComponent implements OnInit {
     this.profileService.getProfileDetails().subscribe({
       next: (data: ProfileResponse) => {
         this.userData = data;
-        // بنحفظ الصورة في متغير محلي عشان نتحكم في الـ Preview
         this.profileImage = data.profilePicture;
       },
       error: (err) => console.error('Error loading profile data:', err)
@@ -47,8 +45,6 @@ export class ProfileComponent implements OnInit {
 
     this.profileService.uploadProfileImage(file).subscribe({
       next: (response) => {
-        // هنا بنحدث المتغير المحلي بس (Preview)
-        // الناف بار مش هيحس بحاجة لسه
         this.profileImage = response.newUrl; 
         this.editData.photoLocation = response.newUrl;
       },
@@ -69,7 +65,6 @@ export class ProfileComponent implements OnInit {
 
   cancelEdit(): void {
     this.isEditing = false;
-    // هنا بنرجع الصورة للأصل اللي جاي من الداتا بيز
     if (this.userData) {
       this.profileImage = this.userData.profilePicture;
     }
@@ -87,12 +82,10 @@ export class ProfileComponent implements OnInit {
     this.profileService.editProfile(request).subscribe({
       next: (success) => {
         if (success) {
-          // تحديث الداتا المحلية
           this.userData!.displayName = this.editData.displayName;
           this.userData!.about = this.editData.about;
           this.userData!.profilePicture = this.editData.photoLocation;
           
-          // هام جداً: دلوقتي بس نحدث الناف بار (Global Signal)
           this.profileService.updateImageSignal(this.editData.photoLocation);
 
           this.isEditing = false;

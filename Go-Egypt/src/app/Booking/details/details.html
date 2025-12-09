@@ -72,7 +72,7 @@
     <input type="date" class="form-control" [(ngModel)]="traveler.startDate" name="startDate" (change)="onDateChange()" required />
   </div>
 
-  <!-- Available Times (هنا تضيفه) -->
+  <!-- Available Times  -->
   <div class="col-md-4" *ngIf="availableTimes.length > 0">
     <label class="form-label">Available Times</label>
     <select class="form-select" [(ngModel)]="traveler.startTime" name="startTime" required>

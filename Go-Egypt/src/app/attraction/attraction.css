@@ -1,4 +1,4 @@
-/* --- ستايلز الفلترة والفيو (الأصلي) --- */
+/* Filteration */
 .filter-btn:hover {
   background-color: #e5e7eb !important;
 }
@@ -32,7 +32,7 @@
   color: #b45309;
 }
 
-/* --- ستايلز الكارت (الأصلي) --- */
+/* Card */
 .card:hover {
   box-shadow: 0 0.5rem 0.5rem #e5e7eb;
   transform: translateY(-5px);
@@ -45,8 +45,7 @@
   object-fit: cover; 
 }
 
-
-/* --- ستايل أزرار الـ Pagination (الأصلي) --- */
+/* Pagination */
 .pagination-btn {
   display: inline-block;
   padding: 0.5rem 1rem;
@@ -78,35 +77,31 @@
   cursor: not-allowed;
 }
 
-/* ===================================================
-=== (جديد) ستايل Active Location Filter Chips === 
-===================================================
+/*
+=== (New) Active Location Filter Chips Style === 
 */
 
-/* شكل الكارت الصغير (Chip) */
 .filter-chip {
   transition: all 0.3s ease;
   cursor: default;
 }
 
 .filter-chip:hover {
-  border-color: #f59e0b !important; /* لون برتقالي عند الهوفر */
+  border-color: #f59e0b !important; 
   transform: translateY(-1px);
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06) !important;
 }
 
-/* زرار المسح (X) داخل الشيب */
 .remove-filter-btn {
   border-radius: 50%;
   transition: background-color 0.2s ease;
 }
 
 .remove-filter-btn:hover {
-  background-color: #fee2e2; /* لون أحمر فاتح جداً */
-  color: #dc2626 !important; /* لون أحمر */
+  background-color: #fee2e2; 
+  color: #dc2626 !important; 
 }
 
-/* حركة ناعمة عند الظهور */
 .animate-fade-in {
   animation: fadeIn 0.4s ease-out forwards;
 }
@@ -122,7 +117,6 @@
   }
 }
 
-/* تنسيقات إضافية صغيرة للنصوص */
 .tracking-wider {
   letter-spacing: 0.05em;
 }

@@ -52,19 +52,15 @@ export class SignUp implements OnInit {
   private router = inject(Router);
   private cdr = inject(ChangeDetectorRef);
 
-// داخل ملف sign-up.component.ts
 
 constructor() {
   this.registerForm = this.fb.group({
     displayName: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(50)]],
     email: ['', [Validators.required, Validators.email]],
     
-    // تعديل الـ Password Validator هنا
     password: ['', [
       Validators.required, 
       Validators.minLength(6),
-      // هذا الـ Regex يطابق الـ Default Identity Settings
-      // (?=.*[\W_]) تعني لازم يكون فيه رمز خاص واحد على الأقل
       Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{6,}$/)
     ]],
 
@@ -209,17 +205,14 @@ private collectFormErrors() {
           this.formErrors[key] = 'Please enter a valid email.';
       }
       
-      // === التعديل هنا للـ Password ===
       else if (key === 'password') {
         if (controlErrors['minlength']) {
            this.formErrors[key] = 'Password must be at least 6 characters.';
         } 
-        // لو ضرب بسبب الـ Pattern (نقص حروف كبيرة أو رموز)
         else if (controlErrors['pattern']) {
            this.formErrors[key] = 'Password must contain uppercase, lowercase, number, and a special character (e.g. @#$%).';
         }
       }
-      // =================================
 
       else if (key === 'confirmPassword' && controlErrors['mismatch']) {
           this.formErrors[key] = 'Passwords do not match.';

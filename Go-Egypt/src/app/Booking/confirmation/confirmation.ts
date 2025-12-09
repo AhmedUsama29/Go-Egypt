@@ -38,12 +38,10 @@ export class Confirmation implements OnInit {
   showToast = false;
 
 confirmBooking(event: Event) {
-  event.preventDefault(); // لمنع السلوك الإفتراضي للنموذج
+  event.preventDefault(); 
   if (this.bookingForm?.form.valid) {
-    // عرض الرسالة
     this.showToast = true;
 
-    // بعد 3.5 ثانية، إخفاء الرسالة والانتقال للصفحة التالية
     setTimeout(() => {
       this.showToast = false;
       this.completeBooking();

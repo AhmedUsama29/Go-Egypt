@@ -44,7 +44,6 @@ export class ProfileService {
     return this.http.put(`${this.apiUrl}/edit`, data);
   }
 
-  // التعديل هنا: شيلنا الـ tap عشان الصورة متتغيرش في الناف بار وقت الرفع
   uploadProfileImage(file: File): Observable<{ newUrl: string }> {
     const formData = new FormData();
     formData.append('file', file, file.name); 
@@ -59,7 +58,6 @@ export class ProfileService {
     );
   }
 
-  // خليناها public عشان نناديها من Profile Component بعد الـ Save
   public updateImageSignal(path: string) {
     if (path && path.trim() !== '') {
         const fullUrl = path.startsWith('http') ? path : `${this.serverBaseUrl}${path}`;
