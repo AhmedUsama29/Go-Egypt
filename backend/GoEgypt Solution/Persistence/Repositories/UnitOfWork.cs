@@ -32,7 +32,17 @@ namespace Persistence.Repositories
 
         public async Task<int> SaveChanges()
         {
-            return await _dbContext.SaveChangesAsync();
+            // Save AppDb changes first, then Identity changes.
+            var total = 0;
+            if (_egyDBContext is not null)
+            {
+                total += await _egyDBContext.SaveChangesAsync();
+            }
+            if (_dbContext is not null)
+            {
+                total += await _dbContext.SaveChangesAsync();
+            }
+            return total;
         }
     }
 }
