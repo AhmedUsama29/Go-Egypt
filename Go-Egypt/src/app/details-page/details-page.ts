@@ -57,7 +57,7 @@ export class DetailsPage implements OnInit {
     this.activeImageIndex = index;
   }
 
-  startBooking() {
+startBooking() {
     if (!this.attractionDetails) return;
 
     const pkg: TravelPackage = {
@@ -72,7 +72,10 @@ export class DetailsPage implements OnInit {
       img: this.attractionDetails.mainPhotoPath
     };
 
+    // 2. حفظ الباكدج في السيرفس (عشان الصفحة الجاية تقرأها)
     this.bookingService.setSelectedPackage(pkg);
+
+    // 3. التوجيه مباشرة للصفحة الثانية في الـ Stepper (تخطي صفحة الاختيار)
     this.router.navigate(['/book/details']);
   }
 }

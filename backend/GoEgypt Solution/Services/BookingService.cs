@@ -89,19 +89,28 @@ namespace Services
             };
         }
 
-        public async Task<List<BookingResponse>> GetUserBookingsAsync(string userId)
+        public async Task<List<UserBookingDto>> GetUserBookingsAsync(string userId) 
         {
             var repo = _unitOfWork.GetRepository<Booking, int>();
+
             var spec = new Services.Specifications.BookingByUserSpecification(userId);
+
             var bookings = await repo.GetAllAppDbAsync(spec);
 
-            return bookings.Select(b => new BookingResponse
+            return bookings.Select(b => new UserBookingDto
             {
                 Id = b.Id,
                 BookingReference = b.BookingReference,
                 TotalPrice = b.TotalPrice,
                 Status = b.Status.ToString(),
-                CreatedAt = b.CreatedAt
+                CreatedAt = b.CreatedAt,
+
+                AttractionName = b.Attraction?.Name ?? "Unknown",
+                AttractionLocation = b.Attraction?.Location ?? "",
+                AttractionImage = b.Attraction?.MainPhotoPath ?? "",
+                StartDate = b.StartDate,
+                Adults = b.Adults,
+                Children = b.Children
             }).ToList();
         }
 

@@ -11,7 +11,8 @@ namespace ServicesAbstraction
     {
         Task<BookingResponse> CreateBookingAsync(CreateBookingRequest request, string userId);
         Task<BookingResponse> GetBookingByIdAsync(int id);
-        Task<List<BookingResponse>> GetUserBookingsAsync(string userId);
+        Task<List<UserBookingDto>> GetUserBookingsAsync(string userId);
         Task HandlePaymentWebhookAsync(PaymentWebhookDto dto);
+
     }
 }

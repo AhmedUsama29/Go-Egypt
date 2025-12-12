@@ -21,16 +21,16 @@ namespace Persistence.Repositories
             {
                 query = query.Where(specifications.Criteria);
             }
-
-
-            if (specifications.IsPagingEnabled)
-            {
-                query = query.Skip(specifications.Skip).Take(specifications.Take);
-            }
+            
 
             foreach (var includeExpression in specifications.IncludeExpressions)
             {
                 query = query.Include(includeExpression);
+            }
+
+            if (specifications.IsPagingEnabled)
+            {
+                query = query.Skip(specifications.Skip).Take(specifications.Take);
             }
 
             return query;

@@ -7,6 +7,7 @@ namespace Services.Specifications
     {
         public BookingByUserSpecification(string userId) : base(b => b.UserId == userId)
         {
+            AddInclude(b => b.Attraction);
         }
     }
 }

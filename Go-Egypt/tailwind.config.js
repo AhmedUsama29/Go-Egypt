@@ -8,7 +8,8 @@ module.exports = {
     "./src/app/contact-us/**/*.{html,ts}",
     "./src/app/booking/**/*.{html,ts}",
     "./src/app/admin/**/*.{html,ts}",
-    "./src/app/profile/**/*.{html,ts}"
+    "./src/app/profile/**/*.{html,ts}",
+    "./src/app/my-bookings/**/*.{html,ts}"
 
   ],
   theme: {

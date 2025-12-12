@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Persistence.Data;
 
@@ -11,9 +12,11 @@ using Persistence.Data;
 namespace Persistence.Data.Migrations
 {
     [DbContext(typeof(GoEgyptDbContext))]
-    partial class GoEgyptDbContextModelSnapshot : ModelSnapshot
+    [Migration("20251212150551_editFK")]
+    partial class editFK
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -85,6 +88,9 @@ namespace Persistence.Data.Migrations
                     b.Property<int>("AttractionId")
                         .HasColumnType("int");
 
+                    b.Property<int?>("AttractionId1")
+                        .HasColumnType("int");
+
                     b.Property<string>("BookingReference")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -118,6 +124,8 @@ namespace Persistence.Data.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("AttractionId");
+
+                    b.HasIndex("AttractionId1");
 
                     b.ToTable("Bookings");
                 });
@@ -157,11 +165,15 @@ namespace Persistence.Data.Migrations
 
             modelBuilder.Entity("Domain.Models.Booking", b =>
                 {
-                    b.HasOne("Domain.Models.Attraction", "Attraction")
+                    b.HasOne("Domain.Models.Attraction", null)
                         .WithMany()
                         .HasForeignKey("AttractionId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
+
+                    b.HasOne("Domain.Models.Attraction", "Attraction")
+                        .WithMany()
+                        .HasForeignKey("AttractionId1");
 
                     b.Navigation("Attraction");
                 });

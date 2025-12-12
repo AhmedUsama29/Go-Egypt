@@ -38,6 +38,12 @@ namespace Persistence.Data.Configurations
                 .WithMany()
                 .HasForeignKey(b => b.AttractionId)
                 .OnDelete(DeleteBehavior.Restrict);
+
+            builder.HasOne(b => b.Attraction)      // 1. حددنا الـ Navigation Property (الكلاس)
+                .WithMany()                        // 2. العلاقة One-to-Many (المكان الواحد له حجوزات كتير)
+                .HasForeignKey(b => b.AttractionId)// 3. حددنا الـ Foreign Key (الرقم)
+                .IsRequired()                      // 4. الحجز لازم يكون له مكان
+                .OnDelete(DeleteBehavior.Restrict);
         }
 
     }

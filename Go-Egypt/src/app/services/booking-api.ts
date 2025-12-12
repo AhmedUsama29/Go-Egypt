@@ -2,6 +2,20 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
+export interface UserBookingDto {
+  id: number;
+  bookingReference: string;
+  totalPrice: number;
+  status: string;
+  createdAt: string;
+  attractionName: string;
+  attractionLocation: string;
+  attractionImage: string;
+  startDate: string;
+  adults: number;
+  children: number;
+}
+
 export interface CreateBookingRequest {
   attractionId: number;
   startDate: string;
@@ -38,8 +52,7 @@ export class BookingApiService {
     return this.http.get<BookingResponse>(`${this.apiUrl}/${id}`);
   }
 
-  getMyBookings(): Observable<BookingResponse[]> {
-    return this.http.get<BookingResponse[]>(`${this.apiUrl}/mine`);
+  getMyBookings(): Observable<UserBookingDto[]> {
+    return this.http.get<UserBookingDto[]>(`${this.apiUrl}/mine`);
   }
 }
-

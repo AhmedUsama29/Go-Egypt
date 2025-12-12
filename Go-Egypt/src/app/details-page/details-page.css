@@ -7,3 +7,13 @@
 .object-fit-cover {
   object-fit: cover;
 }
+.button-book {
+  background-color: #d97706; 
+  color: white !important;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+.button-book:hover {
+  background-color: #b45309; 
+}
