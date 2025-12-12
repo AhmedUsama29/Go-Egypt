@@ -12,7 +12,8 @@ namespace Services
     public class ServiceManagerWithFactoryDelegate(Func<IAuthenticationService> AuthFactory,
                                                     Func<ILookupServices> LookUpService,
                                                     Func<IAttractionService> AttractionFactory,
-                                                    Func<IProfileService> profileFactory) : IServiceManager
+                                                    Func<IProfileService> profileFactory,
+                                                    Func<IBookingService> bookingFactory) : IServiceManager
     {
         public IAuthenticationService AuthenticationService => AuthFactory.Invoke();
 
@@ -21,5 +22,7 @@ namespace Services
         public IAttractionService AttractionService => AttractionFactory.Invoke();
 
         public IProfileService ProfileService => profileFactory.Invoke();
+        public IBookingService BookingService => bookingFactory.Invoke();
+
     }
 }

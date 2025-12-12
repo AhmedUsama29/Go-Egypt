@@ -5,8 +5,10 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Persistence.Data;
+using Persistence.ExternalServices;
 using Persistence.Identity;
 using Persistence.Repositories;
+using ServicesAbstraction;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,6 +31,7 @@ namespace Persistence
 
 
             services.AddScoped<IDbInitializer, DbInitializer>();
+            services.AddScoped<IPaymentGateway, StripePaymentGateway>();
 
             services.AddScoped<IUnitOfWork, UnitOfWork>();
 

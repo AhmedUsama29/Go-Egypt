@@ -26,6 +26,13 @@ namespace Services
 
             services.AddScoped<IProfileService, ProfileService>();
 
+
+            services.AddScoped<IBookingService, BookingService>();
+
+            services.AddScoped<Func<IBookingService>>(provider => ()
+            => provider.GetRequiredService<IBookingService>());
+
+
             services.AddScoped<Func<IProfileService>>(provider => ()
             => provider.GetRequiredService<IProfileService>());
 
