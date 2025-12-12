@@ -1,31 +1,18 @@
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { BookingApiService, BookingResponse, CreateBookingRequest } from '../services/booking-api';
 
 export interface TravelPackage {
-  id: string;
+  id: number;
   name: string;
-  price: string;
+  location: string;
+  category: string;
+  // kept for backward compatibility with older templates
+  price?: number;
+  pricePerAdult: number;
   days: string;
   desc: string;
   img: string;
-}
-
-export interface TravelerInfo {
-  firstName: string;
-  lastName: string;
-  email: string;
-  phone: string;
-}
-
-export interface TripDetails {
-  startDate: string;
-  numberOfTravelers: number;
-  specialRequests?: string;
-}
-
-export interface PaymentInfo {
-  cardNumber: string;
-  expiryDate: string;
-  cvv: string;
 }
 
 @Injectable({
@@ -33,60 +20,50 @@ export interface PaymentInfo {
 })
 export class Booking {
   private selectedPackage: TravelPackage | null = null;
-  private travelerInfo: TravelerInfo | null = null;
-  private tripDetails: TripDetails | null = null;
-  private paymentInfo: PaymentInfo | null = null;
+  private latestBooking: BookingResponse | null = null;
 
-  // === Package ===
+  constructor(private bookingApi: BookingApiService) {}
+
   setSelectedPackage(pkg: TravelPackage) {
     this.selectedPackage = pkg;
   }
+
   getSelectedPackage(): TravelPackage | null {
     return this.selectedPackage;
   }
 
-  // === Traveler Info ===
-  setTravelerInfo(info: TravelerInfo) {
-    this.travelerInfo = info;
-  }
-  getTravelerInfo(): TravelerInfo | null {
-    return this.travelerInfo;
+  setLatestBooking(booking: BookingResponse) {
+    this.latestBooking = booking;
   }
 
-  // === Trip Details ===
-  setTripDetails(details: TripDetails) {
-    this.tripDetails = details;
-  }
-  getTripDetails(): TripDetails | null {
-    return this.tripDetails;
+  getLatestBooking(): BookingResponse | null {
+    return this.latestBooking;
   }
 
-  // === Payment Info ===
-  setPaymentInfo(payment: PaymentInfo) {
-    this.paymentInfo = payment;
-  }
-  getPaymentInfo(): PaymentInfo | null {
-    return this.paymentInfo;
+  calculateQuote(adults: number, children: number, startDate: string, endDate: string, category: string): number {
+    const baseAdultPrice = this.selectedPackage?.pricePerAdult ?? 120;
+    const childDiscountFactor = 0.5;
+    const durationMs = new Date(endDate).getTime() - new Date(startDate).getTime();
+    const days = Math.max(1, Math.ceil(durationMs / (1000 * 60 * 60 * 24)));
+
+    const multiplier = category.toLowerCase() === 'adventure'
+      ? 1.2
+      : category.toLowerCase() === 'beach'
+        ? 1.1
+        : 1.0;
+
+    const adultsPrice = adults * baseAdultPrice;
+    const childrenPrice = children * baseAdultPrice * childDiscountFactor;
+
+    return Math.round(((adultsPrice + childrenPrice) * days * multiplier) * 100) / 100;
   }
 
-  // === Combined method to set everything at once ===
-  setBookingDetails(
-    pkg: TravelPackage,
-    traveler: TravelerInfo,
-    trip: TripDetails,
-    payment: PaymentInfo
-  ) {
-    this.selectedPackage = pkg;
-    this.travelerInfo = traveler;
-    this.tripDetails = trip;
-    this.paymentInfo = payment;
+  createBooking(payload: CreateBookingRequest): Observable<BookingResponse> {
+    return this.bookingApi.createBooking(payload);
   }
 
-  // === Clear all booking data ===
-  cancelBooking() {
+  clear() {
     this.selectedPackage = null;
-    this.travelerInfo = null;
-    this.tripDetails = null;
-    this.paymentInfo = null;
+    this.latestBooking = null;
   }
 }

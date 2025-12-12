@@ -7,13 +7,13 @@
     "Category": "Historical",
     "OpeningTime": "08:00:00",
     "ClosingTime": "17:00:00",
+    "Price": 250,
     "Gallery": [
       "assets/images/Djoser/1.jpg",
       "assets/images/Djoser/2.jpg",
       "assets/images/Djoser/3.jpg",
       "assets/images/Djoser/4.jpg",
       "assets/images/Djoser/5.jpg"
-    
     ],
     "KeyFacts": [
       {
@@ -34,13 +34,13 @@
     "Category": "Historical",
     "OpeningTime": "06:00:00",
     "ClosingTime": "17:00:00",
+    "Price": 300,
     "Gallery": [
       "assets/images/Temple of Karnak/1.jpg",
       "assets/images/Temple of Karnak/4.jpg",
       "assets/images/Temple of Karnak/5.jpg",
       "assets/images/Temple of Karnak/6.jpg",
       "assets/images/Temple of Karnak/7.jpg"
-
     ],
     "KeyFacts": [
       {
@@ -61,6 +61,7 @@
     "Category": "Historical",
     "OpeningTime": "06:00:00",
     "ClosingTime": "17:00:00",
+    "Price": 220,
     "Gallery": [
       "assets/images/Temple of Hatshepsut/1.jpg",
       "assets/images/Temple of Hatshepsut/2.jpg",
@@ -86,6 +87,7 @@
     "Category": "Historical",
     "OpeningTime": "08:00:00",
     "ClosingTime": "17:00:00",
+    "Price": 260,
     "Gallery": [
       "assets/images/Dendara Temple/1.jpg",
       "assets/images/Dendara Temple/2.jpg",
@@ -112,6 +114,7 @@
     "Category": "Nature / Cultural",
     "OpeningTime": "06:00:00",
     "ClosingTime": "18:00:00",
+    "Price": 180,
     "Gallery": [
       "assets/images/Siwa Oasis/1.jpg",
       "assets/images/Siwa Oasis/2.jpg",
@@ -138,12 +141,13 @@
     "Category": "Religious / Historical",
     "OpeningTime": "08:00:00",
     "ClosingTime": "17:00:00",
+    "Price": 200,
     "Gallery": [
-        "assets/images/Mosque of Mohamed Ali/1.jpg",
-        "assets/images/Mosque of Mohamed Ali/2.jpg",
-        "assets/images/Mosque of Mohamed Ali/3.jpg",
-        "assets/images/Mosque of Mohamed Ali/4.jpg",
-        "assets/images/Mosque of Mohamed Ali/5.jpg"
+      "assets/images/Mosque of Mohamed Ali/1.jpg",
+      "assets/images/Mosque of Mohamed Ali/2.jpg",
+      "assets/images/Mosque of Mohamed Ali/3.jpg",
+      "assets/images/Mosque of Mohamed Ali/4.jpg",
+      "assets/images/Mosque of Mohamed Ali/5.jpg"
     ],
     "KeyFacts": [
       {
@@ -164,6 +168,7 @@
     "Category": "Historical",
     "OpeningTime": "06:00:00",
     "ClosingTime": "22:00:00",
+    "Price": 240,
     "Gallery": [
       "assets/images/Luxor Temple/1.jpg",
       "assets/images/Luxor Temple/2.jpg",
@@ -190,6 +195,7 @@
     "Category": "Historical",
     "OpeningTime": "09:00:00",
     "ClosingTime": "17:00:00",
+    "Price": 210,
     "Gallery": [
       "assets/images/Catacombs of Kom El Shoqafa/1.jpg",
       "assets/images/Catacombs of Kom El Shoqafa/2.jpg",
@@ -217,6 +223,7 @@
     "Category": "Religious / Natural",
     "OpeningTime": "04:30:00",
     "ClosingTime": "19:00:00",
+    "Price": 320,
     "Gallery": [
       "assets/images/Mount Sinai (Jebel Musa)/1.jpg",
       "assets/images/Mount Sinai (Jebel Musa)/2.jpg",
@@ -242,6 +249,7 @@
     "Category": "Nature",
     "OpeningTime": "06:00:00",
     "ClosingTime": "18:00:00",
+    "Price": 150,
     "Gallery": [
       "assets/images/White Desert/1.jpg",
       "assets/images/White Desert/2.jpg",

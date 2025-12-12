@@ -28,6 +28,7 @@ export interface CardAttractions {
   overview: string;
   mainPhotoPath: string;
   category: string;
+  price: number;
 }
 
 export interface KeyFact {
@@ -46,6 +47,7 @@ export interface AttractionDetails {
   category: string;
   gallery: string[];
   keyFacts: KeyFact[];
+  price: number;
 }
 
 @Injectable({

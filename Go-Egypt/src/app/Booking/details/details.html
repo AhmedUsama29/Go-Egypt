@@ -1,22 +1,3 @@
-<!-- Success Toast -->
-<div 
-  *ngIf="showToast"
-  class="position-fixed top-0 end-0 p-3"
-  style="z-index: 2000;"
->
-  <div 
-    class="toast show text-white"
-    style="background-color: #d97706; border-radius: 8px; min-width: 260px;"
-  >
-    <div class="d-flex align-items-center p-3">
-      <i class="bi bi-check-circle-fill me-2" style="font-size: 20px;"></i>
-      <div>
-        <strong class="fw-bold">Great!</strong><br>
-        <small>Your booking was confirmed.</small>
-      </div>
-    </div>
-  </div>
-</div>
 <main class="bg-light py-5">
   <app-stepper [currentStep]="2"></app-stepper>
 
@@ -30,11 +11,11 @@
           <div class="card-body">
             <h5 class="card-title fw-bold">{{ selectedPackage.name }}</h5>
             <div class="d-flex align-items-center text-secondary mb-2">
-              <i class="bi bi-calendar-check me-2"></i>
-              <span class="fw-bold">{{ selectedPackage.days }}</span>
+              <i class="bi bi-geo-alt me-2"></i>
+              <span class="fw-bold">{{ selectedPackage.location }}</span>
             </div>
             <p class="card-text text-secondary py-2 fs-6">{{ selectedPackage.desc }}</p>
-            <p class="card-text price-book fw-bold fs-5">{{ selectedPackage.price }}</p>
+            <p class="card-text price-book fw-bold fs-5">${{ selectedPackage.pricePerAdult }} / adult</p>
           </div>
         </div>
       </div>
@@ -55,66 +36,67 @@
             <input type="text" class="form-control" [(ngModel)]="traveler.lastName" name="lastName" required />
           </div>
           <div class="col-md-6">
-            <label class="form-label">Email</label>
-            <input type="email" class="form-control" [(ngModel)]="traveler.email" name="email" required />
-          </div>
-          <div class="col-md-6">
             <label class="form-label">Phone</label>
             <input type="text" class="form-control" [(ngModel)]="traveler.phone" name="phone" required />
           </div>
         </div>
 
-<p class="fs-5 fw-bold mt-4">Trip Details</p>
-<div class="row g-3">
-  <!-- Start Date -->
-  <div class="col-md-4">
-    <label class="form-label">Start Date</label>
-    <input type="date" class="form-control" [(ngModel)]="traveler.startDate" name="startDate" (change)="onDateChange()" required />
-  </div>
-
-  <!-- Available Times  -->
-  <div class="col-md-4" *ngIf="availableTimes.length > 0">
-    <label class="form-label">Available Times</label>
-    <select class="form-select" [(ngModel)]="traveler.startTime" name="startTime" required>
-      <option *ngFor="let time of availableTimes" [value]="time">{{ time }}</option>
-    </select>
-  </div>
-
-  <!-- Number of Travelers -->
-  <div class="col-md-4">
-    <label class="form-label">Number of Travelers</label>
-    <select class="form-select" [(ngModel)]="traveler.travelers" name="travelers" required>
-      <option *ngFor="let n of [1,2,3,4,5]" [value]="n">{{ n }}</option>
-    </select>
-  </div>
-
-  <!-- Special Requests -->
-  <div class="col-md-4">
-    <label class="form-label">Special Requests</label>
-    <input type="text" class="form-control" [(ngModel)]="traveler.specialRequests" name="specialRequests" placeholder="Optional" />
-  </div>
-</div>
-
-
-        <p class="fs-5 fw-bold mt-4">Payment Information</p>
+        <p class="fs-5 fw-bold mt-4">Trip Details</p>
         <div class="row g-3">
-          <div class="col-md-6">
-            <label class="form-label">Card Number</label>
-            <input type="text" class="form-control" [(ngModel)]="traveler.cardNumber" name="cardNumber" maxlength="16" required />
+          <div class="col-md-4">
+            <label class="form-label">Start Date</label>
+            <input type="date" class="form-control" [(ngModel)]="traveler.startDate" name="startDate" (change)="onDateChange()" required />
           </div>
-          <div class="col-md-3">
-            <label class="form-label">Expiry</label>
-            <input type="text" class="form-control" [(ngModel)]="traveler.expiry" name="expiry" placeholder="MM/YY" maxlength="5" required />
+
+          <div class="col-md-4">
+            <label class="form-label">End Date</label>
+            <input type="date" class="form-control" [(ngModel)]="traveler.endDate" name="endDate" />
           </div>
-          <div class="col-md-3">
-            <label class="form-label">CVV</label>
-            <input type="text" class="form-control" [(ngModel)]="traveler.cvv" name="cvv" maxlength="3" required />
+
+          <div class="col-md-4" *ngIf="availableTimes.length > 0">
+            <label class="form-label">Available Times</label>
+            <select class="form-select" name="startTime">
+              <option *ngFor="let time of availableTimes" [value]="time">{{ time }}</option>
+            </select>
           </div>
+
+          <div class="col-md-4">
+            <label class="form-label">Adults</label>
+            <select class="form-select" [(ngModel)]="traveler.adults" name="adults" required>
+              <option *ngFor="let n of [1,2,3,4,5]" [value]="n">{{ n }}</option>
+            </select>
+          </div>
+
+          <div class="col-md-4">
+            <label class="form-label">Children</label>
+            <select class="form-select" [(ngModel)]="traveler.children" name="children">
+              <option *ngFor="let n of [0,1,2,3,4,5]" [value]="n">{{ n }}</option>
+            </select>
+          </div>
+
+          <div class="col-md-4">
+            <label class="form-label">Special Requests</label>
+            <input type="text" class="form-control" [(ngModel)]="traveler.specialRequests" name="specialRequests" placeholder="Optional" />
+          </div>
+        </div>
+
+        <div class="bg-light border rounded p-3 mt-4 d-flex justify-content-between align-items-center">
+          <div>
+            <p class="mb-1 text-secondary">Estimated total</p>
+            <p class="mb-0 fw-bold fs-5">${{ quotedPrice }}</p>
+          </div>
+          <span class="badge bg-warning text-dark">Server-validated on payment</span>
+        </div>
+
+        <div class="alert alert-danger mt-3" role="alert" *ngIf="errorMessage">
+          {{ errorMessage }}
         </div>
 
         <div class="d-flex justify-content-between mt-4">
           <button type="button" class="btn btn-secondary btn-lg w-25" (click)="back()">Back to Packages</button>
-          <button type="submit" class="btn button-book btn-lg w-25 text-white" [disabled]="!bookingForm.form.valid" (click)="completeBooking()">Confirm Booking</button>
+          <button type="submit" class="btn button-book btn-lg w-25 text-white" [disabled]="!bookingForm.form.valid || isSubmitting">
+            {{ isSubmitting ? 'Submitting...' : 'Confirm Booking' }}
+          </button>
         </div>
       </form>      
     </div>

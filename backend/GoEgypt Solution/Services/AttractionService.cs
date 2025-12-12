@@ -36,7 +36,8 @@ namespace Services
                 ClosingTime = attraction.ClosingTime,
                 Overview = attraction.Overview,
                 MainPhotoPath = attraction.MainPhotoPath,
-                Category = attraction.Category
+                Category = attraction.Category,
+                Price = attraction.Price
             }).ToList();
 
             return new PaginatedResponse<CardAttractions>()
@@ -67,6 +68,7 @@ namespace Services
                 ClosingTime = attraction.ClosingTime,
                 MainPhotoPath = attraction.MainPhotoPath,
                 Category = attraction.Category,
+                Price = attraction.Price,
                 Gallery = attraction.Gallery,
                 KeyFacts = attraction.KeyFacts.Select(kf => new Shared.Attractions.KeyFact
                 {

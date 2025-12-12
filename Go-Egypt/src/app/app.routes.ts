@@ -11,6 +11,7 @@ import { DetailsPage } from './details-page/details-page';
 import { BookNow } from './Booking/book-now/book-now';
 import { Details } from './Booking/details/details';
 import { Confirmation } from './Booking/confirmation/confirmation';
+import { PaymentComponent } from './Booking/payment/payment';
 import { AuthGuard } from './guards/auth-guard';
 import { LoginGuard } from './guards/login-guard';
 import { Forgetpassword } from './forgetpassword/forgetpassword';
@@ -39,6 +40,7 @@ export const routes: Routes = [
     { path: 'attractions/:id', component: DetailsPage },
     { path: 'book-now', component: BookNow  , canActivate: [AuthGuard]},
     { path: 'book/details', component: Details },
+    { path: 'book/payment', component: PaymentComponent, canActivate: [AuthGuard] },
     { path: 'book/confirmation', component: Confirmation },
     { path: 'forgetpassword', component: Forgetpassword , canActivate: [LoginGuard]},
     { path: 'resendemail', component: Resendemail , canActivate: [LoginGuard]},

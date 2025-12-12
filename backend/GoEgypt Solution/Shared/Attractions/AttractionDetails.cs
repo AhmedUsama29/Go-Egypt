@@ -18,6 +18,7 @@ namespace Shared.Attractions
         public string Category { get; set; }
         public List<string> Gallery { get; set; }
         public List<KeyFact> KeyFacts { get; set; }
+        public decimal Price { get; set; }
 
     }
 

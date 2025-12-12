@@ -18,6 +18,8 @@ namespace Domain.Models
         public string MainPhotoPath { get; set; }
         public string Category { get; set; }
         public List<string> Gallery { get; set; }
+        // Base price per adult per day; defaults to 120 if not provided in seed/data
+        public decimal Price { get; set; } = 120m;
     }
 
     public class KeyFact

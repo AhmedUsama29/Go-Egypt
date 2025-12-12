@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ActivatedRoute, RouterLink } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 
-import { AttractionService, AttractionDetails } from '../services/attraction'; 
+import { AttractionService, AttractionDetails } from '../services/attraction';
+import { Booking, TravelPackage } from '../Booking/booking';
 
 @Component({
   selector: 'app-details-page',
@@ -19,7 +20,9 @@ export class DetailsPage implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private attractionService: AttractionService
+    private attractionService: AttractionService,
+    private bookingService: Booking,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -52,5 +55,24 @@ export class DetailsPage implements OnInit {
 
   setImage(index: number) {
     this.activeImageIndex = index;
+  }
+
+  startBooking() {
+    if (!this.attractionDetails) return;
+
+    const pkg: TravelPackage = {
+      id: this.attractionDetails.id,
+      name: this.attractionDetails.name,
+      location: this.attractionDetails.location,
+      category: this.attractionDetails.category,
+      price: this.attractionDetails.price,
+      pricePerAdult: this.attractionDetails.price ?? 120,
+      days: '1 day',
+      desc: this.attractionDetails.overview,
+      img: this.attractionDetails.mainPhotoPath
+    };
+
+    this.bookingService.setSelectedPackage(pkg);
+    this.router.navigate(['/book/details']);
   }
 }

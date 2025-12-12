@@ -17,6 +17,7 @@ namespace Shared.Attractions
         public string Overview { get; set; }
         public string MainPhotoPath { get; set; }
         public string Category { get; set; }
+        public decimal Price { get; set; }
 
 
     }
